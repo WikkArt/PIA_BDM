@@ -1,0 +1,268 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+:root{
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --amarillo-nacho: rgb(255, 145, 77);
+    --amarillo-claro: rgb(248, 223, 147);
+    --morado-oscuro: rgb(36, 33, 174);
+    --lila: rgb(174, 170, 254);
+    --beige: rgb(252, 209, 203);
+    --beige-oscuro: rgb(209, 159, 154);
+}
+
+html, body{
+    background-image: linear-gradient(to top, var(--amarillo-claro), var(--amarillo-nacho));
+    height: 100vh;
+}
+
+/* Navegador */
+
+#idNav{
+    background-color: var(--morado-principal);
+    box-shadow: 0 0 10px var(--morado-secundario);
+    font-family: 'Trebuchet MS';
+}
+
+#btnLogo{
+    background: none;
+    border: none;
+    margin: -3px 5px 5px 10px;
+}
+
+#idNavLinks{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#idNavLinks a.nav-link.active{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--beige);
+    border-bottom: 2px var(--beige) solid;
+    padding-bottom: 2px;
+}
+
+a.nav-link{
+    font-size: 20px;
+    color: white;
+}
+
+a.nav-link:hover{
+    color: var(--beige);
+}
+
+div.container-fluid{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
+
+/*Contenedor*/
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS';
+}
+/* Titulo */
+#idRegister h1{
+    background: radial-gradient(circle, rgba(209,159,154,0.6) 0%, rgba(67, 71, 208,0.7) 100%);    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-block: 20px;
+    font-family: "Righteous";
+    text-align: center;
+}
+
+/* Regresar */
+.volver{
+    display: flex;
+    justify-content: start;
+}
+
+#btnVolver{
+    background-color: var(--amarillo-claro);
+    color: rgb(158, 85, 48);
+    width: max-content;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: none;
+    padding-block: 5px;
+    padding-inline: 10px;
+    transition: 150ms all;
+}
+
+#btnVolver:hover{
+    background-color: var(--amarillo-nacho);
+    color: beige;
+}
+
+#btnVolver::before{
+    content: "<<";
+    margin-right: 5px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+/* Avatar */
+#idAvatarSample{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+form div.avatar{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.avatar input{
+    background-color: var(--lila);
+    color: var(--morado-secundario);
+    border: none;
+}
+
+.avatar input:focus{
+    background-color: var(--lila);
+    color: var(--morado-secundario);
+    outline: none;
+}
+
+/* Forms */
+form{
+    background: radial-gradient(circle, rgba(209,159,154,0.6) 0%, rgba(67, 71, 208,0.7) 100%);
+    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+form a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+small.form-text{
+    color: beige;
+    margin-left: 9px;
+}
+
+h2{
+    font-family: "JosefinSans";
+    font-weight: 100;
+}
+
+#idInputs label, .subtitle{
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+}
+
+#idInputs input{
+    border-radius: 15px;
+    margin-top: 3px;
+    width: 100%;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: none;
+    font-weight: 100px;
+}
+
+#idInputs input:focus{
+    background-color: beige;
+    outline: none;
+}
+
+#idRB{
+    margin-left: 10px;
+}
+
+input[type="radio"]:checked{
+    background-color: var(--morado-secundario);
+    border: none;
+    outline: none;
+    margin-right: 5px;
+}
+
+#idRol{
+    background-color: var(--lila);
+    color: var(--morado-secundario);
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    transition: 200ms;
+    border: none;
+    outline: none;
+}
+
+#idRol:hover{
+    background-color: var(--morado-principal);
+    color: white;
+}
+
+#idRol:focus{
+    background-color: var(--morado-principal);
+    color: white;
+}
+
+#idRol .item-1{
+    color: white;
+    background-color: var(--morado-oscuro);
+}
+
+#idRol option{
+    color: black;
+}
+
+#btnRegister{
+    background-color: var(--morado-secundario);
+    border-radius: 20px;
+    padding-inline: 15px;
+    padding-block: 5px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    transition: all 200ms;
+    margin-top: 20px;
+}
+
+#btnRegister:hover{
+    background-color: var(--morado-oscuro);
+    transition: all 200ms;
+}
+
+/* Footer */
+iframe{
+    width: 100% !important;
+    height: auto !important;
+    border: none;
+}
+
+.footer {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 20px;
+    border: none;
+}

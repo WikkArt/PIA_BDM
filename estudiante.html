@@ -29,7 +29,10 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Chat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Cerrar Sesión</a>
@@ -42,23 +45,88 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" src="Images/avatarSample.png" 
+            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
             class="rounded-circle" alt="Avatar">
-
             <ul>
-                <li>
-                    <h1 class="text">Nombre de Usuario</h1>
-                    <label" class="text">(Estudiante)</label>
+                <li class="list-group-item destacado">
+                    <h1 class="text">Nombre de Usuario <span>(Estudiante)</span></h1>
                 </li>
-                <li>ID: X</li>
-                <li>Correo: correo@gmail.com</li>
-                <li>Fecha de nacimiento: XX/XX/XXXX</li>
-                <li>Género: Hombre/Mujer/No binario</li>
+                <li class="list-group-item destacado">
+                    <h2>ID: X</h2>
+                </li>
+                <li class="list-group-item secundario">
+                    Correo: correo@gmail.com
+                </li>
+                <li class="list-group-item secundario">
+                    Fecha de nacimiento: XX/XX/XXXX
+                </li>
+                <li class="list-group-item secundario">
+                    Género: Hombre/Mujer/No binario
+                </li>
+                <li class="list-group-item">
+                    <a href="editarUsuario.html">
+                        <button id="btnEditarUsuario" type="button">Editar usuario</button>
+                    </a>
+                </li>
             </ul>
         </div>
+
+        <h1 id="idSubtitulo">Kardex</h1>
+
+        <table>
+            <tr>
+                <th>ID</th>
+                <th>Nombre</th>
+                <th>Categoría</th>
+                <th>Fecha de Inscripción</th>
+                <th>Último ingreso</th>
+                <th>Progreso</th>
+                <th>Fecha de finalización</th>
+            </tr>
+
+            <tr>
+                <td>1</td>
+                <td>---</td>
+                <td>---</td>
+                <td>XX/XX/XXXX</td>
+                <td>XX/XX/XXXX</td>
+                <td>Completo</td>
+                <td>XX/XX/XXXX</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>---</td>
+                <td>---</td>
+                <td>XX/XX/XXXX</td>
+                <td>XX/XX/XXXX</td>
+                <td>Incompleto</td>
+                <td>XX/XX/XXXX</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>---</td>
+                <td>---</td>
+                <td>XX/XX/XXXX</td>
+                <td>XX/XX/XXXX</td>
+                <td>Completo</td>
+                <td>XX/XX/XXXX</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>---</td>
+                <td>---</td>
+                <td>XX/XX/XXXX</td>
+                <td>XX/XX/XXXX</td>
+                <td>Incompleto</td>
+                <td>XX/XX/XXXX</td>
+            </tr>
+        </table>
     </div>
     
-    <!--Archivos externos-->
+    <!-- Footer -->
+    <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+
+    <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>

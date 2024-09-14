@@ -1,0 +1,19 @@
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+footer {
+    background-color: rgb(255, 145, 77);
+    color: rgb(254, 238, 191);
+    font-family: Tahoma;
+    font-size: 14px;
+    padding-block: 20px;
+    margin: 0;
+    border: none;
+}
+
+#idFooterLinks {
+    font-weight: bold;
+    color: white;
+}
