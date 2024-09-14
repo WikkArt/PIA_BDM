@@ -1,0 +1,150 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+:root{
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --amarillo-nacho: rgb(255, 145, 77);
+    --morado-oscuro: rgb(36, 33, 174);
+    --lila: rgb(174, 170, 254);
+    --beige: rgb(252, 209, 203);
+    --beige-oscuro: rgb(209, 159, 154);
+}
+
+html, body{
+    background-image: linear-gradient(to top, #635fed, var(--morado-oscuro));
+    height: 100%;
+    overflow: hidden;
+}
+
+/* Navegador */
+
+#idNav{
+    background-color: var(--amarillo-nacho);
+    box-shadow: 0 0 20px var(--morado-oscuro);
+    font-family: 'Trebuchet MS';
+}
+
+#btnLogo{
+    background: none;
+    border: none;
+    margin: -3px 5px 5px 10px;
+}
+
+#idNavLinks{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#idNavLinks a.nav-link.active{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--morado-principal);
+    border-bottom: 2px var(--morado-principal) solid;
+    padding-bottom: 2px;
+}
+
+a.nav-link{
+    font-size: 20px;
+    color: white;
+}
+
+a.nav-link:hover{
+    color: var(--morado-principal);
+}
+
+/* Contenedor */
+.container{
+    display: flex;
+    flex-direction: column;
+    height: 85vh;
+    justify-content: center;
+    align-items: center;
+    font-family: 'Trebuchet MS';
+}
+/* Titulo */
+#idLogin h1{
+    background: radial-gradient(circle, rgba(209,159,154,0.4) 0%, rgba(255, 145, 77,0.7) 100%);
+    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    color: white;
+    padding: 25px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+    font-family: "Righteous";
+    text-align: center;
+    width: max-content;
+}
+
+/* Forms */
+form{
+    width: 35%;
+    background: radial-gradient(circle, rgba(209,159,154,0.4) 0%, rgba(255, 145, 77,0.7) 100%);
+    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+}
+
+form a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+form > div{
+    margin-bottom: 10px;
+}
+
+#idInputs label{
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+}
+
+#idInputs input{
+    border-radius: 15px;
+    margin-top: 3px;
+    width: 100%;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: none;
+    font-weight: 100px;
+}
+
+#idInputs input:focus{
+    background-color: beige;
+    outline: none;
+}
+
+#idCheckbox{
+    color: var(--beige);
+    margin-block: 12px;
+    margin-left: 10px;
+    font-family: 'Lucida Sans';
+    font-size: 14px;
+}
+
+input[type="checkbox"]{
+    accent-color: var(--morado-secundario);
+    margin-right: 5px;
+}
+
+#btnLogin{
+    background-color: var(--morado-secundario);
+    border-radius: 20px;
+    padding-inline: 15px;
+    padding-block: 5px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    transition: all 200ms;
+}
+
+#btnLogin:hover{
+    background-color: var(--morado-oscuro);
+    transition: all 200ms;
+}
