@@ -22,6 +22,10 @@
 html, body{
     background-image: linear-gradient(to top, var(--amarillo-claro), var(--amarillo-nacho));
     height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
 }
 
 /* Navegador */
@@ -68,6 +72,7 @@ div.container-fluid{
 
 /*Contenedor*/
 .container{
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -264,5 +269,11 @@ iframe{
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
     margin-top: 20px;
+    border: none;
+}
+
+iframe.footer {
+    width: 100%;
+    height: auto;
     border: none;
 }

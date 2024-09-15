@@ -91,8 +91,8 @@ div.container-fluid{
 }
 
 #idAvatarSample{
-    width: 220px;
-    height: 220px;
+    width: 150px;
+    height: 150px;
     object-fit: cover;
     margin-block: 15px;
 }
@@ -105,25 +105,6 @@ li.destacado{
     font-size: 25px;
     color: var(--lila);
     font-family: "JosefinSans";
-}
-
-li.secundario{
-    font-family: "JosefinSans-Italic";
-}
-
-#btnEditarUsuario{
-    background-color: var(--amarillo-claro);
-    color: var(--morado-secundario);
-    border: none;
-    margin-top: 5px;
-    border-radius: 15px;
-    padding-block: 5px;
-    padding-inline: 10px;
-    transition: 150ms all;
-}
-
-#btnEditarUsuario:hover{
-    background-color: var(--amarillo-nacho);
 }
 
 /* Subtitulo */
@@ -139,6 +120,18 @@ table{
     justify-content: center;
     text-align: center;
     margin-block: 12px;
+}
+
+table .header-1{
+    width: 20vw;
+}
+
+table .header-2{
+    width: 20vw;
+}
+
+table .header-4{
+    width: 15vw;
 }
 
 th{
@@ -166,9 +159,14 @@ tr:hover td{
     color: var(--morado-principal);
 }
 
+tr:nth-child(even):hover td{
+    background-color: var(--amarillo-nacho);
+    color: var(--morado-secundario)
+}
+
 th, td{
-    padding-inline: 15px;
-    padding-block: 7px;
+    padding-inline: 20px;
+    padding-block: 10px;
 }
 
 td:first-child,
@@ -178,6 +176,30 @@ th:first-child {
 td:last-child,
 th:last-child {
   border-radius: 0 30px 30px 0;
+}
+
+.primerColumna{
+    background-color: var(--beige);
+}
+
+.primerColumna img{
+    width: 100px;
+}
+
+tr:nth-child(even) .primerColumna {
+    background-color: var(--amarillo-nacho);
+}
+
+.btn.chat-privado{
+    font-size: 20px;
+    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-secundario) 100%);
+    color: white;
+    border: none;
+}
+
+.btn.chat-privado:hover{
+    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-oscuro) 100%);
+    color: white;
 }
 
 /* Footer */

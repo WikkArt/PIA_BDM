@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habímate | Perfíl del usuario</title>
-    <link rel="stylesheet" href="CSS/perfilUsuarioDesign.css">
+    <title>Habímate | Lista de chats</title>
+    <link rel="stylesheet" href="CSS/tablaChatsDesign.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
 <body>
@@ -29,10 +29,10 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                        <a class="nav-link" href="estudiante.html">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                        <a class="nav-link active" href="tablaChats.html">Chat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Cerrar Sesión</a>
@@ -49,76 +49,71 @@
             class="rounded-circle" alt="Avatar">
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text">Nombre de Usuario <span>(Estudiante)</span></h1>
+                    <h1 class="text">Nombre de Usuario <span>(Estudiante/Instructor)</span></h1>
                 </li>
                 <li class="list-group-item destacado">
                     <h2>ID: X</h2>
                 </li>
-                <li class="list-group-item secundario">
-                    Correo: correo@gmail.com
-                </li>
-                <li class="list-group-item secundario">
-                    Fecha de nacimiento: XX/XX/XXXX
-                </li>
-                <li class="list-group-item secundario">
-                    Género: Hombre/Mujer/No binario
-                </li>
-                <li class="list-group-item">
-                    <a href="editarUsuario.html">
-                        <button id="btnEditarUsuario" type="button">Editar usuario</button>
-                    </a>
-                </li>
             </ul>
         </div>
 
-        <h1 id="idSubtitulo">Kardex</h1>
+        <h1 id="idSubtitulo">Lista de chats privados</h1>
 
         <table>
             <tr>
-                <th>ID</th>
-                <th>Nombre</th>
-                <th>Categoría</th>
-                <th>Fecha de Inscripción</th>
-                <th>Último ingreso</th>
-                <th>Progreso</th>
-                <th>Fecha de finalización</th>
+                <th class="header-1">Foto de perfil</th>
+                <th class="header-2">Nombre de Usuario</th>
+                <th>No. de contacto</th>
+                <th class="header-4">Opción</th>
             </tr>
 
             <tr>
+                <td class="primerColumna">
+                    <img src="Images/avatarSample.png"
+                    alt="Foto de perfil" class="img-fluid rounded-circle">
+                </td>
+                <td>Fulanito</td>
                 <td>1</td>
-                <td>---</td>
-                <td>---</td>
-                <td>XX/XX/XXXX</td>
-                <td>XX/XX/XXXX</td>
-                <td>Completo</td>
-                <td>XX/XX/XXXX</td>
+                <td>
+                    <a href="chatPrivado.html" type="submit" name="chat" 
+                    class="btn chat-privado">Chatear</a>
+                </td>
             </tr>
             <tr>
+                <td class="primerColumna">
+                    <img src="Images/avatarSampleMorado.png"
+                    alt="Foto de perfil" class="img-fluid rounded-circle">
+                </td>
+                <td>Menganito</td>
                 <td>2</td>
-                <td>---</td>
-                <td>---</td>
-                <td>XX/XX/XXXX</td>
-                <td>XX/XX/XXXX</td>
-                <td>Incompleto</td>
-                <td>XX/XX/XXXX</td>
+                <td>
+                    <a href="chatPrivado.html" type="submit" name="chat" 
+                    class="btn chat-privado">Chatear</a>
+                </td>
             </tr>
             <tr>
+                <td class="primerColumna">
+                    <img src="Images/avatarSample.png"
+                    alt="Foto de perfil" class="img-fluid rounded-circle">
+                </td>
+                <td>---</td>
                 <td>3</td>
-                <td>---</td>
-                <td>---</td>
-                <td>XX/XX/XXXX</td>
-                <td>XX/XX/XXXX</td>
-                <td>Completo</td>
-                <td>XX/XX/XXXX</td>
+                <td>
+                    <a href="chatPrivado.html" type="submit" name="chat" 
+                    class="btn chat-privado">Chatear</a>
+                </td>
             </tr>
             <tr>
+                <td class="primerColumna">
+                    <img src="Images/avatarSampleMorado.png"
+                    alt="Foto de perfil" class="img-fluid rounded-circle">
+                </td>
+                <td>---</td>
                 <td>4</td>
-                <td>---</td>
-                <td>---</td>
-                <td>XX/XX/XXXX</td>
-                <td>XX/XX/XXXX</td>
-                <td>Incompleto</td>
-                <td>XX/XX/XXXX</td>
+                <td>
+                    <a href="chatPrivado.html" type="submit" name="chat" 
+                    class="btn chat-privado">Chatear</a>
+                </td>
             </tr>
         </table>
     </div>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habímate | Chat privado</title>
+    <link rel="stylesheet" href="CSS/chatPrivadoDesign.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+<body>
+    <!--Navegador-->
+    <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="estudiante.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cuerpo -->
+    <div class="container-fluid">
+        <h1 id="idSubtitulo">Chat privado</h1>
+        
+        <div class="chat">
+            <div class="chat-header">
+                <h3>
+                    Curso: Nombre del curso
+                </h3>
+                <div class="chat-header-user">
+                    <div class="h-left">
+                        <a href="tablaChats.html" type="submit" name="chat" class="btn">
+                            <img src="Images/regresar.png" alt="">
+                        </a>
+                        <div>
+                            <img id="idAvatarHeader" src="Images/avatarSample.png" 
+                            class="rounded-circle">
+                            <label>Nombre de Usuario 1</label>
+                        </div>
+                    </div>
+                    
+                    <div class="h-right">
+                        <a href="#" type="submit" name="chat" 
+                        class="btn chat-privado">Volver al perfil del usuario</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-messages overflow-auto">
+                <div id="idChatMensaje" class="message message-usuario-1">
+                    <img id="idAvatar1" src="Images/avatarSample.png" 
+                    class="rounded-circle">
+
+                    <div class="hour-message">
+                        <label class="user-1">Nombre de Usuario 1</label>
+                        <label class="text">¡Aquí un mensaje!
+                            YIPEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                        </label>
+                        <label class="hour">00:00</label>
+                    </div>
+                </div>
+
+                <div id="idChatMensaje" class="message message-usuario-2">
+                    <div class="hour-message">
+                        <label class="user-2">Nombre de Usuario 2</label>
+                        <label class="text">¡Aquí otro mensaje!
+                            AAAAAAAAAAAAAAAAAAAAA
+                        </label>
+                        <label class="hour">00:00</label>
+                    </div>
+
+                    <img id="idAvatar2" src="Images/avatarSampleAmarillo.png" 
+                    class="rounded-circle">
+                </div>
+
+                <div id="idChatMensaje" class="message message-usuario-1">
+                    <img id="idAvatar1" src="Images/avatarSample.png" 
+                    class="rounded-circle">
+
+                    <div class="hour-message">
+                        <label class="user-1">Nombre de Usuario 1</label>
+                        <label class="text">¡Aquí un mensaje!
+                            YIPEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
+                        </label>
+                        <label class="hour">00:00</label>
+                    </div>
+                </div>
+
+                <div id="idChatMensaje" class="message message-usuario-2">
+                    <div class="hour-message">
+                        <label class="user-2">Nombre de Usuario 2</label>
+                        <label class="text">¡Aquí otro mensaje!
+                            AAAAAAAAAAAAAAAAAAAAA
+                        </label>
+                        <label class="hour">00:00</label>
+                    </div>
+
+                    <img id="idAvatar2" src="Images/avatarSampleAmarillo.png" 
+                    class="rounded-circle">
+                </div>
+            </div>
+            
+            <form method="GET" class="chat-input">   
+                <textarea placeholder="Escribe tu mensaje..." name="mensaje"></textarea>
+                <button id="btnEnviar" class="btn btn-primary">Enviar</button>
+            </form>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
+
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.min.js"></script>
+</body>
+</html>
