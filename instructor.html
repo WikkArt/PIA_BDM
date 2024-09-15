@@ -29,7 +29,10 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                        <a class="nav-link active" href="instructor.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaInscritos.html">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaChats.html">Chat</a>
@@ -49,7 +52,7 @@
             class="rounded-circle" alt="Avatar">
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text">Nombre de Usuario <span>(Estudiante)</span></h1>
+                    <h1 class="text">Nombre de Usuario <span>(Instructor)</span></h1>
                 </li>
                 <li class="list-group-item destacado">
                     <h2>ID: X</h2>
@@ -63,15 +66,18 @@
                 <li class="list-group-item secundario">
                     Género: Hombre/Mujer/No binario
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item botones">
                     <a href="editarUsuario.html">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
+                    </a>
+                    <a href="#">
+                        <button id="btnNuevoCurso" type="button">Crear Nuevo Curso</button>
                     </a>
                 </li>
             </ul>
         </div>
 
-        <h1 id="idSubtitulo">Kardex</h1>
+        <h1 id="idSubtitulo">Cursos (Vista General)</h1>
 
         <div class="row">
             <div class="col">
@@ -79,24 +85,14 @@
 
                 <form id="idFiltros">
                     <div class="form-check activos">
-                        <div>
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Sólo cursos terminados
-                            </label>
+                        <label class="form-check-label" for="cbCursoGeneral">
+                            Sólo cursos activos
+                        </label>
 
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        </div>
-                        
-                        <div>
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Sólo cursos activos
-                            </label>
-
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        </div>
+                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
                     </div>
 
-                    <h5>Fecha de inscripción</h5>
+                    <h5>Fecha de creación</h5>
                     <div class="fechas">
                         <div id="idInputs" class="inputbox">
                             <label for="fdate">Desde: </label> 
@@ -155,54 +151,115 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>Categoría</th>
-                        <th>Fecha de Inscripción</th>
-                        <th>Último ingreso</th>
-                        <th>Progreso</th>
-                        <th>Fecha de finalización</th>
+                        <th>No. de alumnos</th>
+                        <th>Nivel promedio del curso</th>
+                        <th>Total de Ingresos</th>
+                        <th>Ingresos por Paypal</th>
+                        <th>Ingresos por Tarjetas</th>
                     </tr>
 
                     <tr>
                         <td>1</td>
                         <td>---</td>
                         <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Completo</td>
-                        <td>XX/XX/XXXX</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>---</td>
                         <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Incompleto</td>
-                        <td>XX/XX/XXXX</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>---</td>
                         <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Completo</td>
-                        <td>XX/XX/XXXX</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>---</td>
                         <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Incompleto</td>
-                        <td>XX/XX/XXXX</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                    </tr>
+                    <tr>
+                        <td>11</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
+                        <td>$000.00</td>
                     </tr>
                 </table>
             </div>
         </div>
-
-        
     </div>
     
     <!-- Footer -->

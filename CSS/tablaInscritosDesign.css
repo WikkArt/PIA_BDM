@@ -80,62 +80,12 @@ div.container-fluid{
     flex: 1;
 }
 
-/* Info del usuario */
-
-#idUsuarioInfo{
-    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-secundario) 100%);
-    color: white;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-}
-
-#idAvatarSample{
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    margin-block: 15px;
-}
-
-li.destacado{
-    font-family: "Righteous";
-}
-
-#idUsuarioInfo span{
-    font-size: 25px;
-    color: var(--lila);
-    font-family: "JosefinSans";
-}
-
-li.secundario{
-    font-family: "JosefinSans-Italic";
-}
-
-li.botones a:link{
-    text-decoration: none;
-}
-
-#btnEditarUsuario, #btnNuevoCurso{
-    background-color: var(--amarillo-claro);
-    color: var(--morado-secundario);
-    border: none;
-    margin-top: 5px;
-    border-radius: 15px;
-    padding-block: 5px;
-    padding-inline: 10px;
-    transition: 150ms all;
-}
-
-#btnEditarUsuario:hover, #btnNuevoCurso:hover{
-    background-color: var(--amarillo-nacho);
-}
-
 /* Subtitulo */
 #idSubtitulo{
     background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
     text-align: center;
     color: white;
+    display: block;
 }
 
 /* Apartados de filtros */
@@ -147,6 +97,10 @@ input[type="checkbox"]:checked{
 }
 
 /* Subtitulos y contenedores */
+.container-fluid .row .filtro{
+    margin-top: 20px;
+}
+
 h3{
     background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
     text-align: center;
@@ -208,8 +162,6 @@ h5{
     margin-top: -8px;
 }
 
-/* Filtros (Estudiante) */
-
 /* Filtros (Instructor) */
 #idFiltros .activos{
     display: flex;
@@ -243,13 +195,19 @@ h5{
 }
 
 /* Tabla */
+.col-9{
+    height: 80vh;
+    overflow-y: auto;
+}
+
 #idTabla{
     display: flex;
     justify-content: center;
-    height: 70vh;
+    height: 35vh;
 }
 
 table{
+    width: 95%;
     display: flex;
     justify-content: center;
     text-align: center;
@@ -295,6 +253,14 @@ th:first-child {
 td:last-child,
 th:last-child {
   border-radius: 0 30px 30px 0;
+}
+
+/* Tabla de ingresos */
+
+#idTablaIngreso{
+    display: flex;
+    justify-content: end;
+    margin-top: 0;
 }
 
 /* Footer */
