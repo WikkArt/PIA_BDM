@@ -116,7 +116,7 @@ li.botones a:link{
     text-decoration: none;
 }
 
-#btnEditarUsuario, #btnNuevoCurso{
+#btnEditarUsuario, #btnNuevoCurso, #btnCategoria{
     background-color: var(--amarillo-claro);
     color: var(--morado-secundario);
     border: none;
@@ -127,7 +127,7 @@ li.botones a:link{
     transition: 150ms all;
 }
 
-#btnEditarUsuario:hover, #btnNuevoCurso:hover{
+#btnEditarUsuario:hover, #btnNuevoCurso:hover, #btnCategoria:hover{
     background-color: var(--amarillo-nacho);
 }
 
@@ -208,8 +208,6 @@ h5{
     margin-top: -8px;
 }
 
-/* Filtros (Estudiante) */
-
 /* Filtros (Instructor) */
 #idFiltros .activos{
     display: flex;
@@ -246,7 +244,7 @@ h5{
 #idTabla{
     display: flex;
     justify-content: center;
-    height: 70vh;
+    max-height: 70vh;
 }
 
 table{
@@ -295,6 +293,61 @@ th:first-child {
 td:last-child,
 th:last-child {
   border-radius: 0 30px 30px 0;
+}
+
+.columna-botones .eliminar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, rgb(197, 69, 69) 100%);
+    border: 1px var(--morado-principal) solid;
+}
+
+.columna-botones .editar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    border: 1px var(--morado-principal) solid;
+}
+
+/* Tablas de instructores*/
+
+.columna-imagen img{
+    width: 70px;
+    border-radius: 10px;
+}
+
+/* Tablas de administradores */
+
+.a-header-8{
+    width: 20vw
+}
+
+.columna-botones button{
+    border-radius: 10px;
+    margin-inline: 12px;
+    border: none;
+    padding-inline: 10px;
+    padding-block: 5px;
+    color: white;
+}
+
+/* Reportes */
+.columna-botones .bloqueado{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
+    border: 2px white solid;
+}
+
+.columna-botones .desbloqueado{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
+    border: 2px white solid;
+}
+
+.columna-botones .bloqueado:disabled{
+    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%, rgba(197, 69, 69, 0.5) 100%);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+.columna-botones .desbloqueado:disabled{
+    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%,rgba(67, 181, 134, 0.5) 100%);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
 }
 
 /* Footer */

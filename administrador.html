@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habímate | Perfíl del usuario</title>
+    <link rel="stylesheet" href="CSS/perfilUsuarioDesign.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+<body>
+    <!--Navegador-->
+    <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="administrador.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="reportesUsuarios.html">Reportes</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cuerpo -->
+    <div class="container-fluid">
+        <div id="idUsuarioInfo">
+            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
+            class="rounded-circle" alt="Avatar">
+            <ul>
+                <li class="list-group-item destacado">
+                    <h1 class="text">Nombre de Usuario <span>(Administrador)</span></h1>
+                </li>
+                <li class="list-group-item destacado">
+                    <h2>ID: X</h2>
+                </li>
+                <li class="list-group-item secundario">
+                    Correo: correo@gmail.com
+                </li>
+                <li class="list-group-item secundario">
+                    Fecha de nacimiento: XX/XX/XXXX
+                </li>
+                <li class="list-group-item secundario">
+                    Género: Hombre/Mujer/No binario
+                </li>
+                <li class="list-group-item botones">
+                    <a href="editarUsuario.html">
+                        <button id="btnEditarUsuario" type="button">Editar usuario</button>
+                    </a>
+                    <a href="nuevaCategoria.html">
+                        <button id="btnCategoria" type="button">Crear categoría</button>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <h1 id="idSubtitulo">Categorías</h1>
+            
+        <div id="idTabla">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nombre (Categoría)</th>
+                    <th>Descripción</th>
+                    <th>Nombre (Autor)</th>
+                    <th>Fecha de creación</th>
+                    <th>Hora de creación</th>
+                    <th class="a-header-8">Opciones</th>
+                </tr>
+
+                <tr>
+                    <td>1</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>XX/XXX/XXXX/</td>
+                    <td>00:00</td>
+                    <td class="columna-botones">
+                        <button class="eliminar">Eliminar</button>
+                        <a href="editarCategoria.html">
+                            <button class="editar">Editar</button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>XX/XXX/XXXX/</td>
+                    <td>00:00</td>
+                    <td class="columna-botones">
+                        <button class="eliminar">Eliminar</button>
+                        <a href="editarCategoria.html">
+                            <button class="editar">Editar</button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>XX/XXX/XXXX/</td>
+                    <td>00:00</td>
+                    <td class="columna-botones">
+                        <button class="eliminar">Eliminar</button>
+                        <a href="editarCategoria.html">
+                            <button class="editar">Editar</button>
+                        </a>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>---</td>
+                    <td>XX/XXX/XXXX/</td>
+                    <td>00:00</td>
+                    <td class="columna-botones">
+                        <button class="eliminar">Eliminar</button>
+                        <a href="editarCategoria.html">
+                            <button class="editar">Editar</button>
+                        </a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
+
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.min.js"></script>
+</body>
+</html>
