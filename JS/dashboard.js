@@ -1,4 +1,4 @@
-
+/*MODAL CURSO*/
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('modal');
     document.querySelector('.courses').addEventListener('click', (event) => {
@@ -23,4 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-
+/*MODAL CATEGORIA*/
+$('#idCategoriaModal').on('shown.bs.modal', function () {
+    $('#idCategoriaModal').trigger('focus')
+  })
