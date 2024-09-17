@@ -3,6 +3,15 @@
     src: url("../Fonts/Righteous-Regular.ttf");
 }
 
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans-Italic";
+    src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+}
 :root{
     --morado-principal: rgb(99, 95, 237);
     --morado-secundario: rgb(67, 71, 208);
@@ -21,8 +30,8 @@ html, body{
 /* Navegador */
 
 #idNav{
-    background-color: var(--amarillo-nacho);
-    box-shadow: 0 0 20px var(--morado-oscuro);
+    background-color: var(--morado-principal);
+    box-shadow: 0 0 10px var(--morado-secundario);
     font-family: 'Trebuchet MS';
 }
 
@@ -41,8 +50,8 @@ html, body{
 #idNavLinks a.nav-link.active{
     font-weight: bold;
     letter-spacing: 1px;
-    color: var(--morado-principal);
-    border-bottom: 2px var(--morado-principal) solid;
+    color: var(--beige);
+    border-bottom: 2px var(--beige) solid;
     padding-bottom: 2px;
 }
 
@@ -52,9 +61,13 @@ a.nav-link{
 }
 
 a.nav-link:hover{
-    color: var(--morado-principal);
+    color: var(--beige);
 }
 
+div.container-fluid{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
 /* Contenido */
 
 .dashboard {
@@ -111,7 +124,7 @@ h1 {
     background-color: rgba(0,0,0,0.5);
 }
 .modal img {
-    width: 200px;
+    width: 630px;
 }
 .modal-content {
     background-color: #fff;
@@ -119,7 +132,11 @@ h1 {
     padding: 30px;
     border: 1px solid #888;
     width: 80%;
-    max-width: 500px;
+    max-width: 700px;
+    text-align: center;
+}
+.modal-content p{
+    font-style: "JosefinSans-Italic";
 }
 .close {
     color: #aaa;
