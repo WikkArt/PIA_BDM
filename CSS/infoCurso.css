@@ -25,13 +25,7 @@
 }
 
 html, body{ 
-    margin: 0;
-    padding: 0;
     height: 100%;
-    display: flex;
-    flex-direction: column;
-    overflow-x: hidden;
-
     padding-top: 37px;
 }
 
@@ -78,33 +72,16 @@ a.nav-link:hover{
     color: var(--beige);
 }
 
-div.container-fluid{
-    padding: 0;
-    font-family: "Trebuchet MS";
-    background-image: url(.../Images/curso.jpg);
-    background-size: cover;  
-    background-repeat: no-repeat;
-}
-
-/* Contenedor */
-.container-fluid{
-   
-}
 
 /* Info del usuario */
 
 #idCursoInfo{
-    /*background-image: url(Images/curso.jpg);
-    background-size: cover;  Ajusta la imagen para cubrir todo el fondo 
-    background-repeat: no-repeat;  Evita que la imagen se repita */
+    
+    background-color: rgba(0,0,0,.5);
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: center;
-}
-.fondoCurso{
-    align-items: center;
-    width: 50%;
+    color: #fff;
 }
 #idAvatarSample{
     width: 200px;
@@ -125,20 +102,6 @@ li.botones a:link{
     text-decoration: none;
 }
 
-#btnEditarUsuario, #btnNuevoCurso, #btnCategoria{
-    background-color: var(--amarillo-claro);
-    color: var(--morado-secundario);
-    border: none;
-    margin-top: 5px;
-    border-radius: 15px;
-    padding-block: 5px;
-    padding-inline: 10px;
-    transition: 150ms all;
-}
-
-#btnEditarUsuario:hover, #btnNuevoCurso:hover, #btnCategoria:hover{
-    background-color: var(--amarillo-nacho);
-}
 
 /* Subtitulo */
 #idSubtitulo{
@@ -148,287 +111,75 @@ li.botones a:link{
     font-size: 20px
 }
 
-/* Apartados de filtros */
-
-/* Checkboxes*/
-input[type="checkbox"]:checked{
-    background-color: var(--amarillo-nacho);
-    border: none;
+.Valoracion{
+    display: flex;
+    float: right;
+}
+/* Caja de mensajes */
+.chat-messages{
+    background-color:#fff4bb;
+    padding-block: 12px;
+    padding-inline: 20PX;
+    height: 30vh;
+    font-size: 15px;
+    width: 35%;
 }
 
-/* Subtitulos y contenedores */
-
-h3{
-    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
-    text-align: center;
-    font-family: "JosefinSans";
+.chat-messages img{
+    width: 65px;
+    height: 65px;
+    object-fit: cover;
 }
 
-h3, #idFiltros{
-    color: white;
-    border-radius: 20px;
-    margin-left: 25px;
-    padding-block: 15px;
-    padding-inline: 20px;
+.user-1{
+    font-family: "Righteous";
 }
 
-#idFiltros{
-    background: linear-gradient(to bottom right, rgba(99, 95, 237,1) 0%, rgba(67, 71, 208,1) 100%);
-    margin-bottom: 12px;
+#idChatMensaje{
+    display: flex;
 }
 
-h5{
-    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, var(--beige) 100%);
+#idChatMensaje .hour-message{
+    display: flex;
+    flex-direction: column;
+    margin-inline: 10px;
+}
+
+.hour{
+    font-family: "JosefinSans-Italic";
+}
+
+.hour, .user-1{
+    display: flex;
+    flex-direction: column;
+    margin-block: 5px;
+    margin-inline: 14px;
     color: var(--morado-secundario);
-    margin-inline: -20px;
-    padding-inline: 20px;
+}
+
+.hour-message .text{
+    border-radius: 20px;
+    word-wrap: break-word;
     padding-block: 10px;
-    font-family: "JosefinSans-Italic";
+    padding-inline: 15px;
+    max-width: 22vw;
 }
 
-/* Filtro de fechas */
-#idFiltros .fechas{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.message-usuario-1 .text{
+    background-color: var(--beige);
 }
 
-.fechas input{
-    border-radius: 15px;
-    padding: 5px;
-    border: none;
-    font-weight: 100px;
-    margin-bottom: 10px;
-}
-
-.fechas input:focus{
-    background-color: beige;
-    outline: none;
-}
-
-/* Categorias */
-#idFiltros .categorias .list-group-item{
-    background-color: transparent;
-    margin-inline: -20px;
-    padding-inline: 20px;
-    border-color: white;
-    color: white;
-}
-
-#idFiltros .categorias .list-group-item:first-child{
-    margin-top: -7px;
-}
-
-/* Modal de Info de Categoria */
-
-#btnInfoCategoria{
-    background-color: transparent;
-    border-radius: 50%;
-    border: none;
-    padding: 0;
-}
-
-#btnInfoCategoria img{
-    width: 25px;
-    margin-left: 5px;
-}
-
-#idCategoriaModal .modal-content{
-    background: linear-gradient( to bottom, var(--amarillo-claro) 0%, var(--amarillo-nacho) 60%);
-    border: none;
-    color: white;
-}
-
-h5.modal-title{
-    margin-inline: -30px;
-    border-top-left-radius: 10px;
-    border-bottom-left-radius: 10px;
-    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, var(--morado-principal) 100%);
-    color: white;
-}
-
-.modal-header button{
-    width: 35px;
-    height: 35px;
-    border: none;
-    border-radius: 10px;
-    background-color: brown;
-}
-
-.modal-header img{
-    width: 20px;
-    margin-top: -3px;
-}
-
-.modal-footer{
-    font-family: "JosefinSans-Italic";
-}
-
-.modal-footer div{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    gap: 1em;
-}
-
-/* Modal de eliminacion */
-#idEliminarModal .modal-content{
-    background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-secundario) 65%);
-    border: none;
-    color: white;
-}
-#idEliminarModal h5.modal-title{
-    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, brown 100%);
-}
-
-#idEliminarModal .btn-success{
-    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
-}
-
-#idEliminarModal .btn-danger{
-    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
-}
-
-/* Filtros (Instructor) */
-#idFiltros .activos{
+.message-usuario-2{
     display: flex;
     justify-content: end;
-    margin-bottom: 10px;
 }
 
-.activos label{
-    margin-right: 30px;
+.message-usuario-2 .text{
+    background-color: var(--amarillo-claro);
 }
 
-#idCategoriaG{
-    display: flex;
-    justify-content: center;
-}
-
-#idCategoriaG button{
-    background-color: var(--beige);
-    color: var(--morado-secundario);
-    border-radius: 15px;
-    padding-inline: 10px;
-    padding-block: 5px;
-    border: none;
-    font-size: 20px;
-    transition: 150ms all;
-}
-
-#idCategoriaG button:hover{
-    background-color: var(--beige-oscuro);
-    color: var(--morado-oscuro);
-}
-
-/* Tabla */
-#idTabla{
-    display: flex;
-    justify-content: center;
-    max-height: 70vh;
-}
-
-table{
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    margin-block: 12px;
-    margin-inline: 15px;
-    overflow-y: auto;
-}
-
-th{
-    background-color: var(--morado-oscuro);
-    color: white;
-    font-size: 20px;
-}
-
-td{
-    background-color: var(--lila);
-    font-size: 18px;
-}
-
-tr td{
-    transition: 100ms all;
-}
-
-tr:nth-child(even) td {
-    background-color: var(--morado-principal);
-    color: rgb(209, 206, 255);
-}
-
-tr:hover td{
-    background-color: var(--beige);
-    color: var(--morado-principal);
-}
-
-th, td{
-    padding-inline: 15px;
-    padding-block: 7px;
-}
-
-td:first-child,
-th:first-child {
-  border-radius: 30px 0 0 30px;
-}
-td:last-child,
-th:last-child {
-  border-radius: 0 30px 30px 0;
-}
-
-.columna-botones .eliminar{
-    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, rgb(197, 69, 69) 100%);
-    border: 1px var(--morado-principal) solid;
-}
-
-.columna-botones .editar{
-    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
-    border: 1px var(--morado-principal) solid;
-}
-
-/* Tablas de instructores*/
-
-.columna-imagen img{
-    width: 70px;
-    border-radius: 10px;
-}
-
-/* Tablas de administradores */
-
-.a-header-8{
-    width: 20vw
-}
-
-.columna-botones button{
-    border-radius: 10px;
-    margin-inline: 12px;
-    border: none;
-    padding-inline: 10px;
-    padding-block: 5px;
-    color: white;
-}
-
-/* Reportes */
-.columna-botones .bloqueado{
-    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
-    border: 2px white solid;
-}
-
-.columna-botones .desbloqueado{
-    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
-    border: 2px white solid;
-}
-
-.columna-botones .bloqueado:disabled{
-    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%, rgba(197, 69, 69, 0.5) 100%);
-    color: rgba(255, 255, 255, 0.8);
-    border: none;
-}
-
-.columna-botones .desbloqueado:disabled{
-    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%,rgba(67, 181, 134, 0.5) 100%);
-    color: rgba(255, 255, 255, 0.8);
-    border: none;
+.message-usuario-2 .user-2, .message-usuario-2 .hour{
+    text-align: end;
 }
 
 /* Footer */
