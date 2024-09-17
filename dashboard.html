@@ -41,8 +41,9 @@
             </div>
         </div>
     </nav>
-    <!--Cursos-->
+   <div class="cuerpo">
     <div class="dashboard">
+        <h1>Inscribete a...</h1>
         <div class="courses">
             <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500" data-publisher="Fatima">
                 <img src="Images/curso.jpg" alt=" ">
@@ -66,8 +67,24 @@
             </div>
             <div class="course" data-description="Primero ve la forma de evaluación" data-price="$0" data-publisher="Daniela">
                 <img src="Images/curso.jpg" alt=" " >
-                <h2>>Todo lo que tienes que saber para pasar BDM</h2>
+                <h2>Todo lo que tienes que saber para pasar BDM</h2>
                 <p>LMAD</p>
+            </div>
+            <div class="course" data-description="" data-price="$100" data-publisher="Andrea">
+                
+                <img src="Images/cursos.jpg" alt=" " >
+                <h2>Cómo picar un tomate en dados</h2>
+                <p>Gastronomia</p>
+            </div>
+            <div class="course" data-description="En 6ta con Villa:>" data-price="$10000" data-publisher="Gerardo">
+                <img src="Images/cursos.jpg" alt=" " >
+                <h2>Como pasar MAD</h2>
+                <p>LMAD</p>
+            </div>
+            <div class="course" data-description="Sé Daniela" data-price="$..." data-publisher="Daniela">
+                <img src="Images/curso.jpg" alt=" " >
+                <h2>Aprende a ser buen maestro</h2>
+                <p>Docencia</p>
             </div>
         </div>
     </div>
@@ -83,6 +100,108 @@
             <p id="modal-publisher"></p>
         </div>
     </div>
+
+    <!-- Busqueda -->
+
+    <div class="Busqueda">
+        <h3>Filtros</h3>
+
+        <form id="idFiltros">
+            <h5>Fecha de publicación</h5>
+            <div class="fechas">
+                <div id="idInputs" class="inputbox">
+                    <label for="fdate">Desde: </label> 
+                    <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                </div>
+                <div id="idInputs" class="inputbox">
+                    <label for="fdate">Hasta: </label> 
+                    <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                </div>
+            </div>
+
+            <h5>Categorías</h5>
+            <ul class="categorias list-group list-group-flush">
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        <label class="form-check-label" for="cbCursoGeneral">
+                            Categoría 1
+                        </label>
+                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                            <img src="Images/info.png" alt="Información de la categoría">
+                        </button>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        <label class="form-check-label" for="cbCursoGeneral">
+                            Categoría 2
+                        </label>
+                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                            <img src="Images/info.png" alt="Información de la categoría">
+                        </button>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        <label class="form-check-label" for="cbCursoGeneral">
+                            Categoría 3
+                        </label>
+                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                            <img src="Images/info.png" alt="Información de la categoría">
+                        </button>
+                    </div>
+                </li>
+                <li class="list-group-item">
+                    <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        <label class="form-check-label" for="cbCursoGeneral">
+                            Categoría 4
+                        </label>
+                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                            <img src="Images/info.png" alt="Información de la categoría">
+                        </button>
+                    </div>
+                </li>
+            </ul>
+            
+            <a id="idCategoriaG">
+                <button type="submit">Filtrar</button>
+            </a>
+        </form>
+
+        <!-- Modal de las Categorias-->
+        <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Categoría: Nombre de la Categoría</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <img src="Images/cerrar.png" alt="">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        </p>
+                    </div>
+                    <div class="modal-footer justify-content-between">
+                        <label>Nombre de usuario</label>
+                        <div>
+                            <label>DD/MMM/AAA</label>
+                            <label>00:00</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   </div>
+        
     <!-- Footer -->
     <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
 
