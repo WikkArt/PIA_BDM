@@ -1,0 +1,439 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans-Italic";
+    src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+}
+
+:root{
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --amarillo-nacho: rgb(255, 145, 77);
+    --amarillo-claro: rgb(248, 223, 147);
+    --morado-oscuro: rgb(36, 33, 174);
+    --lila: rgb(174, 170, 254);
+    --beige: rgb(252, 209, 203);
+    --beige-oscuro: rgb(209, 159, 154);
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: max-content;
+    display: flex;
+    flex-direction: column;
+
+    padding-top: 37px;
+}
+
+#idNuevoCurso{
+    background-image: linear-gradient(to top, var(--beige), var(--amarillo-claro));
+}
+
+#idEditarCurso{
+    background-image: linear-gradient(to top, var(--amarillo-claro), var(--amarillo-nacho));
+}
+
+/* Navegador */
+
+#idNav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index:1000;
+
+    background-color: var(--morado-principal);
+    box-shadow: 0 0 10px var(--morado-secundario);
+    font-family: 'Trebuchet MS';
+}
+
+#btnLogo{
+    background: none;
+    border: none;
+    margin: -3px 5px 5px 10px;
+}
+
+#idNavLinks{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#idNavLinks a.nav-link.active{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--beige);
+    border-bottom: 2px var(--beige) solid;
+    padding-bottom: 2px;
+}
+
+a.nav-link{
+    font-size: 20px;
+    color: white;
+}
+
+a.nav-link:hover{
+    color: var(--beige);
+}
+
+div.container{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
+
+/* Cuerpo */
+
+/*Contenedor*/
+.container{
+    flex: 1;
+    margin-top: 15px;
+    font-family: 'Trebuchet MS';
+    color: white;
+}
+
+/* Header */
+
+.curso-header-user{
+    background: radial-gradient(circle, rgba(209,159,154,0.6) 0%, rgba(67, 71, 208,0.7) 100%);    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    border-radius: 30px;
+    padding: 25px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    width: 50vw;
+}
+
+h1{
+    text-align: center;
+    font-family: "JosefinSans";
+}
+
+.h-left{
+    display: flex;
+    align-items: center;
+    width: min-content;
+}
+
+.h-left img{
+    width: 100px;
+    object-fit: cover;
+}
+
+.h-left h3{
+    margin-left: 10px;
+    font-size: 22px;
+}
+
+#btnVolver{
+    background-color: var(--amarillo-claro);
+    color: rgb(158, 85, 48);
+    width: max-content;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    border: none;
+    padding-block: 5px;
+    padding-inline: 10px;
+    transition: 150ms all;
+}
+
+#btnVolver:hover{
+    background-color: var(--amarillo-nacho);
+    color: beige;
+}
+
+#btnVolver::after{
+    content: ">>";
+    margin-left: 5px;
+}
+
+a:link{
+    text-decoration: none;
+}
+
+/* Cuerpo */
+
+.curso-nivel{
+    display: flex;
+    gap: 3em;
+}
+
+.curso-nivel .col-6, .curso-nivel .col-5{
+    margin-top: 15px;
+    background: radial-gradient(circle, rgba(209,159,154,0.6) 0%, rgba(67, 71, 208,0.7) 100%);    box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
+    border-radius: 20px;
+    padding-inline: 20px;
+    padding-block: 25px;
+}
+
+.header-1{
+    margin-top: -20px;
+}
+
+/* Informacion del curso */
+
+h2{
+    font-family: "JosefinSans";
+    font-weight: 100;
+    padding-top: 15px;
+}
+
+#idFotoPromo{
+    width: 630px;
+    height: 354px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+input.form-control{
+    margin-top: 10px;
+    background-color: var(--lila);
+    color: var(--morado-secundario);
+    border: none;
+}
+
+input.form-control:focus{
+    background-color: var(--morado-principal);
+    color: white;
+    outline: none;
+}
+
+#idInputs label, .subtitle{
+    display: block;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 8px;
+    margin-bottom: 3px;
+}
+
+#idInputs input, #idInputs textarea{
+    border-radius: 15px;
+    margin-top: 3px;
+    width: 100%;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: none;
+    font-weight: 100px;
+}
+
+#idInputs input:focus, #idInputs textarea:focus{
+    background-color: beige;
+    outline: none;
+}
+
+#idCategoria{
+    background-color: var(--lila);
+    color: var(--morado-secundario);
+    width: 100%;
+    padding: 10px 10px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    transition: 200ms;
+    border: none;
+    outline: none;
+}
+
+#idCategoria:hover{
+    background-color: var(--morado-principal);
+    color: white;
+}
+
+#idCategoria:focus{
+    background-color: var(--morado-principal);
+    color: white;
+}
+
+#idCategoria .item-1{
+    color: white;
+    background-color: var(--morado-oscuro);
+}
+
+#idCategoria option{
+    color: black;
+}
+
+/* Informacion del nivel */
+
+.nivel{
+    height: max-content;
+}
+
+#idNivelOverflow{
+    overflow-y: auto;
+    max-height: 390px;
+    margin-block: 30px;
+}
+
+#idNivelOverflow:first-child{
+    margin-top: 0px;
+}
+
+video{
+    width: 500px;
+    object-fit: contain;
+    height: 281px;
+    background-color: var(--morado-secundario);
+    background: url("../Images/videoNivel.png") / cover;
+    border-radius: 20px;
+    
+}
+
+.nivel-nombre-precio{
+    display: flex;
+    justify-content: space-between;
+    gap: 1em;
+}
+
+.nombre-nivel{
+    flex: 1;
+}
+
+.precio{
+    flex: 0.5;
+}
+
+.precio .input-group-text{
+    height: fit-content;
+    border-right: 2px black solid;
+}
+
+.precio input{
+    margin-top: -1px;
+}
+
+.precio input:focus{
+    color: white;
+}
+
+span{
+    font-size: 22px;
+    color: var(--beige);
+}
+
+/* Archivos Extras */
+
+.archivos{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.pdf-txt{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+}
+
+#idImagenExtra{
+    object-fit: cover;
+}
+
+#idVideoExtra{
+    object-fit: contain;
+    background-color: var(--amarillo-claro);
+}
+
+#idImagenExtra, #idVideoExtra{
+    width: 150px;
+    height: 84px;
+    border-radius: 10px;
+}
+
+/* Tablas de los archivos extras */
+table{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+table input.form-control:focus{
+    background-color: var(--morado-oscuro);
+    color: white;
+}
+
+th{
+    background-color: var(--morado-oscuro);
+    color: white;
+    font-size: 18px;
+}
+
+td{
+    background-color: var(--morado-secundario);
+    font-size: 16px;
+}
+
+tr:nth-child(even) td {
+    background-color: var(--morado-principal);
+    color: rgb(209, 206, 255);
+}
+
+th, td{
+    padding-inline: 15px;
+    padding-block: 7px;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+#idTablaPDF td, #idTablaTXT td{
+    background-color: transparent;
+}
+
+/* Boton Crear Curso */
+#btnCrearCurso{
+    background-color: var(--morado-secundario);
+    border-radius: 20px;
+    padding-inline: 15px;
+    padding-block: 5px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    width: 100%;
+    transition: all 200ms;
+    margin-top: 20px;
+}
+
+#btnCrearCurso:hover{
+    background-color: var(--morado-oscuro);
+    transition: all 200ms;
+}
+
+/* Footer */
+iframe{
+    width: 100% !important;
+    height: auto !important;
+    border: none;
+}
+
+.footer {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 20px;
+    border: none;
+}
+
+iframe.footer {
+    width: 100%;
+    height: auto;
+    border: none;
+}
