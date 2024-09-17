@@ -14,9 +14,8 @@
 }
 
 html, body{
-    background-image: linear-gradient(to top, #635fed, var(--lila));
-    height: 100%;
-    overflow: hidden;
+    background-color: var(--lila);
+    height: 0%;
 }
 
 /* Navegador */
@@ -59,17 +58,22 @@ a.nav-link:hover{
 /* Contenido */
 
 .dashboard {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 50px auto;
     padding: 20px;
-    background-color: #fff;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--beige);
 }
 
 h1 {
     text-align: center;
 }
-
+.course h2 {
+    font-size: 24px; /* Ajusta el tamaño del texto */
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 20ch; /* Limita el texto a 20 caracteres */
+}
 .courses {
     display: flex;
     flex-wrap: wrap;
@@ -86,12 +90,13 @@ h1 {
 }
 
 .course img {
-    max-width: 80%;
+    width: 200px;
+    max-width: 100%;
     border-radius: 5px;
 }
 
 .course:hover {
-    background-color: #0056b3;
+    background-color: var(--morado-oscuro);
 }
 
 .modal {

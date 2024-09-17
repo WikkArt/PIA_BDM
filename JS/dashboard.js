@@ -29,3 +29,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.close').addEventListener('click', closeModal);
 });
+document.addEventListener("DOMContentLoaded", function() {
+    const h2 = document.getElementById("encabezado");
+    const maxLength = 20;
+    if (h2.textContent.length > maxLength) {
+       h2.textContent = h2.textContent.slice(0, maxLength) + "...";
+ }
+});
+
