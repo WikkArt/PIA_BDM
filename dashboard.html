@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habimate</title>
+    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+<body>
+     <!--Navegador-->
+     <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!--Cursos-->
+    <div class="dashboard">
+        <div class="courses">
+            <div class="course" data-description="Descripción del Curso 1" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/curso.jpeg" alt="Curso 1">
+                <h2>Este es un ejemplo de un encabezado muy largo que debe ser truncado</h2>
+                <p>Categoría 1</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 2" data-price="$75" data-publisher="Publicador 2">
+                <img src="Images/curso.jpeg" alt="Curso 2">
+                <h2>Curso 2 super padriuris metete</h2>
+                <p>Categoría 2</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 3" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/cursos.jpg" alt="Curso 3" >
+                <h2>Curso 3</h2>
+                <p>Categoría 3</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 4" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/cursos.jpg" alt="Curso 4" >
+                <h2>Curso 4</h2>
+                <p>Categoría 4</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 5" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/curso.jpeg" alt="Curso 5" >
+                <h2>Curso 5</h2>
+                <p>Categoría 5</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 6" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/cursos.jpg" alt="Curso 6" >
+                <h2>Curso 6</h2>
+                <p>Categoría 6</p>
+            </div>
+            <div class="course" data-description="Descripción del Curso 7" data-price="$50" data-publisher="Publicador 1">
+                <img src="Images/curso.jpeg" alt="Curso 7" >
+                <h2>Curso 7</h2>
+                <p>Categoría 7</p>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal" class="modal">
+        <span class="close">×</span>
+        <div class="modal-content">
+            <h2 id="modal-title"></h2>
+            <img id="modal-image" src="" alt="Imagen del Curso">
+            <p id="modal-category"></p>
+            <p id="modal-description"></p>
+            <p id="modal-price"></p>
+            <p id="modal-publisher"></p>
+        </div>
+    </div>
+    <!-- Footer -->
+    <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+
+    <script src="JS/dashboard.js"></script>
+</body>
+</html>
