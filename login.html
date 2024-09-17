@@ -45,13 +45,13 @@
 
         <form method="GET">
             <div id="idInputs" class="inputbox">
-                <label for="fLUserEmail">Nombre de usuario</label>
-                <input id="txtLUserEmail" name="txtLUserEmail" type="text" required>
+                <label for="fLUsername">Nombre de usuario</label>
+                <input id="txtUsername" name="txtUsername" type="text">
             </div>
 
             <div id="idInputs" class="inputbox">
                 <label for="fLPassword">Contraseña</label>
-                <input id="txtLPassword" name="txtLPassword" type="text" required>
+                <input id="txtLPassword" name="txtLPassword" type="password">
             </div>
 
             <div id="idCheckbox">
@@ -59,12 +59,45 @@
             </div>
 
             <a>
-                <button id="btnLogin" type="submit">Ingresar</button>
+                <button id="btnLogin" type="submit" data-bs-toggle="modal" data-bs-target="#idBloquearModal">
+                    Ingresar
+                </button>
             </a>
         </form>
+
+        <!-- Modal de Bloqueo -->
+        <div class="modal fade" id="idBloquearModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Cuenta bloqueada</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <img src="Images/cerrar.png" alt="">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="Images/bloqueado.png" alt="">
+                        <p>
+                            Su cuenta a sido bloqueada debido a que a superado el 
+                            número de intentos para escribir la contraseña correcta.
+                        </p>
+                        <p>
+                            Espere a que un administrador desbloquee su cuenta para continuar.
+                        </p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success" data-bs-dismiss="modal" aria-label="Close">
+                            Aceptar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     <!--Archivos externos-->
+    <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/loginScript.js"></script>
 </body>
 </html>

@@ -88,7 +88,9 @@
                     </td>
                     <td>4</td>
                     <td class="columna-botones">
-                        <button class="eliminar">Eliminar</button>
+                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
+                            Eliminar
+                        </button>
                         <a href="#">
                             <button class="editar">Editar</button>
                         </a>
@@ -107,7 +109,9 @@
                     </td>
                     <td>4</td>
                     <td class="columna-botones">
-                        <button class="eliminar">Eliminar</button>
+                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
+                            Eliminar
+                        </button>
                         <a href="#">
                             <button class="editar">Editar</button>
                         </a>
@@ -126,7 +130,9 @@
                     </td>
                     <td>4</td>
                     <td class="columna-botones">
-                        <button class="eliminar">Eliminar</button>
+                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
+                            Eliminar
+                        </button>
                         <a href="#">
                             <button class="editar">Editar</button>
                         </a>
@@ -145,7 +151,9 @@
                     </td>
                     <td>4</td>
                     <td class="columna-botones">
-                        <button class="eliminar">Eliminar</button>
+                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
+                            Eliminar
+                        </button>
                         <a href="#">
                             <button class="editar">Editar</button>
                         </a>
@@ -154,6 +162,31 @@
             </table>
         </div>
         
+        <!-- Modal de Eliminacion -->
+        <div class="modal fade" id="idEliminarModal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Curso</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <img src="Images/cerrar.png" alt="">
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>¿Estás seguro de eliminar este curso?</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-success">
+                            Si
+                        </button>
+                        <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
+                            No
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
     
     <!-- Footer -->

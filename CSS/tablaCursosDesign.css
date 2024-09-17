@@ -200,6 +200,55 @@ tr:nth-child(even) .primerColumna {
     background-color: var(--amarillo-nacho);
 }
 
+/* Modal de eliminacion */
+#idEliminarModal .modal-content{
+    background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-principal) 65%);
+    border: none;
+    color: white;
+}
+#idEliminarModal h5.modal-title{
+    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, brown 100%);
+    margin-inline: -30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    font-family: "JosefinSans-Italic";
+    color: white;
+}
+
+.modal-header button{
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background-color: brown;
+}
+
+.modal-header img{
+    width: 20px;
+    margin-top: -3px;
+}
+
+.modal-footer{
+    font-family: "JosefinSans-Italic";
+}
+
+.modal-footer div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
+}
+
+#idEliminarModal .btn-success{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
+}
+
+#idEliminarModal .btn-danger{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
+}
+
 /* Botones */
 
 .columna-botones button{

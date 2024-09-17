@@ -208,7 +208,7 @@ h5{
     margin-top: -7px;
 }
 
-/* Modal de Info */
+/* Modal de Info de Categoria */
 
 #btnInfoCategoria{
     background-color: transparent;
@@ -258,6 +258,24 @@ h5.modal-title{
     flex-direction: row;
     flex-wrap: wrap;
     gap: 1em;
+}
+
+/* Modal de eliminacion */
+#idEliminarModal .modal-content{
+    background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-secundario) 65%);
+    border: none;
+    color: white;
+}
+#idEliminarModal h5.modal-title{
+    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, brown 100%);
+}
+
+#idEliminarModal .btn-success{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
+}
+
+#idEliminarModal .btn-danger{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
 }
 
 /* Filtros (Instructor) */
