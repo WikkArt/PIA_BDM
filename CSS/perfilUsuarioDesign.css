@@ -147,6 +147,7 @@ input[type="checkbox"]:checked{
 }
 
 /* Subtitulos y contenedores */
+
 h3{
     background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
     text-align: center;
