@@ -77,19 +77,14 @@ div.container-fluid{
     display: flex; 
     align-items: flex-start; 
 }
-
-.dashboard {
-    max-width: 930px;
+#dashboard {
     margin: 20px;
     padding: 20px;
+    width: 69%;
     border-radius: 20px;
     background-color: var(--beige);
-    flex: 1; 
-
 }
-.Busqueda{
-    flex-basis: 100%; 
-    max-width: 320px; 
+#Busqueda{    
     margin: 20px;
     padding: 20px;
     border-radius: 20px;
@@ -121,7 +116,7 @@ h1 {
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    max-width: 20ch;
+    max-width: 19ch;
 }
 
 .course {
@@ -222,12 +217,12 @@ h5{
 
 /* Filtro de fechas */
 #idFiltros .fechas{
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .fechas input{
+    width: 70%;
     border-radius: 15px;
     padding: 5px;
     border: none;
