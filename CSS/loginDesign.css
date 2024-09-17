@@ -29,11 +29,19 @@ html, body{
     background-image: linear-gradient(to top, #635fed, var(--morado-oscuro));
     height: 100%;
     overflow: hidden;
+
+    padding-top: 37px;
 }
 
 /* Navegador */
 
 #idNav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index:1000;
+
     background-color: var(--amarillo-nacho);
     box-shadow: 0 0 20px var(--morado-oscuro);
     font-family: 'Trebuchet MS';

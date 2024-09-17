@@ -31,11 +31,19 @@ html, body{
     height: 100%;
     display: flex;
     flex-direction: column;
+
+    padding-top: 37px;
 }
 
 /* Navegador */
 
 #idNav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index:1000;
+
     background-color: var(--morado-principal);
     box-shadow: 0 0 10px var(--morado-secundario);
     font-family: 'Trebuchet MS';

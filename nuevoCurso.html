@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habímate | Nuevo Curso</title>
+    <link rel="stylesheet" href="CSS/categoriaDesign.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+<body id="idNuevaCategoria">
+    <!--Navegador-->
+    <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="instructor.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaInscritos.html">Cursos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cuerpo -->
+    <div id="idCurso" class="form-box form-value container">
+        <form method="GET" class="row">
+            <div class="col">
+                <div>
+                    <h1 class="text">Nuevo Curso</h1>
+                    <a class="volver" href="administrador.html">
+                        <button id="btnVolver">Volver al perfíl del usuario</button>
+                    </a>
+                    <div>
+                        <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
+                        class="rounded-circle" alt="Avatar">
+                        <h3>Nombre de Usuario</h3>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2>Información del producto</h2>
+                    <div id="idInputs"  class="inputbox">
+                        <label for="">Nombre del Producto</label>
+                        <input type="text" id="nombre" name="nombre">
+                    </div>
+                    
+                    <div id="idInputs" class="inputbox">
+                        <label for="">Descripción</label>
+                        <textarea class="form-control" id="descripcion" name="descripcion" rows="8"></textarea>
+                    </div>
+
+                    <div id="idAPCategoriasRB"></div>
+                        <div>
+                            <label class="text">Categoría</label>
+                        </div>
+                        <select id="idRol" name="idRol" class="form-select" aria-label="Default select example">
+                            <option class="item item-1" value="" selected>Selecciona un rol</option>
+                            <option class="item" id="dropdown" value="1">Estudiante</option>
+                            <option class="item" id="dropdown"  value="2">Instructor</option>
+                            <option class="item" id="dropdown"  value="3">Administrador</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col">
+
+            </div>
+                
+        </form>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
+
+    <!--Archivos externos-->
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/nuevoCursoScript.js"></script>
+</body>
+</html>
