@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habímate | Fin del curso</title>
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/enviarComentarioDesign.css">
+</head>
+<body>
+    <!--Navegador-->
+    <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="estudiante.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cuerpo -->
+    <div class="container-fluid">
+        <h1 id="idSubtitulo">¡ Felicitaciones !</h1>
+        <div class="form-box container-fluid">
+            <form method="GET" action="diploma.html">
+                <h4>Has terminado el curso...</h4>
+                <div>Por favor, dejanos tu opinion y a continuación podrás obtener tu diploma</div>
+                <div>
+                    <div id="idInputs" class="inputbox">
+                        <label for="fcomentario">Comentarios</label>
+                        <textarea rows="4" id="txtComentario" name="txtComentario" 
+                        placeholder="Cuentanos como fue tu experiencia..."></textarea>
+                    </div>
+                    <div id="idInputs" class="inputbox">
+                        <label for="fcalif">Calificación</label>
+                        <select name="calif" id="idCalif" class="btn" style="margin-left: 0px;" required>
+                            <option value="1">&#11088;</option>
+                            <option value="2">&#11088; &#11088;</option>
+                            <option value="3">&#11088; &#11088; &#11088;</option>
+                            <option value="4">&#11088; &#11088; &#11088; &#11088;</option>
+                            <option value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                        </select>
+                    </div>
+                    <button id="btnEnviar" type="submit">Enviar reseña</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
+
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.min.js"></script>
+</body>
+</html>
