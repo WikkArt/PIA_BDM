@@ -78,8 +78,6 @@ div.container-fluid{
     align-items: flex-start; 
 }
 
-/* Cursos */
-
 .dashboard {
     max-width: 930px;
     margin: 20px;
@@ -104,6 +102,8 @@ h1 {
     font-family: "Righteous";
     color: var(--morado-secundario);
 }
+
+/* Cursos */
 
 .courses {
     display: flex;
