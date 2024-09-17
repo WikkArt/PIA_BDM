@@ -1,4 +1,4 @@
-function openModal(title, description, image, category, price, publisher) {
+/*function openModal(title, description, image, category, price, publisher) {
     document.getElementById('modal-title').innerText = title;
     document.getElementById('modal-description').innerText = description;
     document.getElementById('modal-image').src = image;
@@ -29,11 +29,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelector('.close').addEventListener('click', closeModal);
 });
-document.addEventListener("DOMContentLoaded", function() {
-    const h2 = document.getElementById("encabezado");
-    const maxLength = 20;
-    if (h2.textContent.length > maxLength) {
-       h2.textContent = h2.textContent.slice(0, maxLength) + "...";
- }
+*/
+document.addEventListener('DOMContentLoaded', () => {
+    const modal = document.getElementById('modal');
+
+    // Abre el modal al hacer clic en un curso
+    document.querySelector('.courses').addEventListener('click', (event) => {
+        const course = event.target.closest('.course');
+        if (course) {
+            document.getElementById('modal-title').innerText = course.querySelector('h2').innerText;
+            document.getElementById('modal-description').innerText = course.dataset.description;
+            document.getElementById('modal-image').src = course.querySelector('img').src;
+            document.getElementById('modal-category').innerText = `Categoría: ${course.querySelector('p').innerText}`;
+            document.getElementById('modal-price').innerText = `Precio: ${course.dataset.price}`;
+            document.getElementById('modal-publisher').innerText = `Publicado por: ${course.dataset.publisher}`;
+            modal.style.display = 'block';
+        }
+    });
+
+    // Cierra el modal al hacer clic en la "X"
+    document.querySelector('.close').addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Cierra el modal al hacer clic fuera del contenido
+    window.addEventListener('click', (event) => {
+        if (event.target === modal) {
+            modal.style.display = 'none';
+        }
+    });
+
+    // Cierra el modal al presionar la tecla "Escape"
+    window.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') {
+            modal.style.display = 'none';
+        }
+    });
 });
+
 
