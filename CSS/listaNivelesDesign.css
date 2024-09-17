@@ -92,17 +92,25 @@ div.container-fluid{
     height: max-content;
     border-radius: 40px;
     padding-inline: 15px;
-    padding-block: 20px;
 }
 
 /* video del nivel */
 
 #videoNivel{
     padding: 15px 45px;
+    display: grid;
+}
+
+#bordeVideo{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    justify-self: center;
+    padding: 10px;
+    border-radius: 20px;
 }
 
 #videoNivel video{
     border-radius: 20px;
+    justify-self: center;
 }
 
 #tituloNivel{
@@ -144,12 +152,30 @@ h3, #infoInstructor{
 }
 
 /* lista niveles */
+#listaNiveles{
+    display: grid;
+}
+
+.listaNivelesHeaders{
+    margin-top: 25px;
+}
+
+#info{
+    color: white;
+    border-radius: 20px;
+    margin-left: 25px;
+    padding-block: 15px;
+    padding-inline: 20px;
+    background: linear-gradient(to bottom right, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    margin-bottom: 12px;
+    margin-top: 25px;
+}
+
 h3 {
     background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
     text-align: center;
     font-family: "JosefinSans";
     margin-left: 0px;
-    margin-right: 25px;
 }
 
 .NivelCompletado, .NivelCompletado:hover{
@@ -173,6 +199,7 @@ table{
     border-collapse: separate;
     border-spacing: 0 15px;
     color: white;
+    justify-self: center;
 }
 
 tr{
@@ -189,7 +216,7 @@ tr td{
 }
 
 tr:hover td{
-    background-color: var(--beige);
+    background-color: var(--amarillo-claro);
     color: var(--morado-principal);
     cursor: pointer;
 }
