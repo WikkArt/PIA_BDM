@@ -255,7 +255,7 @@ h5{
     font-weight: 100px;
 }
 
-#idInputs input:focus, #idInputs textarea:focus{
+#idInputs input:focus{
     background-color: beige;
     outline: none;
 }
@@ -306,7 +306,7 @@ h5{
     margin-left: 5px;
 }
 
-#idCategoriaModal .modal-content{
+#idCategoriaModal .modal-contentt{
     background: linear-gradient( to bottom, var(--amarillo-claro) 0%, var(--amarillo-nacho) 60%);
     border: none;
     color: white;
@@ -344,8 +344,20 @@ h5.modal-title{
     gap: 1em;
 }
 
+/* Categorias */
+#idFiltros .categorias .list-group-item{
+    background-color: transparent;
+    margin-inline: -20px;
+    padding-inline: 20px;
+    border-color: white;
+    color: white;
+}
+
+#idFiltros .categorias .list-group-item:first-child{
+    margin-top: -7px;
+}
 /* Modal de eliminacion */
-#idEliminarModal .modal-content{
+#idEliminarModal .modal-contentt{
     background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-secundario) 65%);
     border: none;
     color: white;
