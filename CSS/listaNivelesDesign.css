@@ -98,19 +98,40 @@ div.container-fluid{
 
 #videoNivel{
     padding: 15px 45px;
-    display: grid;
+    display: flex;
+    justify-content: center;
+}
+
+#btnRegresar{
+    background-color: var(--amarillo-nacho);
+    border-radius: 10px;
+    height: 65px;
+    width: 65px;
+    cursor: pointer;
+    padding: 5px;
+    transition: 150ms all;
+}
+
+#btnRegresar:hover{
+    background-color: rgb(214, 121, 75);
+}
+
+#btnRegresar img{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
 }
 
 #bordeVideo{
     background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
-    justify-self: center;
     padding: 10px;
     border-radius: 20px;
+    margin-left: 55px;
 }
 
 #videoNivel video{
     border-radius: 20px;
-    justify-self: center;
 }
 
 #tituloNivel{
@@ -161,12 +182,12 @@ h3, #infoInstructor{
 }
 
 #info{
-    color: white;
+    color: var(--morado-principal);
     border-radius: 20px;
     margin-left: 25px;
     padding-block: 15px;
     padding-inline: 20px;
-    background: linear-gradient(to bottom right, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
     margin-bottom: 12px;
     margin-top: 25px;
 }
@@ -185,10 +206,21 @@ h3 {
 
 .btn.ver{
     font-size: 20px;
-    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-secundario) 100%);
+    background: var(--lila);
     color: white;
     border: none;
 }
+
+.btn.ver:hover{
+    background: var(--morado-principal);
+    color: white;
+}
+/*
+.btn.ver:active{
+    background: linear-gradient(to left top, var(--lila) 0%, var(--morado-secundario) 100%);
+    transition: 150ms all;
+    color: white;
+} */
 
 table{
     display: flex;
@@ -207,7 +239,7 @@ tr{
 }
 
 td{
-    background-color: var(--morado-principal);
+    background-color: var(--morado-secundario);
     font-size: 18px;
 }
 
@@ -216,9 +248,8 @@ tr td{
 }
 
 tr:hover td{
-    background-color: var(--amarillo-claro);
-    color: var(--morado-principal);
-    cursor: pointer;
+    background-color: var(--amarillo-nacho);
+    color: white;
 }
 
 th, td{
