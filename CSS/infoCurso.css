@@ -81,28 +81,34 @@ a.nav-link:hover{
 div.container-fluid{
     padding: 0;
     font-family: "Trebuchet MS";
+    background-image: url(.../Images/curso.jpg);
+    background-size: cover;  
+    background-repeat: no-repeat;
 }
 
 /* Contenedor */
 .container-fluid{
-    flex: 1;
+   
 }
 
 /* Info del usuario */
 
-#idUsuarioInfo{
-    background-image: url('Images/curso.jpg');
-    background-size: cover; /* Ajusta la imagen para cubrir todo el fondo */
-    background-repeat: no-repeat; /* Evita que la imagen se repita */
+#idCursoInfo{
+    /*background-image: url(Images/curso.jpg);
+    background-size: cover;  Ajusta la imagen para cubrir todo el fondo 
+    background-repeat: no-repeat;  Evita que la imagen se repita */
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
 }
-
+.fondoCurso{
+    align-items: center;
+    width: 50%;
+}
 #idAvatarSample{
-    width: 220px;
-    height: 220px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     margin-block: 15px;
 }
@@ -139,6 +145,7 @@ li.botones a:link{
     background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
     text-align: center;
     color: white;
+    font-size: 20px
 }
 
 /* Apartados de filtros */
