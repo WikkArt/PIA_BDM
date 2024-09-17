@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Habímate | Información del curso</title>
+    <link rel="stylesheet" href="CSS/infoCurso.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+</head>
+<body>
+    <!--Navegador-->
+    <nav id="idNav" class="navbar navbar-expand-lg">
+        <button id="btnLogo" class="navbar-brand" type="button">
+            <img src="Images/HabimateLogo.png" width="160px"/>
+        </button>
+
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="idNavLinks" class="collapse navbar-collapse">
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="dashboard.html">Inicio</a>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cuerpo -->
+    <div class="container-fluid">
+        <div id="idCursoInfo">
+            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
+            class="rounded-circle" alt="Avatar">
+            <ul>
+                <li class="list-group-item destacado">
+                    <h1 class="text">Nombre del curso </h1>
+                </li>
+                <li class="list-group-item secundario"></li>
+                    Decripción
+                </li>
+                <li class="list-group-item secundario">
+                    Categoria 1
+                </li>
+                <li class="list-group-item secundario">
+                    Nombre del instructor
+                </li>
+                
+            </ul>
+        </div>
+
+        <h1 id="idSubtitulo">Información</h1>
+        <div class="row">
+            <div id="idTabla">
+                <table>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Categoría</th>
+                        <th>Fecha de Inscripción</th>
+                        <th>Último ingreso</th>
+                        <th>Progreso</th>
+                        <th>Fecha de finalización</th>
+                    </tr>
+
+                    <tr>
+                        <td>1</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Completo</td>
+                        <td>XX/XX/XXXX</td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Incompleto</td>
+                        <td>XX/XX/XXXX</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Completo</td>
+                        <td>XX/XX/XXXX</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>---</td>
+                        <td>---</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Incompleto</td>
+                        <td>XX/XX/XXXX</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        
+    </div>
+    
+    <!-- Footer -->
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
+
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/perfilIUsuarioScript.js"></script>
+</body>
+</html>

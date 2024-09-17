@@ -12,6 +12,7 @@
     font-family: "JosefinSans-Italic";
     src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
 }
+
 :root{
     --morado-principal: rgb(99, 95, 237);
     --morado-secundario: rgb(67, 71, 208);
@@ -23,11 +24,17 @@
     --beige-oscuro: rgb(209, 159, 154);
 }
 
-html, body{
-    background-color: var(--lila);
-    height: 0%;
-    padding-top: 37px; /*Espacio para el nav*/
+html, body{ 
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    padding-top: 37px;
 }
+
 /* Navegador */
 
 #idNav{
@@ -35,7 +42,8 @@ html, body{
     top: 0;
     width: 100%;
     padding: 10px 0;
-    z-index: 1000;
+    z-index:1000;
+
     background-color: var(--morado-principal);
     box-shadow: 0 0 10px var(--morado-secundario);
     font-family: 'Trebuchet MS';
@@ -73,135 +81,72 @@ a.nav-link:hover{
 div.container-fluid{
     padding: 0;
     font-family: "Trebuchet MS";
-}
-.cuerpo {
-    display: flex; 
-    align-items: flex-start; 
-}
-#dashboard {
-    margin: 20px;
-    padding: 20px;
-    width: 69%;
-    border-radius: 20px;
-    background-color: var(--beige);
-}
-#Busqueda{    
-    margin: 20px;
-    padding: 20px;
-    border-radius: 20px;
-    background-color: var(--beige);
+    background-image: url(.../Images/curso.jpg);
+    background-size: cover;  
+    background-repeat: no-repeat;
 }
 
-h1 {
-    text-align: center;
-    font-family: "Righteous";
-    color: var(--morado-secundario);
+/* Contenedor */
+.container-fluid{
+   
 }
 
-/* Cursos */
+/* Info del usuario */
 
-.courses {
+#idCursoInfo{
+    /*background-image: url(Images/curso.jpg);
+    background-size: cover;  Ajusta la imagen para cubrir todo el fondo 
+    background-repeat: no-repeat;  Evita que la imagen se repita */
     display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
 }
-.course p {
-    font-family: "JosefinSans";
-    font-size: 18px;
-    margin-bottom: -5px;
+.fondoCurso{
+    align-items: center;
+    width: 50%;
 }
-.course h2 {
-    margin-top: 10px;
+#idAvatarSample{
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    margin-block: 15px;
+}
+
+li.destacado{
     font-family: "Righteous";
-    font-size: 19px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 19ch;
 }
 
-.course {
-    background-color: var(--morado-secundario);
-    color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
-    text-align: center;
+li.secundario{
+    font-family: "JosefinSans-Italic";
 }
 
-.course img {
-    width: 240px;
-    border-radius: 5px;
+li.botones a:link{
+    text-decoration: none;
 }
 
-.course:hover {
-    background-color: var(--morado-oscuro);
-}
-/*Modal de curso*/
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.5);
-}
-.modal img {
-    width: 500px;
-    padding: 20px;
-    border-radius: 30px;
-}
-.modal-content h2 {
+#btnEditarUsuario, #btnNuevoCurso, #btnCategoria{
+    background-color: var(--amarillo-claro);
     color: var(--morado-secundario);
-}
-.modal-content {
-    background-color: var(--beige)!important;
-    text-align: center;
-    margin: 2% auto;
-    padding: 30px;
-    border: 1px solid #888;
-    width: 70%;
-    max-width: 570px;
-}
-.modal-content p{
-    font-style: "JosefinSans-Italic";
-    font-size: 20px;
-    color: var(--morado-oscuro);
-    background-color: #ffff;
-    border-radius: 30px;
-}
-#btnCurso{
-    background-color: var(--morado-secundario);
-    color: var(--beige);
     border: none;
-    float: right;
-    font-size: 20px;
+    margin-top: 5px;
     border-radius: 15px;
     padding-block: 5px;
     padding-inline: 10px;
     transition: 150ms all;
 }
-#btnCurso:hover{
-    background-color: var(--morado-principal);
-}
-.close {
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+
+#btnEditarUsuario:hover, #btnNuevoCurso:hover, #btnCategoria:hover{
+    background-color: var(--amarillo-nacho);
 }
 
-/*Busqueda*/
+/* Subtitulo */
+#idSubtitulo{
+    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
+    text-align: center;
+    color: white;
+    font-size: 20px
+}
 
 /* Apartados de filtros */
 
@@ -212,6 +157,7 @@ input[type="checkbox"]:checked{
 }
 
 /* Subtitulos y contenedores */
+
 h3{
     background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
     text-align: center;
@@ -221,6 +167,7 @@ h3{
 h3, #idFiltros{
     color: white;
     border-radius: 20px;
+    margin-left: 25px;
     padding-block: 15px;
     padding-inline: 20px;
 }
@@ -238,35 +185,15 @@ h5{
     padding-block: 10px;
     font-family: "JosefinSans-Italic";
 }
-#idInputs label, .subtitle{
-    display: block;
-    font-size: 20px;
-    margin-left: 10px;
-    margin-top: 8px;
-}
 
-#idInputs input, #idInputs textarea{
-    border-radius: 15px;
-    margin: 5px;
-    width: 100%;
-    padding-block: 5px;
-    padding-inline: 10px;
-    border: none;
-    font-weight: 100px;
-}
-
-#idInputs input:focus{
-    background-color: beige;
-    outline: none;
-}
 /* Filtro de fechas */
 #idFiltros .fechas{
+    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
 .fechas input{
-    width: 70%;
     border-radius: 15px;
     padding: 5px;
     border: none;
@@ -306,7 +233,7 @@ h5{
     margin-left: 5px;
 }
 
-#idCategoriaModal .modal-contentt{
+#idCategoriaModal .modal-content{
     background: linear-gradient( to bottom, var(--amarillo-claro) 0%, var(--amarillo-nacho) 60%);
     border: none;
     color: white;
@@ -344,20 +271,8 @@ h5.modal-title{
     gap: 1em;
 }
 
-/* Categorias */
-#idFiltros .categorias .list-group-item{
-    background-color: transparent;
-    margin-inline: -20px;
-    padding-inline: 20px;
-    border-color: white;
-    color: white;
-}
-
-#idFiltros .categorias .list-group-item:first-child{
-    margin-top: -7px;
-}
 /* Modal de eliminacion */
-#idEliminarModal .modal-contentt{
+#idEliminarModal .modal-content{
     background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-secundario) 65%);
     border: none;
     color: white;
@@ -374,6 +289,16 @@ h5.modal-title{
     background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
 }
 
+/* Filtros (Instructor) */
+#idFiltros .activos{
+    display: flex;
+    justify-content: end;
+    margin-bottom: 10px;
+}
+
+.activos label{
+    margin-right: 30px;
+}
 
 #idCategoriaG{
     display: flex;
@@ -396,7 +321,117 @@ h5.modal-title{
     color: var(--morado-oscuro);
 }
 
-/* Footer*/
+/* Tabla */
+#idTabla{
+    display: flex;
+    justify-content: center;
+    max-height: 70vh;
+}
+
+table{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-block: 12px;
+    margin-inline: 15px;
+    overflow-y: auto;
+}
+
+th{
+    background-color: var(--morado-oscuro);
+    color: white;
+    font-size: 20px;
+}
+
+td{
+    background-color: var(--lila);
+    font-size: 18px;
+}
+
+tr td{
+    transition: 100ms all;
+}
+
+tr:nth-child(even) td {
+    background-color: var(--morado-principal);
+    color: rgb(209, 206, 255);
+}
+
+tr:hover td{
+    background-color: var(--beige);
+    color: var(--morado-principal);
+}
+
+th, td{
+    padding-inline: 15px;
+    padding-block: 7px;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+.columna-botones .eliminar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, rgb(197, 69, 69) 100%);
+    border: 1px var(--morado-principal) solid;
+}
+
+.columna-botones .editar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    border: 1px var(--morado-principal) solid;
+}
+
+/* Tablas de instructores*/
+
+.columna-imagen img{
+    width: 70px;
+    border-radius: 10px;
+}
+
+/* Tablas de administradores */
+
+.a-header-8{
+    width: 20vw
+}
+
+.columna-botones button{
+    border-radius: 10px;
+    margin-inline: 12px;
+    border: none;
+    padding-inline: 10px;
+    padding-block: 5px;
+    color: white;
+}
+
+/* Reportes */
+.columna-botones .bloqueado{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
+    border: 2px white solid;
+}
+
+.columna-botones .desbloqueado{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%,rgb(67, 181, 133) 100%);
+    border: 2px white solid;
+}
+
+.columna-botones .bloqueado:disabled{
+    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%, rgba(197, 69, 69, 0.5) 100%);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+.columna-botones .desbloqueado:disabled{
+    background: linear-gradient(to left top, rgba(35, 33, 174, 0.5) 0%,rgba(67, 181, 134, 0.5) 100%);
+    color: rgba(255, 255, 255, 0.8);
+    border: none;
+}
+
+/* Footer */
 iframe{
     width: 100% !important;
     height: auto !important;
@@ -408,6 +443,12 @@ iframe{
     overflow: hidden;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
-    margin-top: 20px;
+    margin-top: 10px;
+    border: none;
+}
+
+iframe.footer {
+    width: 100%;
+    height: auto;
     border: none;
 }

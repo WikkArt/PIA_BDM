@@ -22,7 +22,7 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link" href="dashboard.html">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -45,17 +45,17 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
 
-        <h1 id="idSubtitulo">Nombre del Curso</h1>
+        <h1 id="idSubtitulo">Curso: Nombre del Curso</h1>
         <div class="row" id="idMain">
-            <div class="col-7" id="videoNivel">
-                <video width="800" height="450" src="videos/videoCualquiera.mp4" 
-                type="video/mp4" controls paused id="idVideo">
-                    Tu navegador no soporta la etiqueta 'video'
-                </video>
+            <div class="col-3">
+                <h3 class="listaNivelesHeaders">Tu instructor</h3>
+                <div id="infoInstructor">
+                    <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
+                    <span>Nombre de Usuario</span>
+                </div>
             </div>
-            
-            <div class="col-5">
-                <h3>Lista de niveles</h3>
+            <div class="col-6" id="listaNiveles">
+                <h3 class="listaNivelesHeaders">Lista de niveles</h3>
                 <table>
                     <tr>
                         <td>1</td>
@@ -79,24 +79,17 @@
                         <td>4</td>
                         <td>Nombre Ultimo Nivel</td>
                         <td>12 min</td>
-                        <td><a class="btn ver">Ver</a></td>
+                        <td><a class="btn ver" href="vistaNivel.html">Ver</a></td>
                     </tr>
                 </table>
             </div>
-
-            <div class="col-7" id="tituloNivel">
-                <h2>Comencemos</h2>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div id="infoInstructor">
-                        <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
-                        <span>Nombre de Usuario</span>
-                    </div>
+            <div class="col-3">
+                <h3 class="listaNivelesHeaders">Tu Progreso</h3>
+                <div id="info">
+                    <h2>75% <h4>Completado</h4></h2>
                 </div>
             </div>
         </div>
-
     </div>
     
     <!-- Footer -->
@@ -106,12 +99,5 @@
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('idVideo').addEventListener('ended',handler,false);
-        function handler(e) {
-            // Al terminar el nivel, el usuario será enviado a otra ventana
-            window.location.href = "enviarComentario.html";
-        }
-    </script>
 </body>
 </html>

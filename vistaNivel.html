@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habímate | Fin del curso</title>
+    <title>Habímate | Curso</title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/enviarComentarioDesign.css">
+    <link rel="stylesheet" href="CSS/listaNivelesDesign.css">
 </head>
 <body>
     <!--Navegador-->
@@ -22,7 +22,7 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Inicio</a>
+                        <a class="nav-link" href="#">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -44,31 +44,34 @@
 
     <!-- Cuerpo -->
     <div class="container-fluid">
-        <h1 id="idSubtitulo">¡ Felicitaciones !</h1>
-        <div class="form-box container-fluid">
-            <form method="GET" action="diploma.html">
-                <h4>Has terminado el curso...</h4>
-                <div>Por favor, dejanos tu opinion y a continuación podrás obtener tu diploma</div>
-                <div>
-                    <div id="idInputs" class="inputbox">
-                        <label for="fcomentario">Comentarios</label>
-                        <textarea rows="4" id="txtComentario" name="txtComentario" 
-                        placeholder="Cuentanos como fue tu experiencia..."></textarea>
-                    </div>
-                    <div id="idInputs" class="inputbox">
-                        <label for="fcalif">Calificación</label>
-                        <select name="calif" id="idCalif" class="btn" style="margin-left: 0px;" required>
-                            <option value="1">&#11088;</option>
-                            <option value="2">&#11088; &#11088;</option>
-                            <option value="3">&#11088; &#11088; &#11088;</option>
-                            <option value="4">&#11088; &#11088; &#11088; &#11088;</option>
-                            <option value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                        </select>
-                    </div>
-                    <button id="btnEnviar" type="submit">Enviar reseña</button>
+
+        <h1 id="idSubtitulo">Curso: Nombre del Curso</h1>
+        <div class="row" id="idMain">
+            <div id="videoNivel">
+                <a id="btnRegresar" href="listaNiveles.html" class="btn">
+                    <img src="Images/regresar.png" alt="">
+                </a>
+                <div id="bordeVideo">
+                <video width="800" height="450" src="videos/videoCualquiera.mp4" 
+                type="video/mp4" controls paused id="idVideo">
+                    Tu navegador no soporta la etiqueta 'video'
+                </video>
                 </div>
-            </form>
+            </div>
+
+            <div class="col-11" id="tituloNivel">
+                <h2>Comencemos</h2>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <div id="infoInstructor">
+                        <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
+                        <span>Nombre de Usuario</span>
+                    </div>
+                </div>
+            </div>
         </div>
+
     </div>
     
     <!-- Footer -->
@@ -78,5 +81,12 @@
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
+    <script>
+        document.getElementById('idVideo').addEventListener('ended',handler,false);
+        function handler(e) {
+            // Al terminar el nivel, el usuario será enviado a otra ventana
+            window.location.href = "enviarComentario.html";
+        }
+    </script>
 </body>
 </html>

@@ -22,17 +22,17 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link active" href="#">Inicio</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                        <a class="nav-link" href="estudiante.html">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Chat</a>
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Cerrar Sesión</a>
@@ -42,7 +42,7 @@
         </div>
     </nav>
    <div class="cuerpo">
-    <div class="dashboard">
+    <div class="col-8" id="dashboard">
         <h1>Inscribete a...</h1>
         <div class="courses">
             <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500" data-publisher="Fatima">
@@ -94,19 +94,28 @@
         <div class="modal-content">
             <h2 id="modal-title"></h2>
             <img id="modal-image" src="" alt="Imagen del Curso">
-            <p id="modal-category"></p>
             <p id="modal-description"></p>
+            <p id="modal-category"></p>
             <p id="modal-price"></p>
             <p id="modal-publisher"></p>
+            <a href="infoCurso.html">
+                <button id="btnCurso" type="button">Ver curso</button>
+            </a>
         </div>
     </div>
 
     <!-- Busqueda -->
 
-    <div class="Busqueda">
+    <div class="col-3" id="Busqueda">
         <h3>Filtros</h3>
 
         <form id="idFiltros">
+            <h5>Busqueda</h5>
+            <div class="buscar-curso">
+                <div id="idInputs" class="inputbox">
+                    <input id="txtCategory" name="txtCategory" type="text" placeholder="Curso de...">
+                </div>
+            </div>
             <h5>Fecha de publicación</h5>
             <div class="fechas">
                 <div id="idInputs" class="inputbox">
@@ -127,9 +136,6 @@
                         <label class="form-check-label" for="cbCursoGeneral">
                             Categoría 1
                         </label>
-                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                            <img src="Images/info.png" alt="Información de la categoría">
-                        </button>
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -138,9 +144,6 @@
                         <label class="form-check-label" for="cbCursoGeneral">
                             Categoría 2
                         </label>
-                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                            <img src="Images/info.png" alt="Información de la categoría">
-                        </button>
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -149,9 +152,6 @@
                         <label class="form-check-label" for="cbCursoGeneral">
                             Categoría 3
                         </label>
-                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                            <img src="Images/info.png" alt="Información de la categoría">
-                        </button>
                     </div>
                 </li>
                 <li class="list-group-item">
@@ -160,9 +160,6 @@
                         <label class="form-check-label" for="cbCursoGeneral">
                             Categoría 4
                         </label>
-                        <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                            <img src="Images/info.png" alt="Información de la categoría">
-                        </button>
                     </div>
                 </li>
             </ul>
@@ -171,34 +168,6 @@
                 <button type="submit">Filtrar</button>
             </a>
         </form>
-
-        <!-- Modal de las Categorias-->
-        <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Categoría: Nombre de la Categoría</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <img src="Images/cerrar.png" alt="">
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                        </p>
-                    </div>
-                    <div class="modal-footer justify-content-between">
-                        <label>Nombre de usuario</label>
-                        <div>
-                            <label>DD/MMM/AAA</label>
-                            <label>00:00</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
    </div>
         
