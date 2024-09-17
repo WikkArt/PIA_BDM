@@ -22,17 +22,17 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Inicio</a>
+                        <a class="nav-link active" href="#">Inicio</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="estudiante.html">Perfíl</a>
+                        <a class="nav-link" href="estudiante.html">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Chat</a>
+                        <a class="nav-link" href="tablaChats.html">Chat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Cerrar Sesión</a>
@@ -98,6 +98,9 @@
             <p id="modal-description"></p>
             <p id="modal-price"></p>
             <p id="modal-publisher"></p>
+            <a href="editarUsuario.html">
+                <button id="btnCurso" type="button">Ver curso</button>
+            </a>
         </div>
     </div>
 
@@ -107,6 +110,12 @@
         <h3>Filtros</h3>
 
         <form id="idFiltros">
+            <h5>Busqueda</h5>
+            <div class="buscar-curso">
+                <div id="idInputs" class="inputbox">
+                    <input id="txtCategory" name="txtCategory" type="text" placeholder="Curso de...">
+                </div>
+            </div>
             <h5>Fecha de publicación</h5>
             <div class="fechas">
                 <div id="idInputs" class="inputbox">
