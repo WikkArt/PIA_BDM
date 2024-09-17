@@ -1,0 +1,244 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans-Italic";
+    src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+}
+
+:root{
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --amarillo-nacho: rgb(255, 145, 77);
+    --amarillo-claro: rgb(248, 223, 147);
+    --morado-oscuro: rgb(36, 33, 174);
+    --lila: rgb(174, 170, 254);
+    --beige: rgb(252, 209, 203);
+    --beige-oscuro: rgb(209, 159, 154);
+}
+
+html, body{
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Navegador */
+
+#idNav{
+    background-color: var(--morado-principal);
+    box-shadow: 0 0 10px var(--morado-secundario);
+    font-family: 'Trebuchet MS';
+}
+
+#btnLogo{
+    background: none;
+    border: none;
+    margin: -3px 5px 5px 10px;
+}
+
+#idNavLinks{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#idNavLinks a.nav-link.active{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--beige);
+    border-bottom: 2px var(--beige) solid;
+    padding-bottom: 2px;
+}
+
+a.nav-link{
+    font-size: 20px;
+    color: white;
+}
+
+a.nav-link:hover{
+    color: var(--beige);
+}
+
+div.container-fluid{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
+
+/* Contenedor */
+.container-fluid{
+    flex: 1;
+}
+
+/* Info del usuario */
+
+#idUsuarioInfo{
+    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-secundario) 100%);
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
+
+#idAvatarSample{
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-block: 15px;
+}
+
+li.destacado{
+    font-family: "Righteous";
+}
+
+#idUsuarioInfo span{
+    font-size: 25px;
+    color: var(--lila);
+    font-family: "JosefinSans";
+}
+
+/* Subtitulo */
+#idSubtitulo{
+    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
+    text-align: center;
+    color: white;
+}
+
+/* Tabla */
+#idTabla{
+    display: flex;
+    justify-content: center;
+    max-height: 70vh;
+}
+
+table{
+    overflow-y: auto;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-block: 12px;
+    margin-inline: 20px;
+}
+
+table .header-1{
+    width: 20vw;
+}
+
+table .header-2{
+    width: 20vw;
+}
+
+table .header-4{
+    width: 15vw;
+}
+
+th{
+    background-color: var(--morado-oscuro);
+    color: white;
+    font-size: 20px;
+}
+
+td{
+    background-color: var(--lila);
+    font-size: 18px;
+}
+
+tr td{
+    transition: 100ms all;
+}
+
+tr:nth-child(even) td {
+    background-color: var(--morado-principal);
+    color: rgb(209, 206, 255);
+}
+
+tr:hover td{
+    background-color: var(--beige);
+    color: var(--morado-principal);
+}
+
+tr:nth-child(even):hover td{
+    background-color: var(--amarillo-nacho);
+    color: var(--morado-secundario)
+}
+
+th, td{
+    padding-inline: 20px;
+    padding-block: 10px;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+.primerColumna{
+    background-color: var(--beige);
+}
+
+.primerColumna img{
+    width: 230px;
+    background-size: cover;
+    border-radius: 15px;
+}
+
+tr:nth-child(even) .primerColumna {
+    background-color: var(--amarillo-nacho);
+}
+
+/* Botones */
+
+.columna-botones button{
+    border-radius: 10px;
+    margin-inline: 12px;
+    margin-block: 5px;
+    border: none;
+    padding-inline: 10px;
+    padding-block: 5px;
+    color: white;
+    border: 1px var(--morado-principal) solid;
+}
+
+.columna-botones .eliminar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, rgb(197, 69, 69) 100%);
+}
+
+.columna-botones .editar{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+}
+
+/* Footer */
+iframe{
+    width: 100% !important;
+    height: auto !important;
+    border: none;
+}
+
+.footer {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 10px;
+    border: none;
+}
+
+iframe.footer {
+    width: 100%;
+    height: auto;
+    border: none;
+}

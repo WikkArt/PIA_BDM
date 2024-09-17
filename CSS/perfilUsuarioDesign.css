@@ -205,7 +205,59 @@ h5{
 }
 
 #idFiltros .categorias .list-group-item:first-child{
-    margin-top: -8px;
+    margin-top: -7px;
+}
+
+/* Modal de Info */
+
+#btnInfoCategoria{
+    background-color: transparent;
+    border-radius: 50%;
+    border: none;
+    padding: 0;
+}
+
+#btnInfoCategoria img{
+    width: 25px;
+    margin-left: 5px;
+}
+
+#idCategoriaModal .modal-content{
+    background: linear-gradient( to bottom, var(--amarillo-claro) 0%, var(--amarillo-nacho) 60%);
+    border: none;
+    color: white;
+}
+
+h5.modal-title{
+    margin-inline: -30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, var(--morado-principal) 100%);
+    color: white;
+}
+
+.modal-header button{
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background-color: brown;
+}
+
+.modal-header img{
+    width: 20px;
+    margin-top: -3px;
+}
+
+.modal-footer{
+    font-family: "JosefinSans-Italic";
+}
+
+.modal-footer div{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 1em;
 }
 
 /* Filtros (Instructor) */

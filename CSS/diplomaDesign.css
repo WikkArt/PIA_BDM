@@ -1,0 +1,93 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+:root {
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --morado-oscuro: rgb(36, 33, 174);
+    --morado-claro: rgb(205, 200, 255); 
+    --amarillo-decorativo: rgb(255, 223, 186);
+}
+
+body {
+    background-color: var(--morado-oscuro);
+    font-family: 'Trebuchet MS', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.diploma-container {
+    background-color: var(--morado-claro);
+    color: white;
+    border-radius: 15px;
+    padding: 50px;
+    text-align: center;
+    width: 70%;
+    max-width: 900px;
+    box-shadow: 0 15px 30px rgba(31, 51, 71, 0.5);
+    position: relative;
+    border: 10px solid var(--morado-principal); 
+}
+
+.diploma-container .border {
+    padding: 30px;
+    border: 5px solid var(--amarillo-decorativo); 
+    border-radius: 10px;
+}
+
+.diploma-container h1 {
+    font-family: "Righteous", cursive;
+    font-size: 45px;
+    color: var(--morado-principal);
+    margin-bottom: 15px;
+}
+
+.line-decorator {
+    width: 60%;
+    height: 2px;
+    background-color: var(--amarillo-decorativo);
+    margin: 20px auto;
+}
+
+.diploma-container .subtitle {
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.diploma-container h2 {
+    font-size: 40px;
+    margin: 20px 0;
+    color: var(--amarillo-decorativo); 
+}
+
+.diploma-container .description {
+    font-size: 22px;
+    margin: 10px 0;
+}
+
+.diploma-container h3 {
+    font-size: 30px;
+    margin: 10px 0;
+    color: var(--morado-secundario);
+}
+
+.diploma-container .footer {
+    font-size: 18px;
+    margin-top: 30px;
+}
+
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logo img {
+    width: 80px;
+    height: auto;
+}
