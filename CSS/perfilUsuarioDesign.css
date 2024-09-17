@@ -24,7 +24,7 @@
     --beige-oscuro: rgb(209, 159, 154);
 }
 
-html, body{
+html, body{ 
     margin: 0;
     padding: 0;
     height: 100%;
@@ -147,6 +147,7 @@ input[type="checkbox"]:checked{
 }
 
 /* Subtitulos y contenedores */
+
 h3{
     background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
     text-align: center;
