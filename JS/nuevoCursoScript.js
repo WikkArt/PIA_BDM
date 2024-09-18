@@ -57,29 +57,38 @@ $(document).ready(function(){
         var pdf = $('#').val();
         var txt = $("#").val();
         var imagenExtra = $('#').val();
-        var videoExra = $('#').val();
+        var videoExtra = $('#').val();
 
         if(fotoPromo == ""){
-            alert("No hay ninguna imagen en el campo '', por favor escríbalo.");
+            alert("No hay ninguna imagen en el campo 'Foto Promocional', por favor suba una.");
+            return false;
+        }else if(categoria == ""){
+            alert("No se ha llenado el campo 'Categoría', por favor escoja uno.");
             return false;
         }else if(nombreCurso == ""){
-            alert("No se ha llenado el campo '', por favor escríbalo.");
+            alert("No se ha llenado el campo 'Nombre del curso', por favor escríbalo.");
             return false;
         }else if(descripcion == ""){
-            alert("No se ha llenado el campo '', por favor escríbalo.");
+            alert("No se ha llenado el campo 'Descripción', por favor escríbalo.");
+            return false;
+        }else if(videoNivel1 == ""){
+            alert("No hay ningún video en el campo 'Video del nivel 1', por favor suba uno.");
+            return false;
+        }else if(precio == ""){
+            alert("No se ha llenado el campo 'Precio', por favor escríbalo.");
             return false;
         }
 
         console.log("Foto Promocional: " + nombreNivel);
-        console.log("Categoría: " + );
-        console.log("Nombre del curso: " + );
-        console.log("Descripción: " + );
-        console.log("Video del nivel 1: " + );
-        console.log("Nombre del nivel 1: " + );
-        console.log("Precio: " + );
-        console.log("PDF: " + );
-        console.log("TXT: " + );
-        console.log("Imagen extra: " + );
-        console.log("Video extra: " + );
+        console.log("Categoría: " + categoria);
+        console.log("Nombre del curso: " + nombreCurso);
+        console.log("Descripción: " + descripcion);
+        console.log("Video del nivel 1: " + videoNivel1);
+        console.log("Nombre del nivel 1: " + nombreNivel);
+        console.log("Precio: " + precio);
+        console.log("PDF: " + pdf);
+        console.log("TXT: " + txt);
+        console.log("Imagen extra: " + imagenExtra);
+        console.log("Video extra: " + videoExtra);
     });
 });
