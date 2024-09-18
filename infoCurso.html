@@ -51,9 +51,6 @@
                 <li class="list-group-item destacado">
                     <h1 class="text">Nombre del curso </h1>
                 </li>
-                <li class="list-group-item secundario"></li>
-                    Decripción
-                </li>
                 <li class="list-group-item secundario">
                     Categoria 1
                 </li>
@@ -64,19 +61,38 @@
             </ul>
         </div>
         <h1 id="idSubtitulo">Información</h1>
-
-        <div class="valoración">
+        <!--DESCRIPCION-->
+        <div id="derecha">
+            <div>
+                <h3>Descripción</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                </p>
+            </div>
+            <div>
+                <h3>Niveles</h3>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                </p>
+            </div>
+            
+        </div>
+        
+        <!--VALORACION-->
+        <div class="valoracion">
             <h3>Valoración</h3>
             <span value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</span>
         </div>
         <!--COMENTARIOS-->
         <div class="Comentacios">
             <div class="chat">
-                <div class="chat-header"></div>
-                    <h3>
-                        Comentarios
-                    </h3>
-                </div>
+                <h3>
+                    Comentarios
+                </h3>
                 <div class="chat-messages overflow-auto">
                     <div id="idChatMensaje" class="message message-usuario-1">
                         <img id="idAvatar1" src="Images/avatarSample.png" 
@@ -98,13 +114,27 @@
                             <label class="hour"> 01/01/24 00:00</label>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
         
 
     </div>
-    
+    <div class="chicos">
+        <div>
+            <h3>Costo de curso: $000</h3>
+        </div>
+        <div>
+            
+            <h3>Promedio de calificación global: 78%</h3>
+        
+        </div>      
+    </div>
+    <button href="dashboard.html" id="btnPago" class="col-2" type="button">
+        <img src="Images/inscribir_icon.png" width="160px"/> 
+    </button>
+
     <!-- Footer -->
     <footer>
         <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
