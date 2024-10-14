@@ -141,7 +141,14 @@ h5{
 #idFiltros .fechas{
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 5px;
+}
+
+.fechas .inputbox {
+    flex: 1;
+    min-width: 40%;
 }
 
 .fechas input{
@@ -150,6 +157,8 @@ h5{
     border: none;
     font-weight: 100px;
     margin-bottom: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .fechas input:focus{

@@ -98,7 +98,7 @@
                         <textarea class="form-control" id="txtDesc" name="txtDesc" rows="8"></textarea>
                     </div>
                     
-                    <button id="btnCrearCurso" type="submit">Crear Curso</button>
+                    <button id="btnCurso" type="submit">Crear Curso</button>
                 </div>
 
                 <div class="col-5 nivel">
@@ -133,9 +133,29 @@
                             <h2>Archivos adicionales <span>(Opcional)</span></h2>
 
                             <div class="archivos">
+                                <div class="link-mas">
+                                    <div class="col">
+                                        <label class="subtitle">Link(s) a una página externa</label>
+
+                                        <div id="idInputs" class="inputbox link">
+                                            <input type="text" id="txtLink" name="txtLink">
+                                        </div>
+                                    </div>
+
+                                    <button id="btnAgregarLink" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Link">
+                                    </button>
+                                </div>
+                                
                                 <div class="pdf-txt">
                                     <div>
-                                        <label class="subtitle">PDF</label>
+                                        <div class="subtitle-mas">
+                                            <label class="subtitle">PDF(s)</label>
+                                            <button id="btnAgregarPDF" type="button" class="btn btn-primary">
+                                                <img src="Images/agregar.png" alt="Agregar PDF">
+                                            </button>
+                                        </div>
+                                        
                                         <table id="idTablaPDF">
                                             <tr>
                                                 <td>
@@ -146,7 +166,13 @@
                                     </div>
                                     
                                     <div>
-                                        <label class="subtitle">TXT</label>
+                                        <div class="subtitle-mas">
+                                            <label class="subtitle">TXT(s)</label>
+                                            <button id="btnAgregarTXT" type="button" class="btn btn-primary">
+                                                <img src="Images/agregar.png" alt="Agregar TXT">
+                                            </button>
+                                        </div>
+                                        
                                         <table id="idTablaTXT">
                                             <tr>
                                                 <td>
@@ -157,7 +183,13 @@
                                     </div>
                                 </div>
 
-                                <label class="subtitle">Imagen</label>
+                                <div class="subtitle-mas">
+                                    <label class="subtitle">Imagen(es)</label>
+                                    <button id="btnAgregarImagen" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Imagen">
+                                    </button>
+                                </div>
+
                                 <table>
                                     <tr>
                                         <th>Opción</th>
@@ -176,7 +208,12 @@
                                     </tr>
                                 </table>
 
-                                <label class="subtitle">Video</label>
+                                <div class="subtitle-mas">
+                                    <label class="subtitle">Video(s)</label>
+                                    <button id="btnAgregarVideo" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Video">
+                                    </button>
+                                </div>
                                 <table>
                                     <tr>
                                         <th>Opción</th>
@@ -197,7 +234,6 @@
                                     </tr>
                                 </table>
                             </div>
-                            
                             
                         </div>
                     </div>
@@ -232,9 +268,29 @@
                             <h2>Archivos adicionales <span>(Opcional)</span></h2>
 
                             <div class="archivos">
+                                <div class="link-mas">
+                                    <div class="col">
+                                        <label class="subtitle">Link(s) a una página externa</label>
+
+                                        <div id="idInputs" class="inputbox link">
+                                            <input type="text" id="txtLink" name="txtLink">
+                                        </div>
+                                    </div>
+
+                                    <button id="btnAgregarLink" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Link">
+                                    </button>
+                                </div>
+                                
                                 <div class="pdf-txt">
                                     <div>
-                                        <label class="subtitle">PDF</label>
+                                        <div class="subtitle-mas">
+                                            <label class="subtitle">PDF(s)</label>
+                                            <button id="btnAgregarPDF" type="button" class="btn btn-primary">
+                                                <img src="Images/agregar.png" alt="Agregar PDF">
+                                            </button>
+                                        </div>
+                                        
                                         <table id="idTablaPDF">
                                             <tr>
                                                 <td>
@@ -245,7 +301,13 @@
                                     </div>
                                     
                                     <div>
-                                        <label class="subtitle">TXT</label>
+                                        <div class="subtitle-mas">
+                                            <label class="subtitle">TXT(s)</label>
+                                            <button id="btnAgregarTXT" type="button" class="btn btn-primary">
+                                                <img src="Images/agregar.png" alt="Agregar TXT">
+                                            </button>
+                                        </div>
+                                        
                                         <table id="idTablaTXT">
                                             <tr>
                                                 <td>
@@ -256,7 +318,13 @@
                                     </div>
                                 </div>
 
-                                <label class="subtitle">Imagen</label>
+                                <div class="subtitle-mas">
+                                    <label class="subtitle">Imagen(es)</label>
+                                    <button id="btnAgregarImagen" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Imagen">
+                                    </button>
+                                </div>
+
                                 <table>
                                     <tr>
                                         <th>Opción</th>
@@ -275,7 +343,12 @@
                                     </tr>
                                 </table>
 
-                                <label class="subtitle">Video</label>
+                                <div class="subtitle-mas">
+                                    <label class="subtitle">Video(s)</label>
+                                    <button id="btnAgregarVideo" type="button" class="btn btn-primary">
+                                        <img src="Images/agregar.png" alt="Agregar Video">
+                                    </button>
+                                </div>
                                 <table>
                                     <tr>
                                         <th>Opción</th>
@@ -297,10 +370,13 @@
                                 </table>
                             </div>
                             
-                            
                         </div>
                     </div>
                     
+                    <button id="btnAgregarNivel" type="button" class="btn btn-primary">
+                        <img src="Images/agregarMorado.png" alt="Agregar Nivel">
+                        <h3>Agregar otro nivel</h3>
+                    </button>
                 </div>
 
             </div>
