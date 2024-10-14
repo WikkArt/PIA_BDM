@@ -12,6 +12,7 @@
     font-family: "JosefinSans-Italic";
     src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
 }
+
 :root{
     --morado-principal: rgb(99, 95, 237);
     --morado-secundario: rgb(67, 71, 208);
@@ -78,6 +79,7 @@ div.container-fluid{
     display: flex; 
     align-items: flex-start; 
 }
+
 #dashboard {
     margin: 20px;
     padding: 20px;
@@ -85,6 +87,7 @@ div.container-fluid{
     border-radius: 20px;
     background-color: var(--beige);
 }
+
 #Busqueda{    
     margin: 20px;
     padding: 20px;
@@ -103,21 +106,8 @@ h1 {
 .courses {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
-}
-.course p {
-    font-family: "JosefinSans";
-    font-size: 18px;
-    margin-bottom: -5px;
-}
-.course h2 {
-    margin-top: 10px;
-    font-family: "Righteous";
-    font-size: 19px;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    max-width: 19ch;
+    justify-content: center;
+    gap: 2em;
 }
 
 .course {
@@ -130,6 +120,22 @@ h1 {
     text-align: center;
 }
 
+.course h2 {
+    margin-top: 10px;
+    font-family: "Righteous";
+    font-size: 19px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 19ch;
+}
+
+.course p {
+    font-family: "JosefinSans";
+    font-size: 18px;
+    margin-bottom: -5px;
+}
+
 .course img {
     width: 240px;
     border-radius: 5px;
@@ -138,42 +144,85 @@ h1 {
 .course:hover {
     background-color: var(--morado-oscuro);
 }
+
 /*Modal de curso*/
-.modal {
+#idModalDashboard.modal {
     display: none;
     position: fixed;
-    z-index: 1;
+    z-index: 1100;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
     background-color: rgba(0,0,0,0.5);
+    word-wrap: break-word; 
 }
-.modal img {
-    width: 500px;
+
+.modal.dashboard img {
+    width: 100%;
     padding: 20px;
+    object-fit: cover;
     border-radius: 30px;
 }
-.modal-content h2 {
-    color: var(--morado-secundario);
-}
-.modal-content {
+
+.dashboard .modal-content {
     background-color: var(--beige)!important;
     text-align: center;
     margin: 2% auto;
     padding: 30px;
-    border: 1px solid #888;
+    border: none;
     width: 70%;
     max-width: 570px;
 }
-.modal-content p{
-    font-style: "JosefinSans-Italic";
+
+.dashboard .modal-content h2{
+    font-family: "Righteous";
+    color: var(--morado-secundario);
+}
+
+.dashboard .modal-content p{
+    font-family: "JosefinSans-Italic";
     font-size: 20px;
+    font-weight: 350;
+    padding-block: 5px;
+    padding-inline: 15px;
     color: var(--morado-oscuro);
     background-color: #ffff;
     border-radius: 30px;
 }
+
+#modal-description{
+    font-family: "JosefinSans";
+}
+
+.dashboard .category-price{
+    display: flex;
+    justify-content: space-between;
+}
+
+.dashboard .category-price p{
+    font-size: 18px;
+}
+
+#modal-publisher::before{
+    content: 'Publicado por: ';
+}
+
+#modal-category::before{
+    content: 'Categoría: ';
+}
+
+#modal-price::before{
+    content: 'Precio: ';
+}
+
+#modal-publisher::before,
+#modal-category::before,
+#modal-price::before{
+    font-weight: 600;
+}
+
 #btnCurso{
     background-color: var(--morado-secundario);
     color: var(--beige);
@@ -188,14 +237,16 @@ h1 {
 #btnCurso:hover{
     background-color: var(--morado-principal);
 }
-.close {
+
+.dashboard .close {
     color: #aaa;
     float: right;
     font-size: 28px;
     font-weight: bold;
 }
-.close:hover,
-.close:focus {
+
+.dashboard .close:hover,
+.dashboard .close:focus {
     color: black;
     text-decoration: none;
     cursor: pointer;
@@ -238,16 +289,16 @@ h5{
     padding-block: 10px;
     font-family: "JosefinSans-Italic";
 }
-#idInputs label, .subtitle{
+
+#idInputs label{
     display: block;
-    font-size: 20px;
+    font-size: 18px;
     margin-left: 10px;
-    margin-top: 8px;
+    margin-top: -4px;
 }
 
-#idInputs input, #idInputs textarea{
+#idInputs input{
     border-radius: 15px;
-    margin: 5px;
     width: 100%;
     padding-block: 5px;
     padding-inline: 10px;
@@ -259,6 +310,11 @@ h5{
     background-color: beige;
     outline: none;
 }
+
+#idInputs input:first-child{
+    margin-bottom: 8px;
+}
+
 /* Filtro de fechas */
 #idFiltros .fechas{
     flex-direction: row;
@@ -306,13 +362,13 @@ h5{
     margin-left: 5px;
 }
 
-#idCategoriaModal .modal-contentt{
+#idCategoriaModal .modal-content{
     background: linear-gradient( to bottom, var(--amarillo-claro) 0%, var(--amarillo-nacho) 60%);
     border: none;
     color: white;
 }
 
-h5.modal-title{
+#idCategoriaModal h5.modal-title{
     margin-inline: -30px;
     border-top-left-radius: 10px;
     border-bottom-left-radius: 10px;
@@ -320,7 +376,7 @@ h5.modal-title{
     color: white;
 }
 
-.modal-header button{
+#idCategoriaModal .modal-header button{
     width: 35px;
     height: 35px;
     border: none;
@@ -328,16 +384,16 @@ h5.modal-title{
     background-color: brown;
 }
 
-.modal-header img{
+#idCategoriaModal .modal-header img{
     width: 20px;
     margin-top: -3px;
 }
 
-.modal-footer{
+#idCategoriaModal .modal-footer{
     font-family: "JosefinSans-Italic";
 }
 
-.modal-footer div{
+#idCategoriaModal .modal-footer div{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -362,6 +418,7 @@ h5.modal-title{
     border: none;
     color: white;
 }
+
 #idEliminarModal h5.modal-title{
     background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, brown 100%);
 }
@@ -374,7 +431,6 @@ h5.modal-title{
     background: linear-gradient(to left top, var(--morado-secundario) 0%, rgb(197, 69, 69) 100%);
 }
 
-
 #idCategoriaG{
     display: flex;
     justify-content: center;
@@ -386,6 +442,7 @@ h5.modal-title{
     border-radius: 15px;
     padding-inline: 10px;
     padding-block: 5px;
+    margin-top: 3px;
     border: none;
     font-size: 20px;
     transition: 150ms all;
@@ -396,7 +453,7 @@ h5.modal-title{
     color: var(--morado-oscuro);
 }
 
-/* Footer*/
+/* Footer */
 iframe{
     width: 100% !important;
     height: auto !important;
@@ -408,6 +465,13 @@ iframe{
     overflow: hidden;
     margin-bottom: 0 !important;
     padding-bottom: 0 !important;
-    margin-top: 20px;
+    margin-top: 10px;
     border: none;
 }
+
+iframe.footer {
+    width: 100%;
+    height: auto;
+    border: none;
+}
+

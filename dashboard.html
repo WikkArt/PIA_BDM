@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habimate</title>
-    <link rel="stylesheet" href="CSS/dashboard.css">
+    <link rel="stylesheet" href="CSS/dashboardDesign.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
 <body>
@@ -41,139 +41,188 @@
             </div>
         </div>
     </nav>
-   <div class="cuerpo">
-    <div class="col-8" id="dashboard">
-        <h1>Inscribete a...</h1>
-        <div class="courses">
-            <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500" data-publisher="Fatima">
-                <img src="Images/curso.jpg" alt=" ">
-                <h2>Administración de tareas</h2>
-                <p>Administración</p>
+
+    <!-- Cuerpo -->
+    <div class="cuerpo">
+        <div class="col-8" id="dashboard">
+            <h1>Inscribete a...</h1>
+            <div class="courses">
+                <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500.00 MXN" data-publisher="Fatima">
+                    <img src="Images/curso.jpg" alt=" " class="img-fluid">
+                    <h2>Administración de tareas</h2>
+                    <p>Administración</p>
+                </div>
+                <div class="course" data-description="meteteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" data-price="$75.00 MXN" data-publisher="Gerardo">
+                    <img src="Images/curso.jpg" alt=" " class="img-fluid">
+                    <h2>Curso super padriuris metete</h2>
+                    <p>Superduper</p>
+                </div>
+                <div class="course" data-description="Te lo dije" data-price="$5000.00 MXN" data-publisher="Andrea">
+                    <img src="Images/cursos.jpg" alt=" " class="img-fluid">
+                    <h2>No entres, está caro</h2>
+                    <p>Tumba</p>
+                </div>
+                <div class="course" data-description="Aki aprenderas a jakiar bien chido claro que lles" data-price="$50.00 MXN" data-publisher="Jazmin">
+                    <img src="Images/cursos.jpg" alt=" " class="img-fluid">
+                    <h2>Komo ser jaker profesional</h2>
+                    <p>jakeo10%real</p>
+                </div>
+                <div class="course" data-description="Primero ve la forma de evaluación" data-price="$0.00 MXN" data-publisher="Daniela">
+                    <img src="Images/curso.jpg" alt=" " class="img-fluid">
+                    <h2>Todo lo que tienes que saber para pasar BDM</h2>
+                    <p>LMAD</p>
+                </div>
+                <div class="course" data-description="" data-price="$100.00 MXN" data-publisher="Andrea">
+                    <img src="Images/cursos.jpg" alt=" " class="img-fluid">
+                    <h2>Cómo picar un tomate en dados</h2>
+                    <p>Gastronomia</p>
+                </div>
+                <div class="course" data-description="En 6ta con Villa:>" data-price="$10000.00 MXN" data-publisher="Gerardo">
+                    <img src="Images/cursos.jpg" alt=" " class="img-fluid">
+                    <h2>Como pasar MAD</h2>
+                    <p>LMAD</p>
+                </div>
+                <div class="course" data-description="Sé Daniela" data-price="$....00 MXN" data-publisher="Daniela">
+                    <img src="Images/curso.jpg" alt=" " class="img-fluid">
+                    <h2>Aprende a ser buen maestro</h2>
+                    <p>Docencia</p>
+                </div>
             </div>
-            <div class="course" data-description="meteteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" data-price="$75" data-publisher="Gerardo">
-                <img src="Images/curso.jpg" alt=" ">
-                <h2>Curso super padriuris metete</h2>
-                <p>Superduper</p>
-            </div>
-            <div class="course" data-description="Te lo dije" data-price="$5000" data-publisher="Andrea">
-                <img src="Images/cursos.jpg" alt=" " >
-                <h2>No entres, está caro</h2>
-                <p>Tumba</p>
-            </div>
-            <div class="course" data-description="Aki aprenderas a jakiar bien chido claro que lles" data-price="$50" data-publisher="Jazmin">
-                <img src="Images/cursos.jpg" alt=" " >
-                <h2>Komo ser jaker profesional</h2>
-                <p>jakeo10%real</p>
-            </div>
-            <div class="course" data-description="Primero ve la forma de evaluación" data-price="$0" data-publisher="Daniela">
-                <img src="Images/curso.jpg" alt=" " >
-                <h2>Todo lo que tienes que saber para pasar BDM</h2>
-                <p>LMAD</p>
-            </div>
-            <div class="course" data-description="" data-price="$100" data-publisher="Andrea">
+        </div>
+
+        <div id="idModalDashboard" class="modal dashboard">
+            <span class="close">×</span>
+            <div class="modal-content">
+                <h2 id="modal-title"></h2>
+                <img id="modal-image" src="" alt="Imagen del Curso">
+                <p id="modal-description"></p>
+                <p id="modal-publisher"></p>
                 
-                <img src="Images/cursos.jpg" alt=" " >
-                <h2>Cómo picar un tomate en dados</h2>
-                <p>Gastronomia</p>
+                <div class="category-price">
+                    <p id="modal-category"></p>
+                    <p id="modal-price"></p>
+                </div>
+                
+                <a href="infoCurso.html">
+                    <button id="btnCurso" type="button">Ver curso</button>
+                </a>
             </div>
-            <div class="course" data-description="En 6ta con Villa:>" data-price="$10000" data-publisher="Gerardo">
-                <img src="Images/cursos.jpg" alt=" " >
-                <h2>Como pasar MAD</h2>
-                <p>LMAD</p>
-            </div>
-            <div class="course" data-description="Sé Daniela" data-price="$..." data-publisher="Daniela">
-                <img src="Images/curso.jpg" alt=" " >
-                <h2>Aprende a ser buen maestro</h2>
-                <p>Docencia</p>
+        </div>
+
+        <!-- Busqueda -->
+        <div class="col-3" id="Busqueda">
+            <h3>Filtros</h3>
+
+            <form id="idFiltros">
+                <h5>Búsqueda</h5>
+                <div class="buscar-curso">
+                    <div id="idInputs" class="inputbox">
+                        <input id="txtBuscar" name="txtBuscar" type="text" placeholder="Curso de...">
+                    </div>
+                </div>
+
+                <h5>Fecha de publicación</h5>
+                <div class="fechas">
+                    <div id="idInputs" class="inputbox">
+                        <label for="fdate">Desde: </label> 
+                        <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                    </div>
+                    <div id="idInputs" class="inputbox">
+                        <label for="fdate">Hasta: </label> 
+                        <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                    </div>
+                </div>
+
+                <h5>Categorías</h5>
+                <ul class="categorias list-group list-group-flush">
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Categoría 1
+                            </label>
+                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                                <img src="Images/info.png" alt="Información de la categoría">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Categoría 2
+                            </label>
+                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                                <img src="Images/info.png" alt="Información de la categoría">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Categoría 3
+                            </label>
+                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                                <img src="Images/info.png" alt="Información de la categoría">
+                            </button>
+                        </div>
+                    </li>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Categoría 4
+                            </label>
+                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                                <img src="Images/info.png" alt="Información de la categoría">
+                            </button>
+                        </div>
+                    </li>
+                </ul>
+                
+                <a id="idCategoriaG">
+                    <button type="submit">Filtrar</button>
+                </a>
+            </form>
+
+            <!-- Modal de las Categorias-->
+            <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
+                <div class="modal-dialog modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Categoría: Nombre de la Categoría</h5>
+                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                <img src="Images/cerrar.png" alt="">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            </p>
+                        </div>
+                        <div class="modal-footer justify-content-between">
+                            <label>Nombre de usuario</label>
+                            <div>
+                                <label>DD/MMM/AAA</label>
+                                <label>00:00</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
-    <div id="modal" class="modal">
-        <span class="close">×</span>
-        <div class="modal-content">
-            <h2 id="modal-title"></h2>
-            <img id="modal-image" src="" alt="Imagen del Curso">
-            <p id="modal-description"></p>
-            <p id="modal-category"></p>
-            <p id="modal-price"></p>
-            <p id="modal-publisher"></p>
-            <a href="infoCurso.html">
-                <button id="btnCurso" type="button">Ver curso</button>
-            </a>
-        </div>
-    </div>
-
-    <!-- Busqueda -->
-
-    <div class="col-3" id="Busqueda">
-        <h3>Filtros</h3>
-
-        <form id="idFiltros">
-            <h5>Busqueda</h5>
-            <div class="buscar-curso">
-                <div id="idInputs" class="inputbox">
-                    <input id="txtCategory" name="txtCategory" type="text" placeholder="Curso de...">
-                </div>
-            </div>
-            <h5>Fecha de publicación</h5>
-            <div class="fechas">
-                <div id="idInputs" class="inputbox">
-                    <label for="fdate">Desde: </label> 
-                    <input type="date" id="txtDateFromG" name="txtDateFromG"/>
-                </div>
-                <div id="idInputs" class="inputbox">
-                    <label for="fdate">Hasta: </label> 
-                    <input type="date" id="txtDateFromG" name="txtDateFromG"/>
-                </div>
-            </div>
-
-            <h5>Categorías</h5>
-            <ul class="categorias list-group list-group-flush">
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        <label class="form-check-label" for="cbCursoGeneral">
-                            Categoría 1
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        <label class="form-check-label" for="cbCursoGeneral">
-                            Categoría 2
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        <label class="form-check-label" for="cbCursoGeneral">
-                            Categoría 3
-                        </label>
-                    </div>
-                </li>
-                <li class="list-group-item">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                        <label class="form-check-label" for="cbCursoGeneral">
-                            Categoría 4
-                        </label>
-                    </div>
-                </li>
-            </ul>
-            
-            <a id="idCategoriaG">
-                <button type="submit">Filtrar</button>
-            </a>
-        </form>
-    </div>
-   </div>
         
     <!-- Footer -->
-    <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    <footer>
+        <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
+    </footer>
 
+    <!-- Archivos externos -->
+    <script src="JS/bootstrap.min.js"></script>
     <script src="JS/dashboard.js"></script>
 </body>
 </html>

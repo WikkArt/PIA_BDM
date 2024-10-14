@@ -1,15 +1,15 @@
 /*MODAL CURSO*/
 document.addEventListener('DOMContentLoaded', () => {
-    const modal = document.getElementById('modal');
+    const modal = document.getElementById('idModalDashboard');
     document.querySelector('.courses').addEventListener('click', (event) => {
         const course = event.target.closest('.course');
         if (course) {
             document.getElementById('modal-title').innerText = course.querySelector('h2').innerText;
             document.getElementById('modal-description').innerText = course.dataset.description;
             document.getElementById('modal-image').src = course.querySelector('img').src;
-            document.getElementById('modal-category').innerText = `Categoría: ${course.querySelector('p').innerText}`;
-            document.getElementById('modal-price').innerText = `Precio: ${course.dataset.price}`;
-            document.getElementById('modal-publisher').innerText = `Publicado por: ${course.dataset.publisher}`;
+            document.getElementById('modal-category').innerText = course.querySelector('p').innerText;
+            document.getElementById('modal-price').innerText = course.dataset.price;
+            document.getElementById('modal-publisher').innerText = course.dataset.publisher;
             modal.style.display = 'block';
         }
     });
@@ -26,4 +26,4 @@ document.addEventListener('DOMContentLoaded', () => {
 /*MODAL CATEGORIA*/
 $('#idCategoriaModal').on('shown.bs.modal', function () {
     $('#idCategoriaModal').trigger('focus')
-  })
+})
