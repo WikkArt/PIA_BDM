@@ -3,17 +3,28 @@
     src: url("../Fonts/Righteous-Regular.ttf");
 }
 
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans-Italic";
+    src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+}
+
 :root {
     --morado-principal: rgb(99, 95, 237);
     --morado-secundario: rgb(67, 71, 208);
     --morado-oscuro: rgb(36, 33, 174);
     --morado-claro: rgb(205, 200, 255); 
     --amarillo-decorativo: rgb(255, 223, 186);
+    --beige-oscuro: rgb(209, 159, 154);
 }
 
 body {
-    background-color: var(--morado-oscuro);
-    font-family: 'Trebuchet MS', sans-serif;
+    background: radial-gradient(circle, var(--beige-oscuro) 0%, var(--morado-oscuro) 100%);
+    font-family: 'JosefinSans';
     display: flex;
     justify-content: center;
     align-items: center;
@@ -21,30 +32,47 @@ body {
     margin: 0;
 }
 
+/* Diploma */
+
 .diploma-container {
     background-color: var(--morado-claro);
     color: white;
     border-radius: 15px;
-    padding: 50px;
+    padding-inline: 50px;
+    padding-block: 40px;
     text-align: center;
     width: 70%;
     max-width: 900px;
-    box-shadow: 0 15px 30px rgba(31, 51, 71, 0.5);
+    box-shadow: 0 15px 20px rgba(31, 51, 71, 0.2);
     position: relative;
     border: 10px solid var(--morado-principal); 
 }
 
 .diploma-container .border {
     padding: 30px;
+    margin: 15px;
     border: 5px solid var(--amarillo-decorativo); 
     border-radius: 10px;
 }
 
+.logo {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.logo img {
+    width: 120px;
+    height: auto;
+    margin-top: -12px;
+}
+
 .diploma-container h1 {
-    font-family: "Righteous", cursive;
+    font-family: "Righteous";
     font-size: 45px;
-    color: var(--morado-principal);
+    color: var(--morado-secundario);
     margin-bottom: 15px;
+    margin-top: 10px;
 }
 
 .line-decorator {
@@ -60,9 +88,10 @@ body {
 }
 
 .diploma-container h2 {
+    font-family: "JosefinSans-Italic";
     font-size: 40px;
     margin: 20px 0;
-    color: var(--amarillo-decorativo); 
+    color: var(--morado-principal); 
 }
 
 .diploma-container .description {
@@ -72,22 +101,69 @@ body {
 
 .diploma-container h3 {
     font-size: 30px;
-    margin: 10px 0;
+    margin: 20px 0 10px 0;
     color: var(--morado-secundario);
 }
 
 .diploma-container .footer {
-    font-size: 18px;
-    margin-top: 30px;
+    font-family: "JosefinSans-Italic";
+    font-size: 23px;
+    margin-top: 20px;
+    color: var(--morado-principal);
 }
 
-.logo {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+#nombre-instructor {
+    font-family: "JosefinSans-Italic";
+    font-size: 20px;
+    margin: 10px 0;
+    color: white;
+    font-weight: 400;
 }
 
-.logo img {
-    width: 80px;
-    height: auto;
+#nombre-instructor ~ p{
+    color: var(--morado-principal);
+    font-weight: 500;
+}
+
+.line-signature {
+    width: 40%;
+    height: 1px;
+    background-color: var(--amarillo-decorativo);
+    margin: 0 auto;
+}
+
+/* Botones */
+.diploma-botones{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 4em;
+    margin-left: 4em;
+    align-items: center;
+}
+
+.diploma-botones button{
+    background-color: var(--morado-secundario);
+    border-radius: 20px;
+    padding-inline: 15px;
+    padding-block: 10px;
+    margin-top: -10px;
+    border: none;
+    color: white;
+    font-size: 25px;
+    width: max-content;
+    transition: all 200ms;
+    cursor: pointer;
+}
+
+.diploma-botones button:hover{
+    background-color: var(--morado-oscuro);
+}
+
+.diploma-botones > button{
+    background-color: rgb(179, 62, 56);
+}
+
+.diploma-botones > button:hover{
+    background-color: brown;
 }

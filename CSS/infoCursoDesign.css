@@ -24,8 +24,14 @@
     --beige-oscuro: rgb(209, 159, 154);
 }
 
-html, body{ 
+html, body{
+    margin: 0;
+    padding: 0;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
     padding-top: 37px;
 }
 
@@ -72,22 +78,27 @@ a.nav-link:hover{
     color: var(--beige);
 }
 
+div.container-fluid{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
 
-/* Info del usuario */
+/* Info del curso */
 
 #idCursoInfo{
-    
-    background-color: var(--morado-oscuro);
+    background: linear-gradient(to left top, var(--morado-oscuro) 0%, var(--morado-secundario) 100%);
+    color: white;
     display: flex;
     flex-direction: row;
     align-items: center;
-    color: #fff;
+    padding-top: 18px;
+    padding: 30px;
 }
-#idAvatarSample{
-    width: 200px;
-    height: 200px;
+
+#idFotoPromoSample{
+    height: 350px;
     object-fit: cover;
-    margin-block: 15px;
+    border-radius: 20px;
 }
 
 li.destacado{
@@ -96,82 +107,64 @@ li.destacado{
 
 li.secundario{
     font-family: "JosefinSans-Italic";
+    font-size: 20px;
 }
 
-li.botones a:link{
-    text-decoration: none;
+li.secundario.categoria{
+    color:var(--lila);
 }
 
+.lista-desc{
+    margin-top: 15px;
+}
 
-/* Subtitulo */
-#idSubtitulo{
-    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
-    text-align: center;
+.lista-desc li{
+    font-size: 15px;
     color: white;
-    font-size: 25px
-}
-.chicos div{
-    margin-bottom: 20px;
-    background-color: var(--morado-secundario);
-    padding: 20px;
-    border-radius: 20px;
-    color: #fff;
-    text-align: center;
-    float: top;
-    display: flex;
-    max-width: 40%;
 }
 
-#btnPago {
-    margin-bottom: 20px;
-    background-color: var(--morado-secundario);
+/* Cuerpo */
+
+#idInformacion{
     padding: 20px;
-    border-radius: 20px;
-    color: #fff;
-    text-align: center;
-    float: right;
-    display: flex;
-    max-width: 40%;
 }
-#derecha div{
-    margin-bottom: 20px;
-    background-color: var(--morado-secundario);
-    padding: 20px;
-    border-radius: 20px;
-    color: #fff;
-    text-align: center;
-    float: right;
-    max-width: 63%;
-}
+
+/* Col Izquierda */
+
 .valoracion{
     margin-bottom: 20px;
-    background-color: var(--morado-secundario);
+    background-color: var(--amarillo-nacho);
     padding: 20px;
     text-align: center;
-    max-width: 35%;
     border-radius: 20px;
     color: #fff;
-}
-/* Caja de mensajes */
-.chat h3{
-    background-color: var(--morado-secundario);
-    padding: 20px;
-    max-width: 35%;
-    color: #fff;
-    border-radius: 20px;
-    text-align: center;
-}
-.chat-messages{
-    margin-bottom: 20px;
-    background-color:#fff4bb;
-    padding-block: 12px;
-    padding-inline: 20PX;
-    height: 30vh;
-    font-size: 15px;
-    width: 35%;
 }
 
-.chat-messages img{
+/* Caja de comentarios */
+.Comentarios{
+    background-color:#fff4bb;
+    border-radius: 15px;
+}
+
+.Comentarios h3{
+    background: radial-gradient(circle, var(--morado-secundario) 0%, var(--morado-oscuro) 90%);
+    padding: 20px;
+    color: #fff;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+    text-align: center;
+}
+
+.comment-messages{
+    height: 40vh;
+    padding-block: 15px;
+    padding-inline: 10px;
+    overflow-x: hidden;
+    font-size: 15px;
+    width: 100%;
+}
+
+.comment-messages img{
     width: 65px;
     height: 65px;
     object-fit: cover;
@@ -181,11 +174,11 @@ li.botones a:link{
     font-family: "Righteous";
 }
 
-#idChatMensaje{
+#idComment{
     display: flex;
 }
 
-#idChatMensaje .hour-message{
+#idComment .hour-message{
     display: flex;
     flex-direction: column;
     margin-inline: 10px;
@@ -206,26 +199,122 @@ li.botones a:link{
 .hour-message .text{
     border-radius: 20px;
     word-wrap: break-word;
+    width: fit-content;
     padding-block: 10px;
     padding-inline: 15px;
-    max-width: 22vw;
+}
+
+.c-datos-boton{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#idBorrarComentario{
+    height: max-content;
+    padding-inline: 5px;
+    padding-block: 6px;
+    border-radius: 10px;
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, rgb(197, 69, 69) 100%);
+    color: white;
+    border: none;
+}
+
+#idBorrarComentario:hover{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, brown 100%);
 }
 
 .message-usuario-1 .text{
     background-color: var(--beige);
 }
 
-.message-usuario-2{
+
+/* Col Derecha */
+#derecha{
     display: flex;
-    justify-content: end;
+    flex-direction: column;
+    align-items: center;
 }
 
-.message-usuario-2 .text{
-    background-color: var(--amarillo-claro);
+#idSubtitulo{
+    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
+    text-align: center;
+    color: white;
+    width: 100%;
 }
 
-.message-usuario-2 .user-2, .message-usuario-2 .hour{
-    text-align: end;
+/* Tabla */
+
+table{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow-y: auto;
+}
+
+th{
+    background-color: var(--morado-oscuro);
+    color: white;
+    font-size: 22px;
+}
+
+td{
+    background-color: var(--lila);
+    font-size: 18px;
+}
+
+tr td{
+    transition: 100ms all;
+}
+
+tr:nth-child(even) td {
+    background-color: var(--morado-principal);
+    color: rgb(209, 206, 255);
+}
+
+tr:hover td{
+    background-color: var(--beige);
+    color: var(--morado-principal);
+}
+
+th, td{
+    padding-inline: 15px;
+    padding-block: 7px;
+}
+
+td:first-child,
+th:first-child {
+  border-radius: 30px 0 0 30px;
+}
+td:last-child,
+th:last-child {
+  border-radius: 0 30px 30px 0;
+}
+
+input[type="checkbox"]:checked{
+    background-color: var(--amarillo-nacho);
+    border: none;
+    outline: none;
+}
+
+#idTablaTotal{
+    margin-top: 10px;
+}
+
+#btnPago{
+    background-color: var(--morado-secundario);
+    color: #fff;
+    padding: 5px;
+    border: none;
+    border-radius: 20px;
+    margin-top: 20px;
+    text-align: center;
+    transition: all 200ms;
+}
+
+#btnPago:hover{
+    background-color: var(--morado-oscuro);
 }
 
 /* Footer */

@@ -1,7 +1,7 @@
 /*MODAL CURSO*/
 document.addEventListener('DOMContentLoaded', () => {
     const modal = document.getElementById('idModalDashboard');
-    document.querySelector('.courses').addEventListener('click', (event) => {
+    document.getElementById('dashboard').addEventListener('click', (event) => {
         const course = event.target.closest('.course');
         if (course) {
             document.getElementById('modal-title').innerText = course.querySelector('h2').innerText;

@@ -32,7 +32,7 @@
                         <a class="nav-link active" href="estudiante.html">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                        <a class="nav-link" href="tablacomments.html">comment</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="login.html">Cerrar Sesión</a>
@@ -45,95 +45,148 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idCursoInfo">
-            <img id="idAvatarSample" src="Images/curso.jpg" 
-            class="rounded-circle" alt="Avatar">
+            <img id="idFotoPromoSample" src="Images/ImagenCurso.png" alt="Foto promocional del curso">
             <ul>
                 <li class="list-group-item destacado">
                     <h1 class="text">Nombre del curso </h1>
                 </li>
                 <li class="list-group-item secundario">
-                    Categoria 1
-                </li>
-                <li class="list-group-item secundario">
                     Nombre del instructor
                 </li>
-                
+                <li class="list-group-item secundario categoria">
+                    Categoria: 1
+                </li>
+                <div class="lista-desc">
+                    <li class="list-group-item secundario">
+                        <h3>Descripción</h3>
+                    </li>
+                    <li class="list-group-item secundario">
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
+                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
+                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        </p>
+                    </li>
+                </div>
             </ul>
         </div>
-        <h1 id="idSubtitulo">Información</h1>
-        <!--DESCRIPCION-->
-        <div id="derecha">
-            <div>
-                <h3>Descripción</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
-            </div>
-            <div>
-                <h3>Niveles</h3>
-                <p>
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                    nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                </p>
-            </div>
+
+        <div id="idInformacion" class="row">
+            <div id="izquierda" class="col-5">
+                <!--VALORACION-->
+                <div class="valoracion">
+                    <h3>Promedio de calificación global: 78%</h3>
+                </div>
+                <!--COMENTARIOS-->
+                <div class="Comentarios">
+                    <h3>Comentarios</h3>
+
+                    <div class="comment-messages">
+                        <div id="idComment" class="message message-usuario-1">
+                            <img id="idAvatar" src="Images/avatarSample.png" class="rounded-circle">
             
-        </div>
-        
-        <!--VALORACION-->
-        <div class="valoracion">
-            <h3>Valoración</h3>
-            <span value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</span>
-        </div>
-        <!--COMENTARIOS-->
-        <div class="Comentacios">
-            <div class="chat">
-                <h3>
-                    Comentarios
-                </h3>
-                <div class="chat-messages overflow-auto">
-                    <div id="idChatMensaje" class="message message-usuario-1">
-                        <img id="idAvatar1" src="Images/avatarSample.png" 
-                        class="rounded-circle">
-        
-                        <div class="hour-message">
-                            <label class="user-1">Nombre de Usuario 1</label>
-                            <label class="text">Me sirvió mucho! super recomendado</label>
-                            <label class="hour"> 01/01/24 00:00</label>
+                            <div class="hour-message">
+                                <div class="c-datos-boton">
+                                    <label class="user-1">Nombre de Usuario 1 
+                                        <span id="estrellasCalif" value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</span>
+                                    </label>
+
+                                    <button id="idBorrarComentario">Borrar Comentario</button>
+                                </div>
+                                
+                                <label class="text">Me sirvió mucho! super recomendado WEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE</label>
+                                <label class="hour"> 01/01/24 00:00</label>
+                            </div>
                         </div>
-                    </div>
-                    <div id="idChatMensaje" class="message message-usuario-1">
-                        <img id="idAvatar1" src="Images/avatarSample.png" 
-                        class="rounded-circle">
-        
-                        <div class="hour-message">
-                            <label class="user-1">Nombre de Usuario 2</label>
-                            <label class="text">Muchas gracias, no aprendí nada</label>
-                            <label class="hour"> 01/01/24 00:00</label>
+
+                        <div id="idComment" class="message message-usuario-1">
+                            <img id="idAvatar" src="Images/avatarSample.png" class="rounded-circle">
+            
+                            <div class="hour-message">
+                                <div class="c-datos-boton">
+                                    <label class="user-1">Nombre de Usuario 2
+                                        <span id="estrellasCalif" value="5" selected>&#11088;</span>
+                                    </label>
+
+                                    <button id="idBorrarComentario">Borrar Comentario</button>
+                                </div>
+                                
+                                <label class="text">Muchas gracias, no aprendí nada</label>
+                                <label class="hour"> 01/01/24 00:00</label>
+                            </div>
                         </div>
+                        
                     </div>
-                    
                 </div>
             </div>
+
+            <div id="derecha" class="col-7">
+                <h2 id="idSubtitulo">Niveles</h2>
+
+                <div class="level">
+                    <table>
+                        <tr>
+                            <th>Selección</th>
+                            <th>Nivel</th>
+                            <th>Nombre</th>
+                            <th>Precio</th>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
+                            </td>
+                            <td>1</td>
+                            <td>Nombre del nivel</td>
+                            <td>$00.00 MXN</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
+                            </td>
+                            <td>2</td>
+                            <td>Nombre del nivel</td>
+                            <td>$00.00 MXN</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
+                            </td>
+                            <td>3</td>
+                            <td>Nombre del nivel</td>
+                            <td>$00.00 MXN</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
+                            </td>
+                            <td>4</td>
+                            <td>Nombre del nivel</td>
+                            <td>$00.00 MXN</td>
+                        </tr>
+                    </table>
+
+                    <table id="idTablaTotal">
+                        <tr>
+                            <th>
+                                <input class="form-check-input" type="checkbox" id="chbCurso" value="">
+                            </th>
+                            <th>CURSO COMPLETO: </th>
+                            <th>$000.00 MXN</th>
+                        </tr>
+                    </table>
+                </div>
+
+                <a href="pago.html">
+                    <button id="btnPago" type="button">
+                        <img src="Images/inscribir_icon.png" width="160px"/> 
+                    </button>
+                </a>
+            </div>
+
         </div>
-        
 
     </div>
-    <div class="chicos">
-        <div>
-            <h3>Costo de curso: $000</h3>
-        </div>
-        <div>
-            
-            <h3>Promedio de calificación global: 78%</h3>
-        
-        </div>      
-    </div>
-    <button href="dashboard.html" id="btnPago" class="col-2" type="button">
-        <img src="Images/inscribir_icon.png" width="160px"/> 
-    </button>
 
     <!-- Footer -->
     <footer>
@@ -142,6 +195,7 @@
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
-    <script src="JS/perfilIUsuarioScript.js"></script>
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/infoCursoScript.js"></script>
 </body>
 </html>

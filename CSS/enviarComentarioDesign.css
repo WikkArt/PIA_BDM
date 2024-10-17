@@ -92,23 +92,54 @@ div.container-fluid{
     color: white;
 }
 
-#idMain{
-    background: radial-gradient(circle, rgba(252, 209, 203, 0.66) 0%, var(--morado-secundario) 100%);
-    height: max-content;
-    border-radius: 40px;
-    padding-inline: 30px;
-    padding-block: 20px;
+/* Formulario con cometario y calificacion*/
+
+.form-box{
+    width: 45%;
 }
 
-/* Formulario con cometario y calificacion*/
-form{
+.form-info{
     text-align: center;
+    font-family: "JosefinSans-Italic";
+}
+
+.form-info h3{
+    font-family: "Righteous";
+}
+
+.form-info, .form-calif{
     background: radial-gradient(circle, rgba(209,159,154,0.6) 0%, rgba(67, 71, 208,0.7) 100%);
     box-shadow: 0 7px 10px rgba(31, 51, 71, 0.5);
     color: white;
-    padding: 30px;
+    padding-inline: 30px;
+    padding-block: 18px;
     border-radius: 20px;
-    width: 40%;
+    height: max-content;
+    margin-bottom: 15px;
+}
+
+.user-calif{
+    margin-bottom: 10px;
+}
+
+.c-left{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.c-left img{
+    width: 90px;
+}
+
+.c-left h5{
+    margin-left: 10px;
+}
+
+.c-right{
+    display: flex;
+    flex-direction: column;
+    align-items: end;
 }
 
 #idInputs label, .subtitle{
@@ -135,6 +166,7 @@ form{
 
 #idCalif{
     background-color: var(--morado-secundario);
+    padding-block: 10px;
 }
 
 #idCalif:hover, #idCalif:active{

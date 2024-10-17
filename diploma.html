@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diploma</title>
+    <title>Habímate | Diploma</title>
     <link rel="stylesheet" href="CSS/diplomaDesign.css">
 </head>
 <body>
@@ -13,32 +13,33 @@
         </div>
         <div class="border">
             <h1>Certificado de Finalización</h1>
+            
             <div class="line-decorator"></div>
+
             <p class="subtitle">Este diploma es otorgado a</p>
             <h2 id="nombre-usuario">[Nombre del Usuario]</h2>
             <p class="description">Por haber completado exitosamente el curso</p>
             <h3 id="nombre-curso">[Nombre del Curso]</h3>
+
             <div class="line-decorator"></div>
+
             <p class="footer">Fecha de finalización: <span id="fecha-finalizacion">[Fecha]</span></p>
+
+            <h3 id="nombre-instructor">[Nombre del Instructor]</h3>
+            <div class="line-signature"></div>
+            <p class="description">Instructor(a)</p>
         </div>
     </div>
+    
+    <div class="diploma-botones">
+        <button onclick="guardarDiploma()">Guardar como PDF</button>
+        <a href="dashboard.html">
+            <button>Volver al Inicio</button>
+        </a>
+    </div>
 
-    <button onclick="guardarPDF()">Guardar como PDF</button>
-
-    <script src="https://raw.githack.com/eKoopmans/html2pdf/master/dist/html2pdf.bundle.js"></script>
-    <script>
-        function guardarPDF() {
-            const options = {
-                margin: 1,
-                filename: 'diploma.pdf',
-                image: { type: 'jpeg', quality: 0.98 },
-                html2canvas: { scale: 2 },
-                jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-            };
-            const diploma = document.getElementById('diploma');
-            html2pdf().from(diploma).set(options).save();
-        }
-    </script>
+    <script src="JS/html2pdf.bundle.js"></script>
+    <script src="JS/diplomaScript.js"></script>
 </body>
 </html>
 

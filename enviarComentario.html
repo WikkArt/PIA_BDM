@@ -45,25 +45,37 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <h1 id="idSubtitulo">¡ Felicitaciones !</h1>
-        <div class="form-box container-fluid">
+        <div class="form-box">
             <form method="GET" action="diploma.html">
-                <h4>Has terminado el curso...</h4>
-                <div>Por favor, dejanos tu opinion y a continuación podrás obtener tu diploma</div>
-                <div>
-                    <div id="idInputs" class="inputbox">
-                        <label for="fcomentario">Comentarios</label>
-                        <textarea rows="4" id="txtComentario" name="txtComentario" 
-                        placeholder="Cuentanos como fue tu experiencia..."></textarea>
+                <div class="form-info">
+                    <h3>Has terminado el curso (Nombre del curso)</h3>
+                    <p>Por favor, dejanos tu opinión y a continuación podrás obtener tu diploma</p>
+                </div>
+
+                <div class="form-calif">
+                    <div class="user-calif row">
+                        <div class="c-left col-7">
+                            <img id="idAvatar" src="Images/avatarSample.png" 
+                            class="rounded-circle">
+                            <h5>Nombre de Usuario </h5>
+                        </div>
+
+                        <div class="c-right col-5">
+                            <h4 for="fcalif">Calificación</h4>
+                            <select name="calif" id="idCalif" class="btn" style="margin-left: 0px;" required>
+                                <option value="1">&#11088;</option>
+                                <option value="2">&#11088; &#11088;</option>
+                                <option value="3">&#11088; &#11088; &#11088;</option>
+                                <option value="4">&#11088; &#11088; &#11088; &#11088;</option>
+                                <option value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</option>
+                            </select>
+                        </div>
                     </div>
+
                     <div id="idInputs" class="inputbox">
-                        <label for="fcalif">Calificación</label>
-                        <select name="calif" id="idCalif" class="btn" style="margin-left: 0px;" required>
-                            <option value="1">&#11088;</option>
-                            <option value="2">&#11088; &#11088;</option>
-                            <option value="3">&#11088; &#11088; &#11088;</option>
-                            <option value="4">&#11088; &#11088; &#11088; &#11088;</option>
-                            <option value="5" selected>&#11088; &#11088; &#11088; &#11088; &#11088;</option>
-                        </select>
+                        <h4 for="fcomentario">Comentarios</h4>
+                        <textarea rows="5" id="txtComentario" name="txtComentario" 
+                        placeholder="Cuentanos cómo fue tu experiencia..."></textarea>
                     </div>
                     <button id="btnEnviar" type="submit">Enviar reseña</button>
                 </div>

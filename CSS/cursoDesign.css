@@ -168,7 +168,7 @@ a:link{
     gap: 3em;
 }
 
-.curso-nivel .col-6, .curso-nivel .col-5{
+.curso-nivel .col-6{
     margin-top: 15px;
     height: max-content;
 }
@@ -182,8 +182,13 @@ a:link{
 
 .curso-nivel .col-5{
     display: flex;
-    flex-wrap: wrap;
+    flex-direction: column;
+    margin-top: 15px;
+    max-height: 1000px;
     justify-content: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: 30px;
 }
 
 .header-1{
@@ -275,15 +280,14 @@ input.form-control:focus{
 
 /* Informacion del nivel */
 
-.nivel{
-    height: max-content;
-}
-
 #idNivelOverflow{
     overflow-y: auto;
     overflow-x: hidden;
+    width: 100%;
     max-height: 395px;
     margin-block: 12px;
+    margin-right: 10px;
+    padding-right: 20px;
 }
 
 #idNivelOverflow:first-child{
