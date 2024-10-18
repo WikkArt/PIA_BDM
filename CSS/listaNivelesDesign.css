@@ -25,6 +25,7 @@
 }
 
 html, body{
+    background: radial-gradient(circle, rgba(252, 209, 203, 0.66) 0%, var(--morado-secundario) 100%);
     margin: 0;
     padding: 0;
     height: 100%;
@@ -80,33 +81,21 @@ div.container-fluid{
     flex: 1;
 }
 
-/* Subtitulo */
-#idSubtitulo{
-    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
-    text-align: center;
-    color: white;
-}
+/* Cuerpo */
 
 #idMain{
-    background: radial-gradient(circle, rgba(252, 209, 203, 0.66) 0%, var(--morado-secundario) 100%);
-    height: max-content;
-    border-radius: 40px;
     padding-inline: 15px;
-}
-
-/* video del nivel */
-
-#videoNivel{
-    padding: 15px 45px;
-    display: flex;
-    justify-content: center;
+    padding-inline: 25px;
 }
 
 #btnRegresar{
+    display: flex;
+    align-items: center;
     background-color: var(--amarillo-nacho);
     border-radius: 10px;
-    height: 65px;
-    width: 65px;
+    border: none;
+    height: 50px;
+    width: max-content;
     cursor: pointer;
     padding: 5px;
     transition: 150ms all;
@@ -119,38 +108,38 @@ div.container-fluid{
 #btnRegresar img{
     display: flex;
     height: 100%;
-    width: 100%;
     object-fit: cover;
 }
 
-#bordeVideo{
-    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
-    padding: 10px;
-    border-radius: 20px;
-    margin-left: 55px;
+#btnRegresar span{
+    margin-left: 10px;
+    font-size: 18px;
+    color: beige;
 }
 
-#videoNivel video{
-    border-radius: 20px;
-}
-
-#tituloNivel{
-    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
+#idSubtitulo{
+    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
+    text-align: center;
     color: white;
-    border-radius: 20px;
-    margin-left: 25px;
-    padding-block: 15px;
-    padding-inline: 20px;
-    font-family: "JosefinSans";
-    height: max-content;
 }
 
+.listaNivelesHeaders{
+    margin-top: 25px;
+}
+
+h3 {
+    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
+    text-align: center;
+    font-family: "JosefinSans";
+    margin-left: 0px;
+}
+
+/* Col izquierda */
 /* Info del instructor */
 
 h3, #infoInstructor{
     color: white;
     border-radius: 20px;
-    margin-left: 25px;
     padding-block: 15px;
     padding-inline: 20px;
 }
@@ -162,7 +151,10 @@ h3, #infoInstructor{
 }
 
 #infoInstructor span{
-    margin-left: 25px;
+    font-family: "JosefinSans";
+    font-weight: 700;
+    font-size: 22px;
+    margin-left: 20px;
 }
 
 #idAvatarSample{
@@ -172,55 +164,12 @@ h3, #infoInstructor{
     margin-block: 15px;
 }
 
-/* lista niveles */
+/* Col centro */
+/* listaNiveles.html */
+
 #listaNiveles{
     display: grid;
 }
-
-.listaNivelesHeaders{
-    margin-top: 25px;
-}
-
-#info{
-    color: var(--morado-principal);
-    border-radius: 20px;
-    margin-left: 25px;
-    padding-block: 15px;
-    padding-inline: 20px;
-    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
-    margin-bottom: 12px;
-    margin-top: 25px;
-}
-
-h3 {
-    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
-    text-align: center;
-    font-family: "JosefinSans";
-    margin-left: 0px;
-}
-
-.NivelCompletado, .NivelCompletado:hover{
-    font-style: italic;
-    font-weight: bold;
-}
-
-.btn.ver{
-    font-size: 20px;
-    background: var(--lila);
-    color: white;
-    border: none;
-}
-
-.btn.ver:hover{
-    background: var(--morado-principal);
-    color: white;
-}
-/*
-.btn.ver:active{
-    background: linear-gradient(to left top, var(--lila) 0%, var(--morado-secundario) 100%);
-    transition: 150ms all;
-    color: white;
-} */
 
 table{
     display: flex;
@@ -264,6 +213,99 @@ th:first-child {
 td:last-child,
 th:last-child {
   border-radius: 0 30px 30px 0;
+}
+
+.NivelCompletado, .NivelCompletado:hover{
+    font-style: italic;
+    font-weight: bold;
+}
+
+.btn.ver{
+    font-size: 20px;
+    background: var(--lila);
+    color: white;
+    border: none;
+}
+
+.btn.ver:hover{
+    background: var(--morado-principal);
+    color: white;
+}
+
+/* Col derecha */
+
+#info{
+    font-family: "Righteous";
+    color: var(--morado-principal);
+    border-radius: 20px;
+    padding-block: 15px;
+    padding-inline: 20px;
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    margin-bottom: 12px;
+    margin-top: 25px;
+}
+
+.porcentaje-final a{
+    font-family: "JosefinSans";
+    display: flex;
+    justify-content: end;
+    font-size: 20px;
+}
+
+.porcentaje-final a:link{
+    text-decoration: none;
+}
+
+.porcentaje-final a button{
+    border-radius: 10px;
+    font-weight: 600;
+    background-color:beige;
+    color: var(--morado-principal);
+    border: none;
+    padding: 10px;
+    transition: all 200ms;
+}
+
+.porcentaje-final a button:hover{
+    background-color: var(--amarillo-claro);
+}
+
+/*
+.btn.ver:active{
+    background: linear-gradient(to left top, var(--lila) 0%, var(--morado-secundario) 100%);
+    transition: 150ms all;
+    color: white;
+} */
+
+/* vistaNivel.html */
+
+/* video del nivel */
+#videoNivel{
+    padding: 15px 45px;
+    display: flex;
+    justify-content: center;
+}
+
+#bordeVideo{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+    padding: 10px;
+    border-radius: 20px;
+    margin-left: 55px;
+}
+
+#videoNivel video{
+    border-radius: 20px;
+}
+
+#tituloNivel{
+    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
+    color: white;
+    border-radius: 20px;
+    margin-left: 25px;
+    padding-block: 15px;
+    padding-inline: 20px;
+    font-family: "JosefinSans";
+    height: max-content;
 }
 
 /* Footer */

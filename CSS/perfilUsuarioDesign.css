@@ -393,6 +393,21 @@ th:last-child {
     border: 1px var(--morado-principal) solid;
 }
 
+/* Tablas de estudiante */
+
+#btnAccesoCurso{
+    border-radius: 5px;
+    border: none;
+    background-color: var(--amarillo-nacho);
+    color: white;
+    padding-block: 3px;
+    padding-inline: 5px;
+}
+
+#btnAccesoCurso:hover{
+    background-color: rgb(235, 122, 61) ;
+}
+
 /* Tablas de instructores*/
 
 .columna-imagen img{

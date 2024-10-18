@@ -132,6 +132,7 @@ li.secundario.categoria{
 /* Col Izquierda */
 
 .valoracion{
+    font-family: "Righteous";
     margin-bottom: 20px;
     background-color: var(--amarillo-nacho);
     padding: 20px;
@@ -143,6 +144,7 @@ li.secundario.categoria{
 /* Caja de comentarios */
 .Comentarios{
     background-color:#fff4bb;
+    background: radial-gradient(circle, #fff4bb 0%, var(--amarillo-claro) 90%);
     border-radius: 15px;
 }
 
@@ -178,7 +180,7 @@ li.secundario.categoria{
     display: flex;
 }
 
-#idComment .hour-message{
+#idComment .hour-message, .deleted-message{
     display: flex;
     flex-direction: column;
     margin-inline: 10px;
@@ -224,10 +226,151 @@ li.secundario.categoria{
     background: linear-gradient(to left top, var(--amarillo-nacho) 0%, brown 100%);
 }
 
-.message-usuario-1 .text{
+.message .text{
+    background: radial-gradient(circle, var(--beige) 0%, rgba(174, 170, 254, 0.6) 100%);
     background-color: var(--beige);
 }
 
+/* Modal de eliminacion de comentarios */
+
+#idEliminarModal .modal-content{
+    background: linear-gradient( to bottom, var(--amarillo-nacho) 0%, var(--morado-secundario) 65%);
+    border: none;
+    color: white;
+}
+
+/* Modal Header */
+#idEliminarModal h5.modal-title{
+    background: linear-gradient(to left, rgba(99, 95, 237,0) 0%, var(--morado-principal) 100%);
+    font-family: "JosefinSans-Italic";
+    margin-inline: -30px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    padding-inline: 20px;
+    padding-block: 10px;
+    color: white;
+}
+
+.modal-header button{
+    width: 35px;
+    height: 35px;
+    border: none;
+    border-radius: 10px;
+    background-color: brown;
+}
+
+.modal-header img{
+    width: 20px;
+    margin-top: -3px;
+}
+
+/* Modal Body */
+
+#idEliminarModal .list-group-item{
+    border-color: var(--lila);
+
+}
+
+.list-reasons li{
+    display: flex;
+    background-color: transparent;
+}
+
+.list-reasons li input[type="radio"] {
+    width: 16px;
+    margin-right: 1em;
+    flex-shrink: 0;
+}
+
+.list-reasons li input[type="radio"]:checked{
+    background-color: var(--amarillo-nacho);
+    border: none;
+    outline: none;
+}
+
+.list-reasons li label{
+    font-family: "JosefinSans";
+    font-weight: 600;
+    color: white;
+    font-size: 18px;
+}
+
+.list-reasons li p{
+    font-size: 14px;
+    color: var(--beige);
+    margin-bottom: 0px;
+}
+
+/* Modal Footer */
+.modal-footer button{
+    padding-inline: 15px;
+    padding-block: 5px;
+    border-radius: 5px;
+    border: none;
+}
+
+.modal-footer .close{
+    background-color: beige;
+    color: var(--morado-principal);
+    transition: all 150ms;
+}
+
+.modal-footer .close:hover{
+    background-color: var(--amarillo-claro);
+}
+
+#btnEliminarComentario{
+    background: linear-gradient(to left top, rgb(197, 69, 69) 0%, var(--amarillo-nacho) 100%);
+    color: beige;
+}
+
+#btnEliminarComentario:hover{
+    background: linear-gradient(to left top, rgb(162, 41, 23) 0%, var(--amarillo-nacho) 100%);
+    color: beige;
+}
+
+#btnEliminarComentario:disabled{
+    background: linear-gradient(to left top, var(--morado-secundario) 0%, rgba(197, 69, 69, 0.6) 100%);
+    color: rgba(35, 33, 174, 0.6);
+}
+
+/* Comentarios eliminados */
+
+.deleted-message .delete{
+    border: 3px solid var(--amarillo-nacho);
+    background: radial-gradient(circle, rgba(248, 223, 147,0) 0%, rgba(255, 145, 77, 0.5) 90%);
+    color: brown;
+    border-radius: 20px;
+    word-wrap: break-word;
+    width: fit-content;
+    padding-block: 12px 10px;
+    padding-inline: 15px;
+}
+
+.deleted-message .delete h6{
+    font-family: "JosefinSans";
+    font-weight: 700;
+}
+
+.deleted-message .delete div{
+    display: flex;
+    flex-direction: column;
+    color: black;
+}
+
+.delete-reason::before{
+    content: "Motivo: ";
+}
+
+.delete-hour::before{
+    content: "Fecha de Eliminación: ";
+}
+
+.delete-reason::before,
+.delete-hour::before{
+    font-weight: bold;
+    color: brown;
+}
 
 /* Col Derecha */
 #derecha{
