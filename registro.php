@@ -5,7 +5,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $nombre_completo = $_POST['txtFullname'];
     $nombre_usuario = $_POST['txtUsername'];
     $correo = $_POST['txtEmail'];
-    $contrasena =$_POST['txtPassword'];
+    $contrasena = $_POST['txtPassword'];
     $fecha_nac = $_POST['ffechanacimiento'];
     $genero = isset($_POST['inlineRadioOptions']) ? $_POST['inlineRadioOptions'] : 'no binario';
 
@@ -38,12 +38,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $result = $conn->query("SELECT @resultado AS resultado")->fetch(PDO::FETCH_ASSOC);
 
         if ($result['resultado'] == 1) {
-            echo "Registro exitoso";
+            echo "<script>
+                    alert('Registro exitoso.');
+                    window.location.href = 'login.html';
+                  </script>";
         } else {
-            echo "Error: El nombre de usuario o el correo ya están registrados.";
+            echo "<script>
+                    alert('El nombre de usuario o el correo ya están registrados.');
+                    window.history.back();
+                  </script>";
         }
     } catch (PDOException $e) {
-        echo "Error al registrar el usuario: " . $e->getMessage();
+        echo "<script>
+                alert('Error al registrar el usuario: " . $e->getMessage() . "');
+                window.history.back();
+              </script>";
     }
 }
 ?>
