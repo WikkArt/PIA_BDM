@@ -42,7 +42,7 @@
     <!-- Cuerpo -->
     <div id="idRegister" class="form-box form-value container">
         <h1 class="text">Registro</h1>
-        <form method="GET">
+        <form method="POST" action="registro.php" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-6 col-md-4 avatar">
                     <img id="idAvatarSample" src="Images/avatarSample.png" 
@@ -91,16 +91,16 @@
                             <label class="subtitle">Género</label>
                             <div id="idRB" name="idRB">
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="RBH" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-                                    <label class="form-check-label" for="inlineRadio1">Hombre</label>
+                                    <input class="form-check-input" type="radio" id="RBH" name="inlineRadioOptions" value="hombre">
+                                    <label class="form-check-label" for="RBH">Hombre</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="RBM" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-                                    <label class="form-check-label" for="inlineRadio1">Mujer</label>
+                                    <input class="form-check-input" type="radio" id="RBM" name="inlineRadioOptions" value="mujer">
+                                    <label class="form-check-label" for="RBM">Mujer</label>
                                 </div>
                                 <div class="form-check form-check-inline">
-                                    <input class="form-check-input" type="radio" id="RBNB" name="inlineRadioOptions" id="inlineRadio3" value="option3" checked>
-                                    <label class="form-check-label" for="inlineRadio1">No binario</label>
+                                    <input class="form-check-input" type="radio" id="RBNB" name="inlineRadioOptions" value="no binario" checked>
+                                    <label class="form-check-label" for="RBNB">No binario</label>
                                 </div>
                             </div>
 
