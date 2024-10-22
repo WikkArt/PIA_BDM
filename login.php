@@ -22,7 +22,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $_SESSION['rol'] = $result['rol'];
 
             if ($result['rol'] == 'estudiante') {
-                header('Location: dashboard.html');
+                header('Location: estudiante.html');
             } elseif ($result['rol'] == 'instructor') {
                 header('Location: instructor.html');
             } elseif ($result['rol'] == 'admin') {
