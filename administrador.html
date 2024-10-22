@@ -45,30 +45,26 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
-            class="rounded-circle" alt="Avatar">
+            <img id="idAvatarSample" class="rounded-circle" alt="Avatar">
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text">Nombre de Usuario <span>(Administrador)</span></h1>
+                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
                 </li>
                 <li class="list-group-item destacado">
-                    <h2>ID: X</h2>
+                    <h2 class="text" id="nombre_completo">Nombre completo</h2>
                 </li>
                 <li class="list-group-item secundario">
-                    Correo: correo@gmail.com
+                    <p><strong>Correo:</strong> <span id="correo"></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    Fecha de nacimiento: XX/XX/XXXX
+                    <p><strong>Fecha de nacimiento:</strong> <span id="fecha_nac"></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    Género: Hombre/Mujer/No binario
+                    <p><strong>Género:</strong> <span id="genero"></span></p>
                 </li>
-                <li class="list-group-item botones">
+                <li class="list-group-item">
                     <a href="editarUsuario.html">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
-                    </a>
-                    <a href="nuevaCategoria.html">
-                        <button id="btnCategoria" type="button">Crear categoría</button>
                     </a>
                 </li>
             </ul>
@@ -188,6 +184,36 @@
     </footer>
 
     <!-- Archivos externos -->
+    <script>
+        function cargarPerfil() {
+            fetch('perfil.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                        window.location.href = 'login.html';
+                        return;
+                    }
+
+                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario} <span>(${data.rol})</span>`;
+                    document.getElementById('nombre_completo').innerHTML = `${data.nombre_completo}`;
+                    document.getElementById('correo').innerText = data.correo;
+                    document.getElementById('fecha_nac').innerText = data.fecha_nac;
+                    document.getElementById('genero').innerText = data.genero.charAt(0).toUpperCase() + data.genero.slice(1);
+
+                    const avatarImg = document.getElementById('idAvatarSample');
+                    if (data.foto) {
+                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
+                    } else {
+                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+        window.onload = cargarPerfil;
+    </script>
     <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>

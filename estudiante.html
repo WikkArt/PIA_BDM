@@ -48,10 +48,10 @@
             <img id="idAvatarSample" class="rounded-circle" alt="Avatar">
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text" id="nombre_completo">Nombre completo <span>(Rol)</span></h1>
+                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
                 </li>
                 <li class="list-group-item destacado">
-                    <h2 class="text" id="nombre_usuario">Nombre de Usuario</h2>
+                    <h2 class="text" id="nombre_completo">Nombre completo</h2>
                 </li>
                 <li class="list-group-item secundario">
                     <p><strong>Correo:</strong> <span id="correo"></span></p>
@@ -280,8 +280,8 @@
                         return;
                     }
 
-                    document.getElementById('nombre_completo').innerHTML = `${data.nombre_completo} <span>(${data.rol})</span>`;
-                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario}`;
+                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario} <span>(${data.rol})</span>`;
+                    document.getElementById('nombre_completo').innerHTML = `${data.nombre_completo}`;
                     document.getElementById('correo').innerText = data.correo;
                     document.getElementById('fecha_nac').innerText = data.fecha_nac;
                     document.getElementById('genero').innerText = data.genero.charAt(0).toUpperCase() + data.genero.slice(1);
