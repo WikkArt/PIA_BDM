@@ -1,30 +1,55 @@
 <?php
 session_start();
 
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
-    echo json_encode(['error' => 'No has iniciado sesión.']);
+if (!isset($_SESSION['usuario'])) {
+    header('Location: login.html');
     exit();
 }
 
-require_once 'db_connect.php';
+require_once 'db_connect.php'; 
 
 $nombre_usuario = $_SESSION['usuario'];
+$contrasena = $_POST['txtPassword'];
+$nombre_completo = $_POST['txtFullname'];
+$correo = $_POST['txtEmail'];
+$genero = $_POST['inlineRadioOptions'];
+$fecha_nac = $_POST['ffechanacimiento'];
+$rol = $_POST['idRol'];
+
+if ($_FILES['btnAvatar']['size'] > 0) {
+    $foto = file_get_contents($_FILES['btnAvatar']['tmp_name']);
+    $mime = $_FILES['btnAvatar']['type'];
+} else {
+    $foto = null;
+    $mime = null;
+}
 
 try {
-    $sql = "SELECT  nombre_usuario, contrasena, nombre_completo, correo, genero, fecha_nac, foto, mime, rol FROM usuario WHERE nombre_usuario = :nombre_usuario";
+    $sql = "CALL actualizar_usuario(:nombre_usuario, :contrasena, :nombre_completo, :correo, :genero, :fecha_nac, :foto, :mime, :rol)";
     $stmt = $conn->prepare($sql);
+    
     $stmt->bindParam(':nombre_usuario', $nombre_usuario);
+    $stmt->bindParam(':contrasena', $contrasena);
+    $stmt->bindParam(':nombre_completo', $nombre_completo);
+    $stmt->bindParam(':correo', $correo);
+    $stmt->bindParam(':genero', $genero);
+    $stmt->bindParam(':fecha_nac', $fecha_nac);
+    $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB);
+    $stmt->bindParam(':mime', $mime);
+    $stmt->bindParam(':rol', $rol);
+    
     $stmt->execute();
-    $userInfo = $stmt->fetch(PDO::FETCH_ASSOC);
 
-    if (!$userInfo) {
-        echo json_encode(['error' => 'No se encontró la información del usuario.']);
-        exit();
+    if ($rol == 'estudiante') {
+        header('Location: estudiante.html');
+    } elseif ($rol == 'instructor') {
+        header('Location: instructor.html');
+    } else {
+        header('Location: administrador.html');
     }
 
-    $userInfo['foto'] = $userInfo['foto'] ? base64_encode($userInfo['foto']) : null; 
-    echo json_encode($userInfo);
-
 } catch (PDOException $e) {
-    echo json_encode(['error' => 'Error en la base de datos: ' . $e->getMessage()]);
+    echo "<script>alert('Error: " . $e->getMessage() . "');</script>";
+    header('Location: editarUsuario.html');
 }
+?>
