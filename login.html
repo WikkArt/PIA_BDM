@@ -43,27 +43,24 @@
     <div id="idLogin" class="form-box form-value container" >
         <h1 class="text">Iniciar Sesión</h1>
 
-        <form method="GET">
+        <form method="POST" action="login.php">
             <div id="idInputs" class="inputbox">
                 <label for="fLUsername">Nombre de usuario</label>
-                <input id="txtUsername" name="txtUsername" type="text">
+                <input id="txtUsername" name="txtUsername" type="text" required>
             </div>
-
+        
             <div id="idInputs" class="inputbox">
                 <label for="fLPassword">Contraseña</label>
-                <input id="txtLPassword" name="txtLPassword" type="password">
+                <input id="txtLPassword" name="txtLPassword" type="password" required>
             </div>
-
+        
             <div id="idCheckbox">
                 <input type="checkbox"> Recordar contraseña
             </div>
-
-            <a>
-                <button id="btnLogin" type="submit" data-bs-toggle="modal" data-bs-target="#idBloquearModal">
-                    Ingresar
-                </button>
-            </a>
+        
+            <button id="btnLogin" type="submit">Ingresar</button>
         </form>
+        
 
         <!-- Modal de Bloqueo -->
         <div class="modal fade" id="idBloquearModal" tabindex="-1" role="dialog" aria-hidden="true">
