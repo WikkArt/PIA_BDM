@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habímate | Curso</title>
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
-    <link rel="stylesheet" href="CSS/listaNivelesDesign.css">
+    <link rel="stylesheet" href="CSS/vistaNivelDesign.css">
 </head>
 <body>
     <!--Navegador-->
@@ -46,30 +46,161 @@
     <div class="container-fluid">
 
         <h1 id="idSubtitulo">Curso: Nombre del Curso</h1>
-        <div class="row" id="idMain">
-            <div id="videoNivel">
-                <a id="btnRegresar" href="listaNiveles.html" class="btn">
-                    <img src="Images/regresar.png" alt="">
-                </a>
-                <div id="bordeVideo">
-                <video width="800" height="450" src="videos/videoCualquiera.mp4" 
-                type="video/mp4" controls paused id="idVideo">
-                    Tu navegador no soporta la etiqueta 'video'
-                </video>
-                </div>
-            </div>
 
-            <div class="col-11" id="tituloNivel">
-                <h2>Comencemos</h2>
-            </div>
-            <div class="row">
-                <div class="col-4">
-                    <div id="infoInstructor">
-                        <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
-                        <span>Nombre de Usuario</span>
+        <div id="idMain" class="row">
+
+            <a id="idRegresar" href="listaNiveles.html" class="btn">
+                <img src="Images/regresar.png" alt="">
+            </a>
+
+            <div id="videoNivel" class="col-7">
+                <div class="video-principal">
+                    <video id="idVideoPrincipal" src="videos/videoCualquiera.mp4" 
+                    type="video/mp4" controls paused id="idVideo">
+                        Tu navegador no soporta la etiqueta 'video'
+                    </video>
+                </div>
+
+                <div class="video-img-extras">
+                    <div class="panel-heading">
+                        <a data-bs-toggle="collapse" href="#collapseVideo">
+                            <h3 class="panel-title second-subtitle">
+                                Video(s) Adicional(es)
+                            </h3>
+                        </a>
+                    </div>
+
+                    <div id="collapseVideo" class="panel-collapse collapse">
+                        <div>
+                            <video id="idVideoExtra" src="#" 
+                            type="video/mp4" controls paused>
+                                Tu navegador no soporta la etiqueta 'video'
+                            </video>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="video-img-extras">
+                    <div class="panel-heading">
+                        <a data-bs-toggle="collapse" href="#collapseImg">
+                            <h3 class="panel-title second-subtitle">
+                                Imagen(es) Adicional(es)
+                            </h3>
+                        </a>
+                    </div>
+
+                    <div id="collapseImg" class="panel-collapse collapse">
+                        <div>
+                            <img id="idImagenExtra" src="Images/ImagenCursoMorado.png" alt="Imagen extra">
+                        </div>
+                        <div>
+                            <img id="idImagenExtra" src="Images/ImagenCursoMorado.png" alt="Imagen extra">
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <div id="idArchivosExtras" class="col-4">
+                <div class="level-instructor">
+                    <h2>Nivel 1: Comencemos</h2>
+                    <span>Nombre de Usuario</span>
+                </div>
+
+                <div>
+                    <h3>Contenido Adicional</h3>
+                    <div class="extra-content">
+                        <h4 class="second-subtitle">Link(s) externo(s)</h4>
+                        <table id="idTablaLink">
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        1
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtLink" name="txtLink" disabled>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        2
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="text" id="txtLink" name="txtLink" disabled>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <h4 class="second-subtitle">PDF(s)</h4>
+                        <table id="idTablaPDF">
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        1
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="file" accept=".pdf" disabled/>
+                                </td>
+                                <td>
+                                    <button id="btnDescargarPDF">Descargar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        2
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="file" accept=".pdf" disabled/>
+                                </td>
+                                <td>
+                                    <button id="btnDescargarPDF">Descargar</button>
+                                </td>
+                            </tr>
+                        </table>
+
+                        <h4 class="second-subtitle">TXT(s)</h4>
+                        <table id="idTablaTXT">
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        1
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="file" accept=".txt" disabled/>
+                                </td>
+                                <td>
+                                    <button id="btnDescargarTXT">Descargar</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="td-id">
+                                    <div>
+                                        2
+                                    </div>
+                                </td>
+                                <td>
+                                    <input type="file" accept=".txt" disabled/>
+                                </td>
+                                <td>
+                                    <button id="btnDescargarTXT">Descargar</button>
+                                </td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+
+                <button id="btnFinalNivel" disabled>
+                    Finalizar Nivel
+                </button>
+
+            </div>
+    
         </div>
 
     </div>
@@ -81,12 +212,7 @@
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
-    <script>
-        document.getElementById('idVideo').addEventListener('ended',handler,false);
-        function handler(e) {
-            // Al terminar el nivel, el usuario será enviado a otra ventana
-            window.location.href = "enviarComentario.html";
-        }
-    </script>
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/vistaNivelScript.js"></script>
 </body>
 </html>

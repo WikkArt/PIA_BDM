@@ -1,0 +1,309 @@
+@font-face {
+    font-family: "Righteous";
+    src: url("../Fonts/Righteous-Regular.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans";
+    src: url("../Fonts/JosefinSans-VariableFont_wght.ttf");
+}
+
+@font-face {
+    font-family: "JosefinSans-Italic";
+    src: url("../Fonts/JosefinSans-Italic-VariableFont_wght.ttf");
+}
+
+:root{
+    --morado-principal: rgb(99, 95, 237);
+    --morado-secundario: rgb(67, 71, 208);
+    --amarillo-nacho: rgb(255, 145, 77);
+    --amarillo-claro: rgb(248, 223, 147);
+    --morado-oscuro: rgb(36, 33, 174);
+    --lila: rgb(174, 170, 254);
+    --beige: rgb(252, 209, 203);
+    --beige-oscuro: rgb(209, 159, 154);
+}
+
+html, body{
+    background: radial-gradient(circle, rgba(252, 209, 203, 0.66) 0%, var(--morado-secundario) 100%);
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+
+    padding-top: 37px;
+}
+
+/* Navegador */
+
+#idNav{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 10px 0;
+    z-index:1000;
+
+    background-color: var(--morado-principal);
+    box-shadow: 0 0 10px var(--morado-secundario);
+    font-family: 'Trebuchet MS';
+}
+
+#btnLogo{
+    background: none;
+    border: none;
+    margin: -3px 5px 5px 10px;
+}
+
+#idNavLinks{
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
+
+#idNavLinks a.nav-link.active{
+    font-weight: bold;
+    letter-spacing: 1px;
+    color: var(--beige);
+    border-bottom: 2px var(--beige) solid;
+    padding-bottom: 2px;
+}
+
+a.nav-link{
+    font-size: 20px;
+    color: white;
+}
+
+a.nav-link:hover{
+    color: var(--beige);
+}
+
+div.container-fluid{
+    padding: 0;
+    font-family: "Trebuchet MS";
+}
+
+/* Contenedor */
+.container-fluid{
+    flex: 1;
+}
+
+/* Cuerpo */
+#idSubtitulo{
+    background: radial-gradient(circle, var(--amarillo-nacho) 0%, rgba(248, 223, 147,0) 90%);
+    text-align: center;
+    color: white;
+    width: 100%;
+}
+
+.second-subtitle{
+    font-family: "JosefinSans";
+    color: var(--morado-principal)
+}
+
+#idRegresar{
+    background-color: var(--amarillo-nacho);
+    border-radius: 10px;
+    height: 65px;
+    width: 65px;
+    cursor: pointer;
+    padding: 5px;
+    transition: 150ms all;
+    margin: 20px 10px 20px 30px;
+}
+
+#idRegresar:hover{
+    background-color: rgb(214, 121, 75);
+}
+
+#idRegresar img{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+/* Col Centro */
+
+
+.video-principal{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
+}
+
+.video-principal, .video-img-extras{
+    padding: 10px;
+    border-radius: 20px;
+}
+
+.video-img-extras{
+    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--beige) 100%);
+    margin-block: 12px;
+}
+
+.panel-heading h3{
+    color: var(--morado-secundario);
+    padding-top: 8px;
+    margin-bottom: 3px;
+}
+
+.panel-collapse div{
+    margin-block: 10px;
+}
+
+#videoNivel video, #videoNivel img{
+    border-radius: 20px;
+    width: 100%;
+    max-height: 450px;
+    background-color: rgb(45, 39, 67);
+}
+
+/* Col Derecho */
+#idArchivosExtras{
+    padding-top: 20px;
+    overflow-y: auto;
+    align-items: stretch;
+    /* height: 475px; */
+    max-height: 625px;
+}
+
+.level-instructor{
+    background: linear-gradient(to left top, var(--beige) 0%, var(--amarillo-claro) 100%);
+    color: var(--morado-oscuro);
+    border-radius: 15px;
+    padding-inline: 15px;
+    padding-block: 10px;
+}
+
+.level-instructor h2{
+    font-family: "Righteous";
+    letter-spacing: 1px;
+}
+
+.level-instructor span{
+    font-family: "JosefinSans";
+    color: var(--morado-principal);
+    font-weight: 500;
+    font-size: 22px;
+}
+
+.level-instructor span::before{
+    content: 'Instructor: ';
+    font-weight: 700;
+}
+
+#idArchivosExtras h3{
+    background: linear-gradient(to left top, var(--lila) 0%, var(--beige) 100%);
+    color: var(--morado-secundario);
+    font-family: "JosefinSans";
+    border-radius: 10px;
+    padding-inline: 10px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    margin-top: 12px;
+}
+
+.extra-content{
+    background: linear-gradient(to left top, var(--lila) 0%, var(--beige) 100%);
+    border-radius: 15px;
+    padding: 15px;
+}
+
+.extra-content input{
+    border-radius: 15px;
+    background-color: beige;
+    width: 97%;
+    padding-block: 5px;
+    padding-inline: 10px;
+    border: none;
+    font-weight: 100px;
+}
+
+::file-selector-button {
+  display: none;
+}
+
+#idTablaLink,
+#idTablaPDF,
+#idTablaTXT{
+    width: 100%;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+#idTablaLink td,
+#idTablaPDF td,
+#idTablaTXT td{
+    padding-block: 5px;
+}
+
+.td-id{
+    width: 38px;
+}
+
+.td-id div{
+    background-color: var(--morado-principal);
+    color: beige;
+    border-radius: 50%;
+    padding: 5px;
+}
+
+#btnDescargarPDF,
+#btnDescargarTXT{
+    border-radius: 5px;
+    border: none;
+    padding-inline: 8px;
+    background-color: var(--morado-principal);
+    color: white;
+    transition: all 120ms;
+}
+
+#btnDescargarPDF:hover,
+#btnDescargarTXT:hover{
+    background-color: var(--morado-secundario);
+}
+
+/* Boton de finalizacion */
+#btnFinalNivel{
+    background-color: var(--amarillo-nacho);
+    color: beige;
+    margin-top: 12px;
+    border-radius: 10px;
+    border: none;
+    padding-block: 7px;
+    padding-inline: 10px;
+    font-size: 22px;
+    width: 100%;
+    transition: all 150ms;
+}
+
+#btnFinalNivel:hover{
+    background-color: rgb(221, 107, 75);
+}
+
+#btnFinalNivel:disabled{
+    background-color: var(--beige-oscuro);
+    color: bisque;
+}
+
+/* Footer */
+iframe{
+    width: 100% !important;
+    height: auto !important;
+    border: none;
+}
+
+.footer {
+    display: block;
+    overflow: hidden;
+    margin-bottom: 0 !important;
+    padding-bottom: 0 !important;
+    margin-top: 10px;
+    border: none;
+}
+
+iframe.footer {
+    width: 100%;
+    height: auto;
+    border: none;
+}

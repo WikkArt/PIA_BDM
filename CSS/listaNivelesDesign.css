@@ -277,37 +277,6 @@ th:last-child {
     color: white;
 } */
 
-/* vistaNivel.html */
-
-/* video del nivel */
-#videoNivel{
-    padding: 15px 45px;
-    display: flex;
-    justify-content: center;
-}
-
-#bordeVideo{
-    background: linear-gradient(to left top, var(--amarillo-nacho) 0%, var(--amarillo-claro) 100%);
-    padding: 10px;
-    border-radius: 20px;
-    margin-left: 55px;
-}
-
-#videoNivel video{
-    border-radius: 20px;
-}
-
-#tituloNivel{
-    background: linear-gradient(to bottom right, rgb(67, 71, 208) 0%, rgb(36, 33, 174) 100%);
-    color: white;
-    border-radius: 20px;
-    margin-left: 25px;
-    padding-block: 15px;
-    padding-inline: 20px;
-    font-family: "JosefinSans";
-    height: max-content;
-}
-
 /* Footer */
 iframe{
     width: 100% !important;
