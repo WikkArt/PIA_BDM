@@ -14,19 +14,17 @@ $nombre_completo = $_POST['txtFullname'];
 $correo = $_POST['txtEmail'];
 $genero = $_POST['inlineRadioOptions'];
 $fecha_nac = $_POST['ffechanacimiento'];
-$rol = $_POST['idRol'];
 
-// Verifica si se subió una nueva imagen
 if ($_FILES['btnAvatar']['size'] > 0) {
     $foto = file_get_contents($_FILES['btnAvatar']['tmp_name']);
     $mime = $_FILES['btnAvatar']['type'];
 } else {
     $foto = null; 
-    $mime = $_POST['mimeHidden']; 
+    $mime = null; 
 }
 
 try {
-    $sql = "CALL actualizar_usuario(:nombre_usuario, :contrasena, :nombre_completo, :correo, :genero, :fecha_nac, :foto, :mime, :rol)";
+    $sql = "CALL actualizar_usuario(:nombre_usuario, :contrasena, :nombre_completo, :correo, :genero, :fecha_nac, :foto, :mime)";
     $stmt = $conn->prepare($sql);
     
     $stmt->bindParam(':nombre_usuario', $nombre_usuario);
@@ -37,7 +35,6 @@ try {
     $stmt->bindParam(':fecha_nac', $fecha_nac);
     $stmt->bindParam(':foto', $foto, PDO::PARAM_LOB);
     $stmt->bindParam(':mime', $mime);
-    $stmt->bindParam(':rol', $rol);
     
     $stmt->execute();
 
