@@ -45,11 +45,10 @@
     <!-- Cuerpo -->
     <div id="idCategoria" class="form-box form-value container">
         <h1 class="text">Nueva Categoría</h1>
-        <form method="GET">
-            <a class="volver" href="administrador.html">
-                <button id="btnVolver">Volver al perfíl del usuario</button>
-            </a>
-            
+        <a class="volver" href="administrador.html">
+            <button id="btnVolver">Volver al perfíl del usuario</button>
+        </a>
+        <form method="POST" action="nuevaCategoria.php">
             <div>
                 <div id="idInputs" class="inputbox">
                     <label for="fcategory">Nombre de la categoría</label>
