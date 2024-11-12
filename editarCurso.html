@@ -56,7 +56,7 @@
                 <div class="h-left">
                     <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
                     class="rounded-circle" alt="Avatar">
-                    <h3>Nombre de Usuario</h3>
+                    <h3 id="nombre_usuario">Nombre de Usuario</h3>
                 </div>
                 <h1 class="text">Editar Curso</h1>
                 <div class="h-right">
@@ -391,6 +391,31 @@
     </footer>
 
     <!--Archivos externos-->
+    <script>
+        function cargarPerfil() {
+            fetch('perfil.php')
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        alert(data.error);
+                        window.location.href = 'login.html';
+                        return;
+                    }
+
+                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario}`;
+                    const avatarImg = document.getElementById('idAvatarSample');
+                    if (data.foto) {
+                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
+                    } else {
+                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                });
+        }
+        window.onload = cargarPerfil;
+    </script>
     <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/nuevoCursoScript.js"></script>
