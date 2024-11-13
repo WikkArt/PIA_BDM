@@ -1,3 +1,26 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
+    echo json_encode(['error' => 'No has iniciado sesión.']);
+    exit();
+}
+
+require_once 'db_connect.php';
+
+$nombre_usuario = $_SESSION['usuario'];
+$sql = "SELECT nombre FROM categoria";
+
+// Realiza la consulta usando PDO y obtiene los resultados
+try {
+    $stmt = $conn->query($sql);
+    $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
+} catch (PDOException $e) {
+    echo "Error en la consulta: " . $e->getMessage();
+    exit();
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,14 +103,17 @@
                         <label class="subtitle">Categoría</label>
                         
                         <select id="idCategoria" name="idCategoria" class="form-select" aria-label="Default select example">
-                            <option class="item item-1" value="" selected>Selecciona una categoría</option>
-                            <option class="item" id="dropdown" value="1">Categoría 1</option>
-                            <option class="item" id="dropdown"  value="2">Categoría 2</option>
-                            <option class="item" id="dropdown"  value="3">Categoría 3</option>
-                            <option class="item" id="dropdown"  value="3">Categoría 4</option>
+                        <?php
+                        if (!empty($categorias)) {
+                            foreach ($categorias as $row) {
+                                echo "<option value='" . htmlspecialchars($row['nombre']) . "'>" . htmlspecialchars($row['nombre']) . "</option>";
+                            }
+                        } else {
+                            echo "<option value=''>No hay categorías disponibles</option>";
+                        }
+                        ?>
                         </select>
                     </div>
-
                     <div id="idInputs"  class="inputbox">
                         <label for="">Nombre del Curso</label>
                         <input type="text" id="txtCourse" name="txtCourse">
@@ -97,7 +123,6 @@
                         <label for="">Descripción</label>
                         <textarea class="form-control" id="txtDesc" name="txtDesc" rows="8"></textarea>
                     </div>
-                    
                     <button id="btnCurso" type="submit">Crear Curso</button>
                 </div>
 
@@ -419,5 +444,6 @@
     <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/nuevoCursoScript.js"></script>
+
 </body>
 </html>
