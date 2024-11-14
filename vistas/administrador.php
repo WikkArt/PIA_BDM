@@ -1,3 +1,13 @@
+<?php
+
+require_once("controlador/usuarios_controlador.php");
+
+$controlador = new usuarios();
+$respuesta = $controlador->mostrarDatos();
+$usuarioInfo = $respuesta['usuarioInfo'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +39,13 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="administrador.html">Perfíl</a>
+                        <a class="nav-link active" href="#">Perfíl</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reportesUsuarios.html">Reportes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -45,28 +55,37 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" class="rounded-circle" alt="Avatar">
+            <?php 
+            if($usuarioInfo['foto'] != null) { ?>
+                <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="data:image/png;base64,<?=base64_encode($usuarioInfo['foto'])?>">
+            <?php 
+            } else { 
+            ?>
+                <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="Images/avatarSampleAmarillo.png">
+            <?php 
+            } 
+            ?>
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
+                    <h1 class="text" id="nombre_usuario"><?=$usuarioInfo['nombre_usuario']?> <span><?=$usuarioInfo['rol']?></span></h1>
                 </li>
                 <li class="list-group-item destacado">
-                    <h2 class="text" id="nombre_completo">Nombre completo</h2>
+                    <h2 class="text" id="nombre_completo"><?=$usuarioInfo['nombre_completo']?></h2>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Correo:</strong> <span id="correo"></span></p>
+                    <p><strong>Correo:</strong> <span id="correo"><?=$usuarioInfo['correo']?></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Fecha de nacimiento:</strong> <span id="fecha_nac"></span></p>
+                    <p><strong>Fecha de nacimiento:</strong> <span id="fecha_nac"><?=$usuarioInfo['fecha_nac']?></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Género:</strong> <span id="genero"></span></p>
+                    <p><strong>Género:</strong> <span id="genero"><?=strtoupper($usuarioInfo['genero'][0]).substr($usuarioInfo['genero'], 1)?></span></p>
                 </li>
                 <li class="list-group-item">
-                    <a href="editarUsuario.html">
+                    <a href="index.php?controlador=usuarios&accion=editar">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
                     </a>
-                    <a href="nuevaCategoria.html">
+                    <a href="index.php?accion=crear&controlador=categorias">
                         <button id="btnCategoria" type="button">Crear Categoría</button>
                     </a>
                 </li>
@@ -187,36 +206,6 @@
     </footer>
 
     <!-- Archivos externos -->
-    <script>
-        function cargarPerfil() {
-            fetch('perfil.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert(data.error);
-                        window.location.href = 'login.html';
-                        return;
-                    }
-
-                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario} <span>(${data.rol})</span>`;
-                    document.getElementById('nombre_completo').innerHTML = `${data.nombre_completo}`;
-                    document.getElementById('correo').innerText = data.correo;
-                    document.getElementById('fecha_nac').innerText = data.fecha_nac;
-                    document.getElementById('genero').innerText = data.genero.charAt(0).toUpperCase() + data.genero.slice(1);
-
-                    const avatarImg = document.getElementById('idAvatarSample');
-                    if (data.foto) {
-                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
-                    } else {
-                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-        window.onload = cargarPerfil;
-    </script>
     <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>

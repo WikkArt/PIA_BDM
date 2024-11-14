@@ -29,10 +29,10 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link active" href="#">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="registro.html">Registro</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=registrar">Registro</a>
                     </li>
                 </ul>
             </div>
@@ -43,7 +43,7 @@
     <div id="idLogin" class="form-box form-value container" >
         <h1 class="text">Iniciar Sesión</h1>
 
-        <form method="POST" action="login.php">
+        <form method="POST" action="index.php?accion=iniciarSesion&controlador=usuarios">
             <div id="idInputs" class="inputbox">
                 <label for="fLUsername">Nombre de usuario</label>
                 <input id="txtUsername" name="txtUsername" type="text" required>

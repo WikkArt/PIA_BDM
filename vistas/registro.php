@@ -29,10 +29,10 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Iniciar Sesión</a>
+                        <a class="nav-link" href="index.php">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="registro.html">Registro</a>
+                        <a class="nav-link active" href="#">Registro</a>
                     </li>
                 </ul>
             </div>
@@ -42,7 +42,7 @@
     <!-- Cuerpo -->
     <div id="idRegister" class="form-box form-value container">
         <h1 class="text">Registro</h1>
-        <form method="POST" action="registro.php" enctype="multipart/form-data">
+        <form method="POST" action="index.php?accion=registrar&controlador=usuarios" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-6 col-md-4 avatar">
                     <img id="idAvatarSample" src="Images/avatarSample.png" 

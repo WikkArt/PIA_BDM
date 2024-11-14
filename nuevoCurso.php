@@ -6,13 +6,15 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
     exit();
 }
 
-require_once 'db_connect.php';
+require_once("modelo/db_connect.php");
 
 $nombre_usuario = $_SESSION['usuario'];
 $sql = "SELECT nombre FROM categoria";
 
 // Realiza la consulta usando PDO y obtiene los resultados
 try {
+    $dbObj = new db();
+    $conn = $dbObj->conectar();
     $stmt = $conn->query($sql);
     $categorias = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
@@ -52,19 +54,19 @@ try {
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="instructor.html">Perfíl</a>
+                        <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.html">Cursos</a>
+                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                        <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -83,7 +85,7 @@ try {
                 </div>
                 <h1 class="text">Nuevo Curso</h1>
                 <div class="h-right">
-                    <a class="volver" href="instructor.html">
+                    <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
                         <button id="btnVolver">Volver al perfíl del usuario</button>
                     </a>
                 </div>

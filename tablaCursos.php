@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+    echo json_encode(['error' => 'No has iniciado sesión.']);
+    exit();
+}
+
+$nombre_usuario = $_SESSION['usuario'];
+$rol = $_SESSION['rol'];
+$foto = $_SESSION['foto'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,19 +42,19 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="instructor.html">Perfíl</a>
+                        <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link active" href="tablaInscritos.html">Cursos</a>
+                        <a class="nav-link active" href="#">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                        <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -51,11 +64,19 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
-            class="rounded-circle" alt="Avatar">
+            <?php 
+            if($foto != null) { ?>
+            <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="data:image/png;base64,<?=base64_encode($foto)?>">
+            <?php 
+            } else { 
+            ?>
+            <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="Images/avatarSampleAmarillo.png">
+            <?php 
+            } 
+            ?>
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
+                    <h1 class="text" id="nombre_usuario"><?=$nombre_usuario?> <span><?=$rol?></span></h1>
                 </li>
             </ul>
         </div>
@@ -88,7 +109,7 @@
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
                         </button>
-                        <a href="editarCurso.html">
+                        <a href="editarCurso.php">
                             <button class="editar">Editar</button>
                         </a>
                     </td>
@@ -109,7 +130,7 @@
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
                         </button>
-                        <a href="editarCurso.html">
+                        <a href="editarCurso.php">
                             <button class="editar">Editar</button>
                         </a>
                     </td>
@@ -130,7 +151,7 @@
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
                         </button>
-                        <a href="editarCurso.html">
+                        <a href="editarCurso.php">
                             <button class="editar">Editar</button>
                         </a>
                     </td>
@@ -151,7 +172,7 @@
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
                         </button>
-                        <a href="editarCurso.html">
+                        <a href="editarCurso.php">
                             <button class="editar">Editar</button>
                         </a>
                     </td>
@@ -192,32 +213,6 @@
     </footer>
 
     <!-- Archivos externos -->
-    <script>
-        function cargarPerfil() {
-            fetch('perfil.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert(data.error);
-                        window.location.href = 'login.html';
-                        return;
-                    }
-
-                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario} <span>(${data.rol})</span>`;
-
-                    const avatarImg = document.getElementById('idAvatarSample');
-                    if (data.foto) {
-                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
-                    } else {
-                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-        window.onload = cargarPerfil;
-    </script>
     <script src="JS/bootstrap.min.js"></script>
 </body>
 </html>

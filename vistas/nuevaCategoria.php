@@ -29,13 +29,13 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="administrador.html">Perfíl</a>
+                        <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="reportesUsuarios.html">Reportes</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -45,10 +45,10 @@
     <!-- Cuerpo -->
     <div id="idCategoria" class="form-box form-value container">
         <h1 class="text">Nueva Categoría</h1>
-        <a class="volver" href="administrador.html">
+        <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
             <button id="btnVolver">Volver al perfíl del usuario</button>
         </a>
-        <form method="POST" action="nuevaCategoria.php">
+        <form method="POST" action="index.php?accion=crear&controlador=categorias">
             <div>
                 <div id="idInputs" class="inputbox">
                     <label for="fcategory">Nombre de la categoría</label>

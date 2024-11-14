@@ -1,3 +1,16 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+    echo json_encode(['error' => 'No has iniciado sesión.']);
+    exit();
+}
+
+$nombre_usuario = $_SESSION['usuario'];
+$rol = $_SESSION['rol'];
+$foto = $_SESSION['foto'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,13 +42,13 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="estudiante.html">Perfíl</a>
+                        <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="tablaChats.html">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -45,11 +58,19 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
-            class="rounded-circle" alt="Avatar">
+            <?php 
+            if($foto != null) { ?>
+            <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="data:image/png;base64,<?=base64_encode($foto)?>">
+            <?php 
+            } else { 
+            ?>
+            <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="Images/avatarSampleAmarillo.png">
+            <?php 
+            } 
+            ?>
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
+                    <h1 class="text" id="nombre_usuario"><?=$nombre_usuario?> <span><?=$rol?></span></h1>
                 </li>
             </ul>
         </div>

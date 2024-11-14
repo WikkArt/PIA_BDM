@@ -1,3 +1,13 @@
+<?php
+
+require_once("controlador/usuarios_controlador.php");
+
+$controlador = new usuarios();
+$respuesta = $controlador->mostrarDatos();
+$usuarioInfo = $respuesta['usuarioInfo'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,19 +39,13 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link active" href="instructor.html">Perfíl</a>
+                        <a class="nav-link active" href="#">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.html">Cursos</a>
+                        <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -51,35 +55,40 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idUsuarioInfo">
-            <img id="idAvatarSample" class="rounded-circle" alt="Avatar">
+            <?php 
+            if($usuarioInfo['foto'] != null) { ?>
+                <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="data:image/png;base64,<?=base64_encode($usuarioInfo['foto'])?>">
+            <?php 
+            } else { 
+            ?>
+                <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="Images/avatarSampleAmarillo.png">
+            <?php 
+            } 
+            ?>
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text" id="nombre_usuario">Nombre de usuario <span>(Rol)</span></h1>
+                    <h1 class="text" id="nombre_usuario"><?=$usuarioInfo['nombre_usuario']?> <span><?=$usuarioInfo['rol']?></span></h1>
                 </li>
                 <li class="list-group-item destacado">
-                    <h2 class="text" id="nombre_completo">Nombre completo</h2>
+                    <h2 class="text" id="nombre_completo"><?=$usuarioInfo['nombre_completo']?></h2>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Correo:</strong> <span id="correo"></span></p>
+                    <p><strong>Correo:</strong> <span id="correo"><?=$usuarioInfo['correo']?></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Fecha de nacimiento:</strong> <span id="fecha_nac"></span></p>
+                    <p><strong>Fecha de nacimiento:</strong> <span id="fecha_nac"><?=$usuarioInfo['fecha_nac']?></span></p>
                 </li>
                 <li class="list-group-item secundario">
-                    <p><strong>Género:</strong> <span id="genero"></span></p>
+                    <p><strong>Género:</strong> <span id="genero"><?=strtoupper($usuarioInfo['genero'][0]).substr($usuarioInfo['genero'], 1)?></span></p>
                 </li>
                 <li class="list-group-item">
-                    <a href="editarUsuario.html">
+                    <a href="index.php?controlador=usuarios&accion=editar">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
-                    </a>
-                    <a href="nuevoCurso.php">
-                        <button id="btnNuevoCurso" type="button">Nuevo curso</button>
                     </a>
                 </li>
             </ul>
         </div>
-
-        <h1 id="idSubtitulo">Cursos (Vista General)</h1>
+        <h1 id="idSubtitulo">Kardex</h1>
 
         <div class="row">
             <div class="col-3">
@@ -87,14 +96,24 @@
 
                 <form id="idFiltros">
                     <div class="form-check activos">
-                        <label class="form-check-label" for="cbCursoGeneral">
-                            Sólo cursos activos
-                        </label>
+                        <div>
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Sólo cursos terminados
+                            </label>
 
-                        <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        </div>
+                        
+                        <div>
+                            <label class="form-check-label" for="cbCursoGeneral">
+                                Sólo cursos activos
+                            </label>
+
+                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
+                        </div>
                     </div>
 
-                    <h5>Fecha de creación</h5>
+                    <h5>Fecha de inscripción</h5>
                     <div class="fechas">
                         <div id="idInputs" class="inputbox">
                             <label for="fdate">Desde: </label> 
@@ -193,153 +212,83 @@
                     <tr>
                         <th>ID</th>
                         <th>Nombre</th>
-                        <th>No. de alumnos</th>
-                        <th>Nivel promedio del curso</th>
-                        <th>Total de Ingresos</th>
-                        <th>Ingresos por Paypal</th>
-                        <th>Ingresos por Tarjetas</th>
+                        <th>Acceso</th>
+                        <th>Categoría</th>
+                        <th>Fecha de Inscripción</th>
+                        <th>Último ingreso</th>
+                        <th>Progreso</th>
+                        <th>Fecha de finalización</th>
                     </tr>
 
                     <tr>
                         <td>1</td>
                         <td>---</td>
+                        <td>
+                            <a href="listaNiveles.html">
+                                <button id="btnAccesoCurso">Curso</button>
+                            </a>
+                        </td>
                         <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Completo</td>
+                        <td>XX/XX/XXXX</td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>---</td>
+                        <td>
+                            <a href="listaNiveles.html">
+                                <button id="btnAccesoCurso">Curso</button>
+                            </a>
+                        </td>
                         <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Incompleto</td>
+                        <td>XX/XX/XXXX</td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>---</td>
+                        <td>
+                            <a href="listaNiveles.html">
+                                <button id="btnAccesoCurso">Curso</button>
+                            </a>
+                        </td>
                         <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Completo</td>
+                        <td>XX/XX/XXXX</td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>---</td>
+                        <td>
+                            <a href="listaNiveles.html">
+                                <button id="btnAccesoCurso">Curso</button>
+                            </a>
+                        </td>
                         <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>6</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>7</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>8</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>10</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                    </tr>
-                    <tr>
-                        <td>11</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>XX/XX/XXXX</td>
+                        <td>Incompleto</td>
+                        <td>XX/XX/XXXX</td>
                     </tr>
                 </table>
             </div>
         </div>
+
     </div>
-    
+
     <!-- Footer -->
     <footer>
         <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
     </footer>
 
     <!-- Archivos externos -->
-    <script>
-        function cargarPerfil() {
-            fetch('perfil.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert(data.error);
-                        window.location.href = 'login.html';
-                        return;
-                    }
-
-                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario} <span>(${data.rol})</span>`;
-                    document.getElementById('nombre_completo').innerHTML = `${data.nombre_completo}`;
-                    document.getElementById('correo').innerText = data.correo;
-                    document.getElementById('fecha_nac').innerText = data.fecha_nac;
-                    document.getElementById('genero').innerText = data.genero.charAt(0).toUpperCase() + data.genero.slice(1);
-
-                    const avatarImg = document.getElementById('idAvatarSample');
-                    if (data.foto) {
-                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
-                    } else {
-                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-        window.onload = cargarPerfil;
-    </script>
     <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/perfilIUsuarioScript.js"></script>
 </body>
 </html>

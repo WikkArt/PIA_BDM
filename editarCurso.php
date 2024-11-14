@@ -1,3 +1,15 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+    echo json_encode(['error' => 'No has iniciado sesión.']);
+    exit();
+}
+
+$nombre_usuario = $_SESSION['usuario'];
+$foto = $_SESSION['foto'];
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,19 +41,19 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="instructor.html">Perfíl</a>
+                        <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.html">Cursos</a>
+                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.html">Chat</a>
+                        <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -54,13 +66,21 @@
             
             <div class="curso-header-user">
                 <div class="h-left">
-                    <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" 
-                    class="rounded-circle" alt="Avatar">
-                    <h3 id="nombre_usuario">Nombre de Usuario</h3>
+                    <?php 
+                    if($foto != null) { ?>
+                    <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="data:image/png;base64,<?=base64_encode($foto)?>">
+                    <?php 
+                    } else { 
+                    ?>
+                    <img id="idAvatarSample" class="rounded-circle" alt="Avatar" src="Images/avatarSampleAmarillo.png">
+                    <?php 
+                    } 
+                    ?>
+                    <h3 id="nombre_usuario"><?=$nombre_usuario?></h3>
                 </div>
                 <h1 class="text">Editar Curso</h1>
                 <div class="h-right">
-                    <a class="volver" href="instructor.html">
+                    <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
                         <button id="btnVolver">Volver al perfíl del usuario</button>
                     </a>
                 </div>
@@ -391,31 +411,6 @@
     </footer>
 
     <!--Archivos externos-->
-    <script>
-        function cargarPerfil() {
-            fetch('perfil.php')
-                .then(response => response.json())
-                .then(data => {
-                    if (data.error) {
-                        alert(data.error);
-                        window.location.href = 'login.html';
-                        return;
-                    }
-
-                    document.getElementById('nombre_usuario').innerHTML = `${data.nombre_usuario}`;
-                    const avatarImg = document.getElementById('idAvatarSample');
-                    if (data.foto) {
-                        avatarImg.src = `data:${data.mime};base64,${data.foto}`;
-                    } else {
-                        avatarImg.src = 'Images/avatarSampleAmarillo.png';
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
-        }
-        window.onload = cargarPerfil;
-    </script>
     <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/nuevoCursoScript.js"></script>
