@@ -1,3 +1,11 @@
+<?php
+require_once("controlador/categorias_controlador.php");
+
+$categoriaControlador = new categorias();
+$categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +30,7 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Inicio</a>
+                        <a class="nav-link" href="dashboard.php">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -76,41 +84,23 @@
                     </div>
 
                     <h5>Categorías</h5>
-                    <ul class="categorias list-group list-group-flush">
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                                <label class="form-check-label" for="cbCursoGeneral">
-                                    Categoría 1
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                                <label class="form-check-label" for="cbCursoGeneral">
-                                    Categoría 1
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                                <label class="form-check-label" for="cbCursoGeneral">
-                                    Categoría 1
-                                </label>
-                            </div>
-                        </li>
-                        <li class="list-group-item">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                                <label class="form-check-label" for="cbCursoGeneral">
-                                    Categoría 1
-                                </label>
-                            </div>
-                        </li>
-                    </ul>
-                    
+                <ul class="categorias list-group list-group-flush">
+                    <?php foreach ($categoriasActivas as $categoria): ?>
+                    <li class="list-group-item">
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" value="<?= $categoria['id'] ?>" id="cbCategoria<?= $categoria['id'] ?>">
+                            <label class="form-check-label" for="cbCategoria<?= $categoria['id'] ?>">
+                                <?= htmlspecialchars($categoria['nombre']) ?>
+                            </label>
+                            <label type="text"
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#idCategoriaModal" 
+                                    data-nombre="<?= htmlspecialchars($categoria['nombre']) ?>">
+                            </label>
+                        </div>
+                    </li>
+                    <?php endforeach; ?>
+                </ul>
                     <a id="idCategoriaG">
                         <button type="submit">Filtrar</button>
                     </a>
@@ -130,41 +120,8 @@
                             <th>Precio pagado</th>
                             <th>Forma de pago</th>
                         </tr>
-
                         <tr>
                             <td>1</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
                             <td>---</td>
                             <td>XX/XX/XXXX</td>
                             <td>---</td>

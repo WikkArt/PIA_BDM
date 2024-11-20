@@ -1,3 +1,10 @@
+<?php
+require_once("controlador/categorias_controlador.php");
+
+$categoriaControlador = new categorias();
+$categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -182,84 +189,53 @@
 
                 <h5>Categorías</h5>
                 <ul class="categorias list-group list-group-flush">
+                    <?php foreach ($categoriasActivas as $categoria): ?>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Categoría 1
+                            <input class="form-check-input" type="checkbox" value="<?= $categoria['id'] ?>" id="cbCategoria<?= $categoria['id'] ?>">
+                            <label class="form-check-label" for="cbCategoria<?= $categoria['id'] ?>">
+                                <?= htmlspecialchars($categoria['nombre']) ?>
                             </label>
-                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
+                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" 
+                                    data-bs-toggle="modal" 
+                                    data-bs-target="#idCategoriaModal" 
+                                    data-nombre="<?= htmlspecialchars($categoria['nombre']) ?>" 
+                                    data-descripcion="<?= htmlspecialchars($categoria['descripcion']) ?>" 
+                                    data-usuario="<?= htmlspecialchars($categoria['usuario_creador']) ?>" 
+                                    data-fecha="<?= $categoria['fecha_creacion'] ?>" >
                                 <img src="Images/info.png" alt="Información de la categoría">
                             </button>
                         </div>
                     </li>
-                    <li class="list-group-item">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Categoría 2
-                            </label>
-                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                                <img src="Images/info.png" alt="Información de la categoría">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Categoría 3
-                            </label>
-                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                                <img src="Images/info.png" alt="Información de la categoría">
-                            </button>
-                        </div>
-                    </li>
-                    <li class="list-group-item">
-                        <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="" id="cbCursoGeneral">
-                            <label class="form-check-label" for="cbCursoGeneral">
-                                Categoría 4
-                            </label>
-                            <button id="btnInfoCategoria" type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#idCategoriaModal">
-                                <img src="Images/info.png" alt="Información de la categoría">
-                            </button>
-                        </div>
-                    </li>
+                    <?php endforeach; ?>
                 </ul>
-                
-                <a id="idCategoriaG">
-                    <button type="submit">Filtrar</button>
-                </a>
-            </form>
-
-            <!-- Modal de las Categorias-->
-            <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-centered" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title">Categoría: Nombre de la Categoría</h5>
-                            <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                                <img src="Images/cerrar.png" alt="">
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            <p>
-                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                                incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                                nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                            </p>
-                        </div>
-                        <div class="modal-footer justify-content-between">
-                            <label>Nombre de usuario</label>
-                            <div>
-                                <label>DD/MMM/AAA</label>
-                                <label>00:00</label>
+                    <a id="idCategoriaG">
+                        <button type="submit">Filtrar</button>
+                    </a>
+                </form>
+                <!-- Modal de las Categorias-->
+                <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="modalCategoriaTitulo">Categoría</h5>
+                                <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                                    <img src="Images/cerrar.png" alt="">
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <p id="modalCategoriaDescripcion"></p>
+                            </div>
+                            <div class="modal-footer justify-content-between">
+                                <label id="modalCategoriaUsuario"></label>
+                                <div>
+                                    <label id="modalCategoriaFecha"></label>
+                                    <label id="modalCategoriaHora"></label>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
         
@@ -269,6 +245,26 @@
     </footer>
 
     <!-- Archivos externos -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const infoButtons = document.querySelectorAll("#btnInfoCategoria");
+            infoButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const nombre = this.getAttribute("data-nombre");
+                    const descripcion = this.getAttribute("data-descripcion");
+                    const usuario = this.getAttribute("data-usuario");
+                    const fecha = this.getAttribute("data-fecha");
+                    const hora = this.getAttribute("data-hora");
+
+                    document.getElementById("modalCategoriaTitulo").textContent = `Categoría: ${nombre}`;
+                    document.getElementById("modalCategoriaDescripcion").textContent = descripcion;
+                    document.getElementById("modalCategoriaUsuario").textContent = usuario;
+                    document.getElementById("modalCategoriaFecha").textContent = fecha;
+                    document.getElementById("modalCategoriaHora").textContent = hora;
+                });
+            });
+        });
+     </script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/dashboard.js"></script>
 </body>

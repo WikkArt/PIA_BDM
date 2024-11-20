@@ -35,7 +35,7 @@ $foto = $_SESSION['foto'];
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.html">Inicio</a>
+                        <a class="nav-link" href="dashboard.php">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -48,7 +48,7 @@ $foto = $_SESSION['foto'];
                         <a class="nav-link active" href="#">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
+                        <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaChats.php">Chat</a>
