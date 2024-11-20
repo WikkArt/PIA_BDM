@@ -86,32 +86,6 @@
                         <button class="desbloqueado" disabled>Desbloquear</button>
                     </td>
                 </tr>
-                <tr>
-                    <td>3</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XX/XXXX</td>
-                    <td>---</td>
-                    <td>$000.00 MXN</td>
-                    <td>Desbloqueado</td>
-                    <td class="columna-botones">
-                        <button class="bloqueado">Bloquear</button>
-                        <button class="desbloqueado" disabled>Desbloquear</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XX/XXXX</td>
-                    <td>---</td>
-                    <td>$000.00 MXN</td>
-                    <td>Bloqueado</td>
-                    <td class="columna-botones">
-                        <button class="bloqueado" disabled>Bloquear</button>
-                        <button class="desbloqueado">Desbloquear</button>
-                    </td>
-                </tr>
             </table>
         </div>
         
@@ -154,32 +128,6 @@
                     <td class="columna-botones">
                         <button class="bloqueado">Bloquear</button>
                         <button class="desbloqueado" disabled>Desbloquear</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XX/XXXX</td>
-                    <td>---</td>
-                    <td>$000.00 MXN</td>
-                    <td>Desbloqueado</td>
-                    <td class="columna-botones">
-                        <button class="bloqueado">Bloquear</button>
-                        <button class="desbloqueado" disabled>Desbloquear</button>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XX/XXXX</td>
-                    <td>---</td>
-                    <td>$000.00 MXN</td>
-                    <td>Bloqueado</td>
-                    <td class="columna-botones">
-                        <button class="bloqueado" disabled>Bloquear</button>
-                        <button class="desbloqueado">Desbloquear</button>
                     </td>
                 </tr>
             </table>

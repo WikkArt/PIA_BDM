@@ -59,7 +59,7 @@ try {
                         <a class="nav-link" href="tablaCursos.php">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>
+                        <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaChats.php">Chat</a>
