@@ -10,7 +10,7 @@ require_once("modelo/db_connect.php");
 
 $nombre_usuario = $_SESSION['usuario'];
 $foto = $_SESSION['foto'];
-$sql = "SELECT nombre FROM categoria";
+$sql = "SELECT nombre FROM categoria WHERE estatus = 1";
 try {
     $dbObj = new db();
     $conn = $dbObj->conectar();
