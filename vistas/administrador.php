@@ -6,6 +6,10 @@ $controlador = new usuarios();
 $respuesta = $controlador->mostrarDatos();
 $usuarioInfo = $respuesta['usuarioInfo'];
 
+require_once("controlador/categorias_controlador.php");
+
+$categoriaControlador = new categorias();
+$categorias = $categoriaControlador->mostrarCategorias();
 ?>
 
 <!DOCTYPE html>
@@ -94,101 +98,64 @@ $usuarioInfo = $respuesta['usuarioInfo'];
 
         <h1 id="idSubtitulo">Categorías</h1>
             
-        <div id="idTabla">
-            <table>
-                <tr>
-                    <th>ID</th>
-                    <th>Nombre (Categoría)</th>
-                    <th>Descripción</th>
-                    <th>Nombre (Autor)</th>
-                    <th>Fecha de creación</th>
-                    <th>Hora de creación</th>
-                    <th class="a-header-8">Opciones</th>
-                </tr>
-
-                <tr>
-                    <td>1</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XXX/XXXX/</td>
-                    <td>00:00</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCategoria.html">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XXX/XXXX/</td>
-                    <td>00:00</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCategoria.html">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XXX/XXXX/</td>
-                    <td>00:00</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCategoria.html">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>---</td>
-                    <td>XX/XXX/XXXX/</td>
-                    <td>00:00</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCategoria.html">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
-            </table>
-        </div>
+            <div id="idTabla">
+                <table>
+                    <tr>
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre (Categoría)</th>
+                            <th>Descripción</th>
+                            <th>Fecha de creación</th>
+                            <th>Hora de creación</th>
+                            <th class="a-header-8">Opciones</th>
+                        </tr>
+                    </tr>
+                    <tr>
+                    <?php if (!empty($categorias)) { 
+                        foreach ($categorias as $categoria) { ?>
+                            <tr>
+                                <td><?= $categoria['id'] ?></td>
+                                <td><?= htmlspecialchars($categoria['nombre']) ?></td>
+                                <td><?= htmlspecialchars($categoria['descripcion']) ?></td>
+                                <td><?= $categoria['fecha'] ?></td>
+                                <td><?= $categoria['hora'] ?></td>
+                                <td class="columna-botones">
+                                    <button class="eliminar" data-bs-toggle="modal" 
+                                            data-bs-target="#idEliminarModal" 
+                                            data-id="<?= $categoria['id'] ?>" 
+                                            data-nombre="<?= htmlspecialchars($categoria['nombre']) ?>">
+                                        Eliminar
+                                    </button>
+                                    <a href="index.php?controlador=categorias&accion=editar&id=<?= $categoria['id'] ?>">
+                                        <button class="editar">Editar</button>
+                                    </a>
+                                </td>
+                            </tr>
+                    <?php } } else { ?>
+                        <tr>
+                            <td colspan="6">No se encontraron categorías creadas por este usuario.</td>
+                        </tr>
+                    <?php } ?>
+                    </tr>
+                </table>
+            </div>
 
         <!-- Modal de Eliminacion -->
         <div class="modal fade" id="idEliminarModal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLongTitle">Eliminar Categoría</h5>
+                        <h5 class="modal-title">Eliminar Categoría</h5>
                         <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                             <img src="Images/cerrar.png" alt="">
                         </button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro de eliminar esta categoría?</p>
+                        <p>¿Estás seguro de eliminar la categoría <strong id="categoriaNombre"></strong>?</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-success">
-                            Si
+                        <button id="confirmarEliminar" class="btn btn-success">
+                            Sí
                         </button>
                         <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
                             No
@@ -196,10 +163,8 @@ $usuarioInfo = $respuesta['usuarioInfo'];
                     </div>
                 </div>
             </div>
-        </div>
-
+         </div>
     </div>
-    
     <!-- Footer -->
     <footer>
         <iframe class="footer" src="Footer.html" frameborder="0" scrolling="no"></iframe>
@@ -207,5 +172,39 @@ $usuarioInfo = $respuesta['usuarioInfo'];
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+    let categoriaId = null;
+
+    // Configurar modal con información dinámica
+    document.querySelectorAll('.eliminar').forEach(button => {
+        button.addEventListener('click', function () {
+            categoriaId = this.getAttribute('data-id');
+            const categoriaNombre = this.getAttribute('data-nombre');
+            document.getElementById('categoriaNombre').textContent = categoriaNombre;
+        });
+    });
+
+    // Confirmar eliminación
+    document.getElementById('confirmarEliminar').addEventListener('click', () => {
+        if (categoriaId) {
+            fetch('index.php?controlador=categorias&accion=eliminar', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ id: categoriaId })
+            })
+            .then(response => response.json())
+            .then(data => {
+                alert(data.message);
+                if (data.success) {
+                    location.reload(); // Recargar la página tras eliminar.
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+});
+
+    </script>
 </body>
 </html>

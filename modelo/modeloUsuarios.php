@@ -74,4 +74,5 @@ class mUsuarios {
         $stmt->bindParam(':mime', $param["mime"]);
         $stmt->execute();
     }
+    
 }

@@ -1,3 +1,9 @@
+<?php
+
+require_once("controlador/categorias_controlador.php");
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,25 +51,24 @@
     <!-- Cuerpo -->
     <div id="idCategoria" class="form-box form-value container">
         <h1 class="text">Editar Categoría</h1>
-        <form method="GET">
-            <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
-                <button id="btnVolver">Volver al perfíl del usuario</button>
-            </a>
-            
+        <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
+            <button id="btnVolver">Volver al perfíl del usuario</button>
+        </a>
+        <form method="POST" action="index.php?controlador=categorias&accion=editar">
+            <input type="hidden" id="categoriaId" name="categoriaId" value="<?= htmlspecialchars($categoria['id']) ?>">
             <div>
                 <div id="idInputs" class="inputbox">
-                    <label for="fcategory">Nombre de la categoría</label>
-                    <input id="txtCategory" name="txtCategory" type="text">
+                    <label for="txtCategory">Nombre de la categoría</label>
+                    <input id="txtCategory" name="txtCategory" type="text" value="<?= htmlspecialchars($categoria['nombre']) ?>" required>
                 </div>
                 <div id="idInputs" class="inputbox">
-                    <label for="femail">Descripción</label>
-                    <textarea rows="6" id="txtDesc" name="txtDesc"></textarea>
+                    <label for="txtDesc">Descripción</label>
+                    <textarea rows="6" id="txtDesc" name="txtDesc" required><?= htmlspecialchars($categoria['descripcion']) ?></textarea>
                 </div>
-                
                 <button id="btnCrearCategoría" type="submit">Guardar Cambios</button>
             </div>
-                
         </form>
+             
     </div>
 
     <!-- Footer -->

@@ -1,7 +1,10 @@
 <?php
 require_once("modelo/modeloCategorias.php");
 
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
 
 class categorias {
     public $categoriaObj;
@@ -47,4 +50,57 @@ class categorias {
         }
         return $this->respuesta;
     }
+
+    public function mostrarCategorias() {
+        $categorias = [];
+        if (isset($_SESSION['usuario'])) {
+            $categorias = $this->categoriaObj->obtenerCategoriasPorUsuario($_SESSION['usuario']);
+        }
+        return $categorias;
+    }
+    public function editar() {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' && isset($_GET['id'])) {
+            $id = $_GET['id'];
+            $categoria = $this->categoriaObj->obtenerCategoriaPorId($id);
+    
+            if ($categoria) {
+                // Renderiza la vista con los datos de la categoría
+                include 'vistas/editarCategoria.php';
+            } else {
+                // Redirige si no se encuentra la categoría
+                header('Location: index.php?controlador=usuarios&accion=mostrarDatos');
+            }
+        } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            // Maneja la actualización de la categoría
+            $id = $_POST['categoriaId'];
+            $nombre = $_POST['txtCategory'];
+            $descripcion = $_POST['txtDesc'];
+    
+            $resultado = $this->categoriaObj->actualizarCategoria($id, $nombre, $descripcion);
+    
+            if ($resultado) {
+                header('Location: index.php?controlador=usuarios&accion=mostrarDatos');
+            } else {
+                echo '<script>alert("Error al actualizar la categoría");</script>';
+            }
+        }
+    }
+    
+    public function eliminar() {
+        $input = json_decode(file_get_contents('php://input'), true);
+        if (isset($input['id'])) {
+            $id = $input['id'];
+            $resultado = $this->categoriaObj->eliminarCategoria($id);
+    
+            if ($resultado) {
+                echo json_encode(['success' => true, 'message' => 'Categoría eliminada correctamente.']);
+            } else {
+                echo json_encode(['success' => false, 'message' => 'Error al eliminar la categoría.']);
+            }
+        } else {
+            echo json_encode(['success' => false, 'message' => 'ID de categoría no proporcionado.']);
+        }
+    }
+
+    
 }
