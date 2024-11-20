@@ -64,14 +64,11 @@ class categorias {
             $categoria = $this->categoriaObj->obtenerCategoriaPorId($id);
     
             if ($categoria) {
-                // Renderiza la vista con los datos de la categoría
                 include 'vistas/editarCategoria.php';
             } else {
-                // Redirige si no se encuentra la categoría
                 header('Location: index.php?controlador=usuarios&accion=mostrarDatos');
             }
         } elseif ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Maneja la actualización de la categoría
             $id = $_POST['categoriaId'];
             $nombre = $_POST['txtCategory'];
             $descripcion = $_POST['txtDesc'];
@@ -87,20 +84,22 @@ class categorias {
     }
     
     public function eliminar() {
-        $input = json_decode(file_get_contents('php://input'), true);
-        if (isset($input['id'])) {
-            $id = $input['id'];
-            $resultado = $this->categoriaObj->eliminarCategoria($id);
+        if (isset($_POST['id'])) {
+            $id = $_POST['id'];
     
-            if ($resultado) {
-                echo json_encode(['success' => true, 'message' => 'Categoría eliminada correctamente.']);
+            $modeloCategorias = new mCategorias();
+            $exito = $modeloCategorias->eliminarCategoria($id);
+    
+            if ($exito) {
+                header('Location: index.php?controlador=usuarios&accion=mostrarDatos');
+                exit();
             } else {
-                echo json_encode(['success' => false, 'message' => 'Error al eliminar la categoría.']);
+                echo "<script>
+                        alert('Error al eliminar la categoría.');
+                        window.history.back();
+                      </script>";
+                exit();
             }
-        } else {
-            echo json_encode(['success' => false, 'message' => 'ID de categoría no proporcionado.']);
         }
     }
-
-    
 }

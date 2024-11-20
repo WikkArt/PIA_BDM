@@ -4,7 +4,6 @@ require_once("db_connect.php");
 class mCategorias {
     private $conexion;
 
-    // Constructor para inicializar la conexión
     public function __construct() {
         $dbObj = new db();
         $this->conexion = $dbObj->conectar();

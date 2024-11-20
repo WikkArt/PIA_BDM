@@ -141,29 +141,27 @@ $categorias = $categoriaControlador->mostrarCategorias();
             </div>
 
         <!-- Modal de Eliminacion -->
-        <div class="modal fade" id="idEliminarModal" tabindex="-1" role="dialog" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal fade" id="idEliminarModal" tabindex="-1" aria-labelledby="eliminarModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Eliminar Categoría</h5>
-                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
-                            <img src="Images/cerrar.png" alt="">
-                        </button>
+                        <h5 class="modal-title" id="eliminarModalLabel">Confirmar eliminación</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>¿Estás seguro de eliminar la categoría <strong id="categoriaNombre"></strong>?</p>
+                        ¿Estás seguro de que deseas eliminar esta categoría?
                     </div>
                     <div class="modal-footer">
-                        <button id="confirmarEliminar" class="btn btn-success">
-                            Sí
-                        </button>
-                        <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">
-                            No
-                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <form method="POST" action="index.php?controlador=categorias&accion=eliminar">
+                            <input type="hidden" name="id" id="categoriaId" value="">
+                            <button type="submit" class="btn btn-danger">Eliminar</button>
+                        </form>
                     </div>
                 </div>
             </div>
-         </div>
+        </div>
+
     </div>
     <!-- Footer -->
     <footer>
@@ -173,38 +171,15 @@ $categorias = $categoriaControlador->mostrarCategorias();
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-    let categoriaId = null;
-
-    // Configurar modal con información dinámica
-    document.querySelectorAll('.eliminar').forEach(button => {
-        button.addEventListener('click', function () {
-            categoriaId = this.getAttribute('data-id');
-            const categoriaNombre = this.getAttribute('data-nombre');
-            document.getElementById('categoriaNombre').textContent = categoriaNombre;
+        document.addEventListener("DOMContentLoaded", function () {
+            const eliminarButtons = document.querySelectorAll(".eliminar");
+            eliminarButtons.forEach(button => {
+                button.addEventListener("click", function () {
+                    const categoriaId = this.getAttribute("data-id");
+                    document.getElementById("categoriaId").value = categoriaId;
+                });
+            });
         });
-    });
-
-    // Confirmar eliminación
-    document.getElementById('confirmarEliminar').addEventListener('click', () => {
-        if (categoriaId) {
-            fetch('index.php?controlador=categorias&accion=eliminar', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ id: categoriaId })
-            })
-            .then(response => response.json())
-            .then(data => {
-                alert(data.message);
-                if (data.success) {
-                    location.reload(); // Recargar la página tras eliminar.
-                }
-            })
-            .catch(error => console.error('Error:', error));
-        }
-    });
-});
-
     </script>
 </body>
 </html>
