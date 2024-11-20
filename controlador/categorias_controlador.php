@@ -11,6 +11,11 @@ class categorias {
     public $vista;
     public $respuesta;
 
+    
+    public function mostrarCategoriasActivas() {
+        $modelo = new mCategorias();
+        return $modelo->obtenerCategoriasActivas();
+    }
     public function __construct() {
         $this->categoriaObj = new mCategorias();
     }
@@ -102,4 +107,5 @@ class categorias {
             }
         }
     }
+    
 }

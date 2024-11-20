@@ -3,7 +3,6 @@ require_once("db_connect.php");
 
 class mCategorias {
     private $conexion;
-
     public function __construct() {
         $dbObj = new db();
         $this->conexion = $dbObj->conectar();
@@ -54,4 +53,12 @@ class mCategorias {
         $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         return $stmt->execute();
     }
+
+    public function obtenerCategoriasActivas() {
+        $query = "SELECT * FROM categoria WHERE estatus = 1";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
 }
