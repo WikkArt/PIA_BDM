@@ -1,3 +1,13 @@
+<?php 
+session_start();
+
+if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+    echo json_encode(['error' => 'No has iniciado sesión.']);
+    exit();
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

@@ -224,7 +224,7 @@ $usuarioInfo = $respuesta['usuarioInfo'];
                         <td>1</td>
                         <td>---</td>
                         <td>
-                            <a href="listaNiveles.html">
+                            <a href="listaNiveles.php">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
@@ -238,7 +238,7 @@ $usuarioInfo = $respuesta['usuarioInfo'];
                         <td>2</td>
                         <td>---</td>
                         <td>
-                            <a href="listaNiveles.html">
+                            <a href="listaNiveles.php">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
@@ -252,7 +252,7 @@ $usuarioInfo = $respuesta['usuarioInfo'];
                         <td>3</td>
                         <td>---</td>
                         <td>
-                            <a href="listaNiveles.html">
+                            <a href="listaNiveles.php">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
@@ -266,7 +266,7 @@ $usuarioInfo = $respuesta['usuarioInfo'];
                         <td>4</td>
                         <td>---</td>
                         <td>
-                            <a href="listaNiveles.html">
+                            <a href="listaNiveles.php">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
