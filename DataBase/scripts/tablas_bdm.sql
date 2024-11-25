@@ -153,6 +153,18 @@ CREATE TABLE mensaje(
     REFERENCES chat(id)
 );
 
+-- SELECTS --
+SELECT * FROM usuario;
+SELECT * FROM categoria;
+SELECT * FROM chat;
+SELECT * FROM comentario;
+SELECT * FROM curso;
+SELECT * FROM inscripcion_estudiante;
+SELECT * FROM mensaje;
+SELECT * FROM nivel;
+SELECT * FROM nivel_completado;
+SELECT * FROM recurso_adicional;
+
 -- PROCEDURE PARA VALIDACION DE CONTRASEÑA 
 DELIMITER //
 CREATE PROCEDURE Vali_pass(IN p_contrasena varchar(50), OUT ERRO INT)

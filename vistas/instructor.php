@@ -18,8 +18,8 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habímate | Perfíl del usuario</title>
-    <link rel="stylesheet" href="CSS/perfilUsuarioDesign.css">
-    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="../CSS/perfilUsuarioDesign.css">
+    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
 </head>
 <body>
     <!--Navegador-->
@@ -88,7 +88,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                 <li class="list-group-item secundario">
                     <p><strong>Género:</strong> <span id="genero"><?=strtoupper($usuarioInfo['genero'][0]).substr($usuarioInfo['genero'], 1)?></span></p>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item botones">
                     <a href="index.php?controlador=usuarios&accion=editar">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
                     </a>

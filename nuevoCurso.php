@@ -130,125 +130,130 @@ try {
                     <button id="btnCurso" type="submit">Crear Curso</button>
                 </div>
                 <div class="col-5 nivel">
-                    <div id="idNivelOverflow">
-                        <h2 class="header-1">Video del Nivel</h2>
-                        <div>
-                            <video id="idVideo" controls="controls">
-                                <source src="">
-                            </video>
-                            <input type="file" class="form-control" id="video" name="video" 
-                            accept="video/*" onchange="cargarVideo()" >
-                            <h2>Información del nivel</h2>
-                            <div class="nivel-nombre-precio">
-                                <div id="idInputs" class="inputbox nombre-nivel">
-                                    <label>Nombre del Nivel</label>
-                                    <input type="text" id="txtLevel" name="txtLevel">
-                                </div>
-                                <div class="inputbox precio">
-                                    <label class="subtitle">Precio</label>
-                                    <div class="input-group">
-                                        <div class="input-group-text">MXN $</div>
-                                        <input type="text" class="form-control" id="txtLevelPrice" name="txtLevelPrice" placeholder="00.00">
-                                    </div>
-                                </div>
-                            </div>
-                            <h2>Archivos adicionales <span>(Opcional)</span></h2>
-                            <div class="archivos">
-                                <div class="link-mas">
-                                    <div class="col">
-                                        <label class="subtitle">Link(s) a una página externa</label>
+                    <div id="idColNiveles">
+                        <div id="idNivelOverflow">
+                            <h2 class="header-1">Video del Nivel</h2>
+                            <div>
+                                <video id="idVideo" controls="controls">
+                                    <source src="">
+                                </video>
+                                <input type="file" class="form-control" id="video" name="video" 
+                                accept="video/*" onchange="cargarVideo()" >
 
-                                        <div id="idInputs" class="inputbox link">
-                                            <input type="text" id="txtLink" name="txtLink">
+                                <h2>Información del nivel</h2>
+                                <div class="nivel-nombre-precio">
+                                    <div id="idInputs" class="inputbox nombre-nivel">
+                                        <label>Nombre del Nivel</label>
+                                        <input type="text" id="txtLevel" name="txtLevel">
+                                    </div>
+                                    <div class="inputbox precio">
+                                        <label class="subtitle">Precio</label>
+                                        <div class="input-group">
+                                            <div class="input-group-text">MXN $</div>
+                                            <input type="text" class="form-control" id="txtLevelPrice" name="txtLevelPrice" placeholder="00.00">
                                         </div>
                                     </div>
-                                    <button id="btnAgregarLink" type="button" class="btn btn-primary">
-                                        <img src="Images/agregar.png" alt="Agregar Link">
-                                    </button>
                                 </div>
-                                <div class="pdf-txt">
-                                    <div>
-                                        <div class="subtitle-mas">
-                                            <label class="subtitle">PDF(s)</label>
-                                            <button id="btnAgregarPDF" type="button" class="btn btn-primary">
-                                                <img src="Images/agregar.png" alt="Agregar PDF">
-                                            </button>
+                                <h2>Archivos adicionales <span>(Opcional)</span></h2>
+                                <div class="archivos">
+                                    <div class="link-mas">
+                                        <div class="col">
+                                            <label class="subtitle">Link(s) a una página externa</label>
+
+                                            <div id="idInputs" class="inputbox link">
+                                                <input type="text" id="txtLink" name="txtLink">
+                                            </div>
                                         </div>
-                                        <table id="idTablaPDF">
-                                            <tr>
-                                                <td>
-                                                    <input type="file"  class="form-control" accept=".pdf" />
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <button id="btnAgregarLink" type="button" class="btn btn-primary">
+                                            <img src="Images/agregar.png" alt="Agregar Link">
+                                        </button>
                                     </div>
-                                    <div>
-                                        <div class="subtitle-mas">
-                                            <label class="subtitle">TXT(s)</label>
-                                            <button id="btnAgregarTXT" type="button" class="btn btn-primary">
-                                                <img src="Images/agregar.png" alt="Agregar TXT">
-                                            </button>
+                                    <div class="pdf-txt">
+                                        <div>
+                                            <div class="subtitle-mas">
+                                                <label class="subtitle">PDF(s)</label>
+                                                <button id="btnAgregarPDF" type="button" class="btn btn-primary">
+                                                    <img src="Images/agregar.png" alt="Agregar PDF">
+                                                </button>
+                                            </div>
+                                            <table id="idTablaPDF">
+                                                <tr>
+                                                    <td>
+                                                        <input id="filePDF" name="filePDF" type="file" class="form-control" accept=".pdf" />
+                                                    </td>
+                                                </tr>
+                                            </table>
                                         </div>
-                                        <table id="idTablaTXT">
-                                            <tr>
-                                                <td>
-                                                    <input type="file"  class="form-control" accept=".txt" />
-                                                </td>
-                                            </tr>
-                                        </table>
+                                        <div>
+                                            <div class="subtitle-mas">
+                                                <label class="subtitle">TXT(s)</label>
+                                                <button id="btnAgregarTXT" type="button" class="btn btn-primary">
+                                                    <img src="Images/agregar.png" alt="Agregar TXT">
+                                                </button>
+                                            </div>
+                                            <table id="idTablaTXT">
+                                                <tr>
+                                                    <td>
+                                                        <input id="fileTXT" name="fileTXT" type="file" class="form-control" accept=".txt" />
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </div>
                                     </div>
+                                    <div class="subtitle-mas">
+                                        <label class="subtitle">Imagen(es)</label>
+                                        <button id="btnAgregarImagen" type="button" class="btn btn-primary">
+                                            <img src="Images/agregar.png" alt="Agregar Imagen">
+                                        </button>
+                                    </div>
+                                    <table>
+                                        <tr>
+                                            <th>Opción</th>
+                                            <th>Previsualización</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="file" class="form-control" id="imgExtra" name="imgExtra"
+                                                accept="image/*" required onchange="cargarImagen(event, 'idImagenExtra')" >
+                                            </td>
+                                            <td>
+                                                <img id="idImagenExtra" src="Images/ImagenCursoRosa.png" alt="Foto extra del nivel">
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <div class="subtitle-mas">
+                                        <label class="subtitle">Video(s)</label>
+                                        <button id="btnAgregarVideo" type="button" class="btn btn-primary">
+                                            <img src="Images/agregar.png" alt="Agregar Video">
+                                        </button>
+                                    </div>
+                                    <table>
+                                        <tr>
+                                            <th>Opción</th>
+                                            <th>Previsualización</th>
+                                        </tr>
+                                        <tr>
+                                            <td>
+                                                <input type="file" class="form-control" id="videoExtra" name="videoExtra" 
+                                                accept="video/*" onchange="cargarVideoExtra()" >
+                                            </td>
+                                            <td>
+                                                <video id="idVideoExtra" controls="controls">
+                                                    <source src="">
+                                                </video>
+                                            </td>
+                                        </tr>
+                                    </table>
                                 </div>
-                                <div class="subtitle-mas">
-                                    <label class="subtitle">Imagen(es)</label>
-                                    <button id="btnAgregarImagen" type="button" class="btn btn-primary">
-                                        <img src="Images/agregar.png" alt="Agregar Imagen">
-                                    </button>
-                                </div>
-                                <table>
-                                    <tr>
-                                        <th>Opción</th>
-                                        <th>Previsualización</th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="file" class="form-control" id="imgExtra" name="imgExtra"
-                                            accept="image/*" required onchange="cargarImagen(event, 'idImagenExtra')" >
-                                        </td>
-                                        <td>
-                                            <img id="idImagenExtra" src="Images/ImagenCursoRosa.png" alt="Foto extra del nivel">
-                                        </td>
-                                    </tr>
-                                </table>
-                                <div class="subtitle-mas">
-                                    <label class="subtitle">Video(s)</label>
-                                    <button id="btnAgregarVideo" type="button" class="btn btn-primary">
-                                        <img src="Images/agregar.png" alt="Agregar Video">
-                                    </button>
-                                </div>
-                                <table>
-                                    <tr>
-                                        <th>Opción</th>
-                                        <th>Previsualización</th>
-                                    </tr>
-                                    <tr>
-                                        <td>
-                                            <input type="file" class="form-control" id="videoExtra" name="videoExtra" 
-                                            accept="video/*" onchange="cargarVideoExtra()" >
-                                        </td>
-                                        <td>
-                                            <video id="idVideoExtra" controls="controls">
-                                                <source src="">
-                                            </video>
-                                        </td>
-                                    </tr>
-                                </table>
                             </div>
                         </div>
+
+                        <button id="btnAgregarNivel" type="button" class="btn btn-primary">
+                            <img src="Images/agregarMorado.png" alt="Agregar Nivel">
+                            <h3>Agregar otro nivel</h3>
+                        </button>
                     </div>
-                    <button id="btnAgregarNivel" type="button" class="btn btn-primary">
-                        <img src="Images/agregarMorado.png" alt="Agregar Nivel">
-                        <h3>Agregar otro nivel</h3>
-                    </button>
+                    
                 </div>
 
             </div>

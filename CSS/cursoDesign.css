@@ -280,9 +280,13 @@ input.form-control:focus{
 
 /* Informacion del nivel */
 
-#idNivelOverflow{
+#idColNiveles{
     overflow-y: auto;
     overflow-x: hidden;
+}
+
+#idNivelOverflow{
+    overflow-y: auto;
     width: 100%;
     max-height: 395px;
     margin-block: 12px;

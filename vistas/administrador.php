@@ -85,7 +85,7 @@ $categorias = $categoriaControlador->mostrarCategorias();
                 <li class="list-group-item secundario">
                     <p><strong>Género:</strong> <span id="genero"><?=strtoupper($usuarioInfo['genero'][0]).substr($usuarioInfo['genero'], 1)?></span></p>
                 </li>
-                <li class="list-group-item">
+                <li class="list-group-item botones">
                     <a href="index.php?controlador=usuarios&accion=editar">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
                     </a>

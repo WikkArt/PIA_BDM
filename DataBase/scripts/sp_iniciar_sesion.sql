@@ -1,4 +1,4 @@
-DELIMITER 
+DELIMITER //
 
 CREATE PROCEDURE iniciar_sesion (
     IN p_nombre_usuario VARCHAR(50),
@@ -27,6 +27,6 @@ BEGIN
         END IF;
     END IF;
 
-END 
+END //
 
 DELIMITER ;
