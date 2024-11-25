@@ -12,8 +12,9 @@ function cargarImagen(event, elementId) {
     }
 }
 
-function cargarVideo(event, elementId) {
-    var input = document.getElementById(elementId);
+function cargarVideo(){
+    var input = document.getElementById("video");
+    
     var freader = new FileReader();
     freader.readAsDataURL(input.files[0]);
     freader.onload = function() {
@@ -21,8 +22,9 @@ function cargarVideo(event, elementId) {
     }
 }
 
-function cargarVideoExtra(event, elementId) {
-    var input = document.getElementById(elementId);
+function cargarVideoExtra(){
+    var input = document.getElementById("videoExtra");
+
     var freader = new FileReader();
     freader.readAsDataURL(input.files[0]);
     freader.onload = function() {
