@@ -142,5 +142,6 @@
 
     <!-- Archivos externos -->
     <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/reporterUsuariosScript.js"></script>
 </body>
 </html>
