@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habímate | Registro</title>
-    <link rel="stylesheet" href="../CSS/registroDesign.css">
-    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/registroDesign.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
 <body>
     <!--Navegador-->
     <nav id="idNav" class="navbar navbar-expand-lg">
         <button id="btnLogo" class="navbar-brand" type="button">
-            <img src="../Images/HabimateLogo2.png" width="160px"/>
+            <img src="Images/HabimateLogo2.png" width="160px"/>
         </button>
 
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#idNavLinks" aria-controls="idNavLinks" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,14 +22,14 @@
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../dashboard.php">Inicio</a>
+                        <a class="nav-link" href="dashboard.php">Inicio</a>
                     </li>
                 </ul>
             </div>
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="../index.php">Iniciar Sesión</a>
+                        <a class="nav-link" href="index.php">Iniciar Sesión</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Registro</a>
@@ -42,10 +42,10 @@
     <!-- Cuerpo -->
     <div id="idRegister" class="form-box form-value container">
         <h1 class="text">Registro</h1>
-        <form method="POST" action="../index.php?accion=registrar&controlador=usuarios" enctype="multipart/form-data">
+        <form method="POST" action="index.php?accion=registrar&controlador=usuarios" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-6 col-md-4 avatar">
-                    <img id="idAvatarSample" src="../Images/avatarSample.png" 
+                    <img id="idAvatarSample" src="Images/avatarSample.png" 
                     class="rounded-circle" alt="Avatar">
 
                     <input class="form-control" type="file" id="btnAvatar" name="btnAvatar" onchange="mostrarAvatar(event, 'idAvatarSample')" accept="image/*">
@@ -122,8 +122,8 @@
     </div>
 
     <!--Archivos externos-->
-    <script src="../JS/jquery-3.7.1.min.js"></script>
-    <script src="../JS/bootstrap.min.js"></script>
-    <script src="../JS/registroScript.js"></script>
+    <script src="JS/jquery-3.7.1.min.js"></script>
+    <script src="JS/bootstrap.min.js"></script>
+    <script src="JS/registroScript.js"></script>
 </body>
 </html>

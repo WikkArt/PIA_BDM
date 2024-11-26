@@ -18,8 +18,8 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Habímate | Perfíl del usuario</title>
-    <link rel="stylesheet" href="../CSS/perfilUsuarioDesign.css">
-    <link rel="stylesheet" href="../CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="CSS/perfilUsuarioDesign.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
 <body>
     <!--Navegador-->
@@ -92,7 +92,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                     <a href="index.php?controlador=usuarios&accion=editar">
                         <button id="btnEditarUsuario" type="button">Editar usuario</button>
                     </a>
-                    <a href="nuevoCurso.php">
+                    <a href="index.php?controlador=cursos&accion=crear">
                         <button id="btnNuevoCurso" type="button">Nuevo curso</button>
                     </a>
                 </li>

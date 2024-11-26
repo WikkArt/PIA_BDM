@@ -83,14 +83,14 @@ CREATE TABLE nivel(
 /* Tabla de recursos adicionales de los niveles como PDFs, Txts, etc. */
 CREATE TABLE recurso_adicional(
 	id	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    archivo LONGBLOB,
-    mime	VARCHAR(40),
-    link	VARCHAR(255), /* En caso de NO ser un archivo, sino un link a Internet */
+    archivo	VARCHAR(255), /* Link/archivo */
     nivel_id	INT, /* A que nivel pertenece */
     CONSTRAINT FK_recurso_nivel
     FOREIGN KEY(nivel_id)
     REFERENCES nivel(id)
 );
+
+-- DROP TABLE recurso_adicional;
 
 /* Tabla de niveles completados por cada usuario para guardar su progreso */
 CREATE TABLE nivel_completado(
@@ -164,31 +164,3 @@ SELECT * FROM mensaje;
 SELECT * FROM nivel;
 SELECT * FROM nivel_completado;
 SELECT * FROM recurso_adicional;
-
--- PROCEDURE PARA VALIDACION DE CONTRASEÑA 
-DELIMITER //
-CREATE PROCEDURE Vali_pass(IN p_contrasena varchar(50), OUT ERRO INT)
-BEGIN
-
-IF CAST(p_contrasena AS BINARY) REGEXP CAST('[a-z]' AS BINARY) 
-AND CAST(p_contrasena AS BINARY) REGEXP CAST('[A-Z]' AS BINARY)
-AND CAST(p_contrasena AS BINARY) REGEXP CAST('[0-9]' AS BINARY) 
-AND CAST(p_contrasena AS BINARY) REGEXP CAST('[!¡"#$%&¿?=:;,.-_+*{}]' AS BINARY)
-AND CHAR_LENGTH(p_contrasena) >= 8
-
- THEN SET ERRO=0; -- NO VALIDA
-
-          SET ERRO=1; -- VALIDA
-   END IF;
-END //
-DELIMITER ;
-
--- Ejemplos con el procedure anterior
-
-CALL Vali_pass('Aa6%Aa6%', @out_value);
--- El select mostraria un 1 al ser valida
-SELECT @out_value;
-
-CALL Vali_pass('hola', @out_value);
--- Ahora el select mostraria un 0 o NULL al no ser valida
-SELECT @out_value;
