@@ -27,22 +27,25 @@ CREATE PROCEDURE nuevo_nivel(
 )
 BEGIN
 	DECLARE p_curso_id INT;
-	SET p_curso_id = (SELECT MAX(id) FROM curso);
+    SET p_curso_id = (SELECT MAX(id) FROM curso);
+    
 	INSERT INTO nivel (nombre, video, precio, curso_id) VALUES
     (p_nivel, p_video, p_precio, p_curso_id);
     
     UPDATE curso SET total_niveles = (total_niveles + 1) WHERE id = p_curso_id;
 END //
 DELIMITER ;
-
+ 
 DELIMITER //
 CREATE PROCEDURE nuevo_recurso(
 	IN p_archivo VARCHAR(255)
 )
 BEGIN
 	DECLARE p_nivel_id INT;
-	SET p_nivel_id = (SELECT MAX(id) FROM nivel);
-	INSERT INTO recurso_adicional (archivo, nivel_id) VALUES
+    SET p_nivel_id = (SELECT MAX(id) FROM nivel);
+    
+    INSERT INTO recurso_adicional (archivo, nivel_id) VALUES
     (p_archivo, p_nivel_id);
+    
 END //
 DELIMITER ;

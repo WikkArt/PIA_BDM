@@ -1,14 +1,14 @@
 <?php 
-session_start();
-
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
-    echo json_encode(['error' => 'No has iniciado sesión.']);
-    exit();
-}
 
 $nombre_usuario = $_SESSION['usuario'];
 $rol = $_SESSION['rol'];
 $foto = $_SESSION['foto'];
+
+require_once("controlador/cursos_controlador.php");
+
+$controlador = new cursos();
+$cursosActivos = $controlador->mostrar();
+
 ?>
 
 <!DOCTYPE html>
@@ -93,18 +93,23 @@ $foto = $_SESSION['foto'];
                     <th class="header-4">Opción</th>
                 </tr>
 
-                <tr>
+                <?php 
+                if($cursosActivos != null) {
+                    foreach ($cursosActivos as $curso): ?>
+                <tr id="<?=$curso["id"]?>">
                     <td class="primerColumna">
-                        <img src="Images/ImagenCursoRosa.png"
+                        <img src="data:image/png;base64,<?=base64_encode($curso['foto'])?>"
                         alt="Foto promocional" class="img-fluid">
                     </td>
-                    <td>---</td>
                     <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                        <?= htmlspecialchars($curso['nombre']) ?>
                     </td>
-                    <td>4</td>
+                    <td>
+                        <?= htmlspecialchars($curso['descripcion']) ?>
+                    </td>
+                    <td> 
+                        <?= htmlspecialchars($curso['total_niveles']) ?> 
+                    </td>
                     <td class="columna-botones">
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
@@ -114,69 +119,12 @@ $foto = $_SESSION['foto'];
                         </a>
                     </td>
                 </tr>
+                <?php endforeach; } 
+                else {?>
                 <tr>
-                    <td class="primerColumna">
-                        <img src="Images/ImagenCursoMorado.png"
-                        alt="Foto promocional" class="img-fluid">
-                    </td>
-                    <td>---</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </td>
-                    <td>4</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCurso.php">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
+                    <td colspan="6">No ha creado ningún curso aún</td>
                 <tr>
-                    <td class="primerColumna">
-                        <img src="Images/ImagenCursoRosa.png"
-                        alt="Foto promocional" class="img-fluid">
-                    </td>
-                    <td>---</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </td>
-                    <td>4</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCurso.php">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
-                <tr>
-                    <td class="primerColumna">
-                        <img src="Images/ImagenCursoMorado.png"
-                        alt="Foto promocional" class="img-fluid">
-                    </td>
-                    <td>---</td>
-                    <td>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </td>
-                    <td>4</td>
-                    <td class="columna-botones">
-                        <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
-                            Eliminar
-                        </button>
-                        <a href="editarCurso.php">
-                            <button class="editar">Editar</button>
-                        </a>
-                    </td>
-                </tr>
+                <?php } ?>
             </table>
         </div>
         

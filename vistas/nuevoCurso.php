@@ -43,7 +43,7 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
+                        <a class="nav-link" href="index.php?accion=mostrar&controlador=cursos">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
@@ -150,17 +150,17 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                                             <input type="text" id="txtLink" name="txtLink">
                                         </div>
                                     </div>
-                                    <button id="btnAgregarLink" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarLink" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Link">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <div class="pdf-txt">
                                     <div>
                                         <div class="subtitle-mas">
                                             <label class="subtitle">PDF(s)</label>
-                                            <button id="btnAgregarPDF" type="button" class="btn btn-primary">
+                                            <!-- <button id="btnAgregarPDF" type="button" class="btn btn-primary">
                                                 <img src="Images/agregar.png" alt="Agregar PDF">
-                                            </button>
+                                            </button> -->
                                         </div>
                                         <table id="idTablaPDF">
                                             <tr>
@@ -173,9 +173,9 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                                     <div>
                                         <div class="subtitle-mas">
                                             <label class="subtitle">TXT(s)</label>
-                                            <button id="btnAgregarTXT" type="button" class="btn btn-primary">
+                                            <!-- <button id="btnAgregarTXT" type="button" class="btn btn-primary">
                                                 <img src="Images/agregar.png" alt="Agregar TXT">
-                                            </button>
+                                            </button> -->
                                         </div>
                                         <table id="idTablaTXT">
                                             <tr>
@@ -188,9 +188,9 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                                 </div>
                                 <div class="subtitle-mas">
                                     <label class="subtitle">Imagen(es)</label>
-                                    <button id="btnAgregarImagen" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarImagen" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Imagen">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <table>
                                     <tr>
@@ -209,9 +209,9 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                                 </table>
                                 <div class="subtitle-mas">
                                     <label class="subtitle">Video(s)</label>
-                                    <button id="btnAgregarVideo" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarVideo" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Video">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <table>
                                     <tr>
@@ -233,10 +233,6 @@ $categorias = $categoriaControlador->mostrarCategoriasActivas();
                             </div>
                         </div>
                     </div>
-                    <!-- <button id="btnAgregarNivel" type="button" class="btn btn-primary">
-                        <img src="Images/agregarMorado.png" alt="Agregar Nivel">
-                        <h3>Agregar otro nivel</h3>
-                    </button> -->
                 </div>
 
             </div>

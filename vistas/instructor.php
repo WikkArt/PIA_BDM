@@ -44,7 +44,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <a class="nav-link active" href="#">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
+                        <a class="nav-link" href="index.php?controlador=cursos&accion=mostrar">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>

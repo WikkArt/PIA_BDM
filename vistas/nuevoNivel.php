@@ -38,7 +38,7 @@ $foto = $_SESSION['foto'];
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
+                        <a class="nav-link" href="index.php?accion=mostrar&controlador=cursos">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
@@ -113,22 +113,22 @@ $foto = $_SESSION['foto'];
                                             <input type="text" id="txtLink" name="txtLink">
                                         </div>
                                     </div>
-                                    <button id="btnAgregarLink" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarLink" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Link">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <div class="pdf-txt">
                                     <div>
                                         <div class="subtitle-mas">
                                             <label class="subtitle">PDF(s)</label>
-                                            <button id="btnAgregarPDF" type="button" class="btn btn-primary">
+                                            <!-- <button id="btnAgregarPDF" type="button" class="btn btn-primary">
                                                 <img src="Images/agregar.png" alt="Agregar PDF">
-                                            </button>
+                                            </button> -->
                                         </div>
                                         <table id="idTablaPDF">
                                             <tr>
                                                 <td>
-                                                    <input type="file"  class="form-control" accept=".pdf" name="recurso[]"/>
+                                                    <input type="file"  class="form-control" accept=".pdf" name="recursoNivel[]"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -136,14 +136,14 @@ $foto = $_SESSION['foto'];
                                     <div>
                                         <div class="subtitle-mas">
                                             <label class="subtitle">TXT(s)</label>
-                                            <button id="btnAgregarTXT" type="button" class="btn btn-primary">
+                                            <!-- <button id="btnAgregarTXT" type="button" class="btn btn-primary">
                                                 <img src="Images/agregar.png" alt="Agregar TXT">
-                                            </button>
+                                            </button> -->
                                         </div>
                                         <table id="idTablaTXT">
                                             <tr>
                                                 <td>
-                                                    <input type="file"  class="form-control" accept=".txt" name="recurso[]"/>
+                                                    <input type="file"  class="form-control" accept=".txt" name="recursoNivel[]"/>
                                                 </td>
                                             </tr>
                                         </table>
@@ -151,9 +151,9 @@ $foto = $_SESSION['foto'];
                                 </div>
                                 <div class="subtitle-mas">
                                     <label class="subtitle">Imagen(es)</label>
-                                    <button id="btnAgregarImagen" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarImagen" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Imagen">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <table>
                                     <tr>
@@ -162,7 +162,7 @@ $foto = $_SESSION['foto'];
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="file" class="form-control" id="imgExtra" name="recurso[]"
+                                            <input type="file" class="form-control" id="imgExtra" name="recursoNivel[]"
                                             accept="image/*" onchange="cargarImagen(event, 'idImagenExtra')" >
                                         </td>
                                         <td>
@@ -172,9 +172,9 @@ $foto = $_SESSION['foto'];
                                 </table>
                                 <div class="subtitle-mas">
                                     <label class="subtitle">Video(s)</label>
-                                    <button id="btnAgregarVideo" type="button" class="btn btn-primary">
+                                    <!-- <button id="btnAgregarVideo" type="button" class="btn btn-primary">
                                         <img src="Images/agregar.png" alt="Agregar Video">
-                                    </button>
+                                    </button> -->
                                 </div>
                                 <table>
                                     <tr>
@@ -183,7 +183,7 @@ $foto = $_SESSION['foto'];
                                     </tr>
                                     <tr>
                                         <td>
-                                            <input type="file" class="form-control" id="videoExtra" name="recurso[]" 
+                                            <input type="file" class="form-control" id="videoExtra" name="recursoNivel[]" 
                                             accept="video/*" onchange="cargarVideoExtra()" >
                                         </td>
                                         <td>

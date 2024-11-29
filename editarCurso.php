@@ -44,7 +44,7 @@ $foto = $_SESSION['foto'];
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaCursos.php">Cursos</a>
+                        <a class="nav-link" href="index.php?controlador=cursos&accion=mostrar">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaInscritos.html">Alumnos inscritos</a>

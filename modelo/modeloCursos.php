@@ -22,27 +22,7 @@ class mCursos{
         $result = $this->conexion->query("SELECT @resultado AS resultado")->fetch(PDO::FETCH_ASSOC);
 
         //Agregar nivel
-        $query2 = "CALL nuevo_nivel(:nivel, :video, :precio)";
-        $stmt2 = $this->conexion->prepare($query2);
-        $stmt2->bindParam(':nivel', $param["nivel"]);
-        $stmt2->bindParam(':video', $param["videoNivel"]);
-        $stmt2->bindParam(':precio', $param["precioNivel"]);
-        $stmt2->execute();
-        //Agregar el arreglo de recursos y links
-        if($link != null) {
-            $query3 = "CALL nuevo_recurso(:archivo)";
-            $stmt3 = $this->conexion->prepare($query3);
-            $stmt3->bindParam(':archivo', $link);
-            $stmt3->execute();
-        }
-        if($recursos != null) {
-            foreach ($recursos as $archivo) {
-                $q = "CALL nuevo_recurso(:archivo)";
-                $st = $this->conexion->prepare($q);
-                $st->bindParam(':archivo', $archivo);
-                $st->execute();
-            }
-        }
+        $this->agregarNivel($param, $link, $recursos);
 
         return $result;
     }
@@ -56,9 +36,9 @@ class mCursos{
         $stmt->execute();
         //Agregar el arreglo de recursos y links
         if($link != null) {
-            $query2 = "CALL nuevo_recurso(:archivo)";
+            $query2 = "CALL nuevo_recurso(:link)";
             $stmt2 = $this->conexion->prepare($query2);
-            $stmt2->bindParam(':archivo', $link);
+            $stmt2->bindParam(':link', $link);
             $stmt2->execute();
         }
         if($recursos != null) {
@@ -70,5 +50,13 @@ class mCursos{
             }
         }
         return 1;
+    }
+
+    public function obtenerCursosActivos($usuario) {
+        $query = "SELECT * FROM curso WHERE estatus = 1 AND usuario_instructor = :usuario";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':usuario', $usuario);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 }

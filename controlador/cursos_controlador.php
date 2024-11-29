@@ -31,14 +31,14 @@ class cursos {
                     $mime = null;
                 }
 
-                if ($_FILES["video"]["error"] > 0) {
+                if ($_FILES['video']['error'] > 0) {
                     echo "<script>
-                            alert('Error al guardar nivel: " . $_FILES["video"]["error"] . "');
+                            alert('Error al guardar nivel: " . $_FILES['video']['error'] . "');
                         </script>";
                 } else {
                     //Guardar niveles subidos en la carpeta videos
-                    $rutavideoNivel = "videos/" .$_SESSION["usuario"]."_".$_POST['txtLevel']."_".$_FILES["video"]["name"];
-                    move_uploaded_file($_FILES["video"]["tmp_name"], $rutavideoNivel);
+                    $rutavideoNivel = "videos/" .$_SESSION['usuario']."_".$_POST['txtLevel']."_".$_FILES['video']['name'];
+                    move_uploaded_file($_FILES['video']['tmp_name'], $rutavideoNivel);
                 }
 
                 $datos = array(
@@ -46,27 +46,28 @@ class cursos {
                     "descripcion" => $_POST['txtDesc'],
                     "foto" => $foto,
                     "mime" => $mime,
-                    "nombre_usuario" => $_SESSION["usuario"],
+                    "nombre_usuario" => $_SESSION['usuario'],
                     "idCategoria" => $_POST['idCategoria'],
                     "videoNivel" => $rutavideoNivel,
-                    "nivel" => $_POST["txtLevel"],
-                    "precioNivel" => $_POST["txtLevelPrice"]
+                    "nivel" => $_POST['txtLevel'],
+                    "precioNivel" => $_POST['txtLevelPrice']
                 );
 
-                if($_POST["txtLink"] != null) {
-                    $linkNivel = $_POST["txtLink"];
+                if($_POST['txtLink'] != null) {
+                    $linkNivel = $_POST['txtLink'];
                 } else {
                     $linkNivel = null;
                 }
                 $recursos = array();
-                if($_FILES["recurso"]["name"][0] != null) {
+                if($_FILES['recurso']['name'][0] != null || $_FILES['recurso']['name'][1] != null ||
+                    $_FILES['recurso']['name'][2] != null || $_FILES['recurso']['name'][3] != null) {
                     //Arreglo de recursos
-                    $totalRec = count($_FILES["recurso"]["name"]);
-                    for ($i=0; $i < $totalRec; $i++) { 
+                    $totalRec = count($_FILES['recurso']['name']);
+                    for ($i = 0; $i < $totalRec; $i++) { 
                         //Guardar archivos subidos en la carpeta recursos
-                        if($_FILES["recurso"]["size"][$i] > 0) {
-                            $rutaRecurso = "recursos/" .$_SESSION["usuario"]."_".$_POST['txtLevel']."_".$_FILES["recurso"]["name"][$i];
-                            move_uploaded_file($_FILES["recurso"]["tmp_name"][$i], $rutaRecurso);
+                        if($_FILES['recurso']['size'][$i] > 0) {
+                            $rutaRecurso = "recursos/" .$_SESSION['usuario']."_".$_POST['txtLevel']."_".$_FILES['recurso']['name'][$i];
+                            move_uploaded_file($_FILES['recurso']['tmp_name'][$i], $rutaRecurso);
                             array_push($recursos, $rutaRecurso);
                         }
                     }
@@ -107,38 +108,39 @@ class cursos {
         }
 
         try{
-            if(isset($_POST['txtLevel']) && isset($_POST["txtLevelPrice"])){
+            if(isset($_POST['txtLevel']) && isset($_POST['txtLevelPrice'])){
 
-                if ($_FILES["video"]["error"] > 0) {
+                if ($_FILES['video']['error'] > 0) {
                     echo "<script>
-                            alert('Error al guardar nivel: " . $_FILES["video"]["error"] . "');
+                            alert('Error al guardar nivel: " . $_FILES['video']['error'] . "');
                         </script>";
                 } else {
                     //Guardar niveles subidos en la carpeta videos
-                    $rutavideoNivel = "videos/" .$_SESSION["usuario"]."_".$_POST['txtLevel']."_".$_FILES["video"]["name"];
-                    move_uploaded_file($_FILES["video"]["tmp_name"], $rutavideoNivel);
+                    $rutavideoNivel = "videos/" .$_SESSION['usuario']."_".$_POST['txtLevel']."_".$_FILES['video']['name'];
+                    move_uploaded_file($_FILES['video']['tmp_name'], $rutavideoNivel);
                 }
 
                 $datos = array(
                     "videoNivel" => $rutavideoNivel,
-                    "nivel" => $_POST["txtLevel"],
-                    "precioNivel" => $_POST["txtLevelPrice"]
+                    "nivel" => $_POST['txtLevel'],
+                    "precioNivel" => $_POST['txtLevelPrice']
                 );
 
-                if($_POST["txtLink"] != null) {
-                    $linkNivel = $_POST["txtLink"];
+                if($_POST['txtLink'] != null) {
+                    $linkNivel = $_POST['txtLink'];
                 } else {
                     $linkNivel = null;
                 }
                 $recursos = array();
-                if($_FILES["recurso"]["name"][0] != null) {
+                if($_FILES['recursoNivel']['name'][0] != null || $_FILES['recursoNivel']['name'][1] ||
+                    $_FILES['recursoNivel']['name'][2] || $_FILES['recursoNivel']['name'][3]) {
                     //Arreglo de recursos
-                    $totalRec = count($_FILES["recurso"]["name"]);
-                    for ($i=0; $i < $totalRec; $i++) { 
+                    $totalRec = count($_FILES['recursoNivel']['name']);
+                    for ($i = 0; $i < $totalRec; $i++) { 
                         //Guardar archivos subidos en la carpeta recursos
-                        if($_FILES["recurso"]["size"][$i] > 0) {
-                            $rutaRecurso = "recursos/" .$_SESSION["usuario"]."_".$_POST['txtLevel']."_".$_FILES["recurso"]["name"][$i];
-                            move_uploaded_file($_FILES["recurso"]["tmp_name"][$i], $rutaRecurso);
+                        if($_FILES['recursoNivel']['size'][$i] > 0) {
+                            $rutaRecurso = "recursos/" .$_SESSION['usuario']."_".$_POST['txtLevel']."_".$_FILES['recursoNivel']['name'][$i];
+                            move_uploaded_file($_FILES['recursoNivel']['tmp_name'][$i], $rutaRecurso);
                             array_push($recursos, $rutaRecurso);
                         }
                     }
@@ -168,5 +170,16 @@ class cursos {
                 </script>";
         }
         return $this->respuesta;
+    }
+
+    public function mostrar() {
+        $this->vista = 'tablaCursos';
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
+            echo json_encode(['error' => 'No has iniciado sesión.']);
+            exit();
+        }
+
+        return $this->cursoObj->obtenerCursosActivos($_SESSION['usuario']);
     }
 }
