@@ -3,6 +3,11 @@ require_once("controlador/categorias_controlador.php");
 
 $categoriaControlador = new categorias();
 $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
+
+require_once("controlador/cursos_controlador.php");
+
+$cursoControlador = new cursos();
+$cursosActivos = $cursoControlador->listar();
 ?>
 
 <!DOCTYPE html>
@@ -97,46 +102,14 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
             <div class="display-courses">
                 <h1 class="subtitle">►►► Inscríbete a... ◄◄◄</h1>
                 <div class="courses">
-                    <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500.00 MXN" data-publisher="Fatima">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Administración de tareas</h2>
-                        <p>Administración</p>
+                    <?php
+                    foreach ($cursosActivos as $curso): ?>
+                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>">
+                        <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
+                        <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
+                        <p><?= htmlspecialchars($curso['categoria']) ?></p>
                     </div>
-                    <div class="course" data-description="meteteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" data-price="$75.00 MXN" data-publisher="Gerardo">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Curso super padriuris metete</h2>
-                        <p>Superduper</p>
-                    </div>
-                    <div class="course" data-description="Te lo dije" data-price="$5000.00 MXN" data-publisher="Andrea">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>No entres, está caro</h2>
-                        <p>Tumba</p>
-                    </div>
-                    <div class="course" data-description="Aki aprenderas a jakiar bien chido claro que lles" data-price="$50.00 MXN" data-publisher="Jazmin">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>Komo ser jaker profesional</h2>
-                        <p>jakeo10%real</p>
-                    </div>
-                    <div class="course" data-description="Primero ve la forma de evaluación" data-price="$0.00 MXN" data-publisher="Daniela">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Todo lo que tienes que saber para pasar BDM</h2>
-                        <p>LMAD</p>
-                    </div>
-                    <div class="course" data-description="" data-price="$100.00 MXN" data-publisher="Andrea">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>Cómo picar un tomate en dados</h2>
-                        <p>Gastronomia</p>
-                    </div>
-                    <div class="course" data-description="En 6ta con Villa:>" data-price="$10000.00 MXN" data-publisher="Gerardo">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>Como pasar MAD</h2>
-                        <p>LMAD</p>
-                    </div>
-                    <div class="course" data-description="Sé Daniela" data-price="$....00 MXN" data-publisher="Daniela">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Aprende a ser buen maestro</h2>
-                        <p>Docencia</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
             
@@ -265,6 +238,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
             });
         });
      </script>
+    <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/dashboard.js"></script>
 </body>

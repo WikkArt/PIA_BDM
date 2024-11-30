@@ -36,7 +36,7 @@ $categorias = $categoriaControlador->mostrarCategorias();
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Inicio</a>
+                        <a class="nav-link" href="index.php?controlador=cursos&accion=listar">Inicio</a>
                     </li>
                 </ul>
             </div>

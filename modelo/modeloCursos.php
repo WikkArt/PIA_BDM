@@ -52,10 +52,18 @@ class mCursos{
         return 1;
     }
 
-    public function obtenerCursosActivos($usuario) {
+    public function obtenerCursosdeInstructor($usuario) {
         $query = "SELECT * FROM curso WHERE estatus = 1 AND usuario_instructor = :usuario";
         $stmt = $this->conexion->prepare($query);
         $stmt->bindParam(':usuario', $usuario);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // A traves de la vista 'lista_cursos' accedemos a la info para el dashboard mas facil
+    public function obtenerCursosActivos() {
+        $query = "SELECT * FROM lista_cursos";
+        $stmt = $this->conexion->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }

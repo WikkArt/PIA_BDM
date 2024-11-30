@@ -7,7 +7,7 @@ $foto = $_SESSION['foto'];
 require_once("controlador/cursos_controlador.php");
 
 $controlador = new cursos();
-$cursosActivos = $controlador->mostrar();
+$cursosActivos = $controlador->mostrardeInstructor();
 
 ?>
 
@@ -35,7 +35,7 @@ $cursosActivos = $controlador->mostrar();
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Inicio</a>
+                        <a class="nav-link" href="index.php?controlador=cursos&accion=listar">Inicio</a>
                     </li>
                 </ul>
             </div>

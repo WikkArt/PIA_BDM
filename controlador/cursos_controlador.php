@@ -172,7 +172,7 @@ class cursos {
         return $this->respuesta;
     }
 
-    public function mostrar() {
+    public function mostrardeInstructor() {
         $this->vista = 'tablaCursos';
 
         if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
@@ -180,6 +180,12 @@ class cursos {
             exit();
         }
 
-        return $this->cursoObj->obtenerCursosActivos($_SESSION['usuario']);
+        return $this->cursoObj->obtenerCursosdeInstructor($_SESSION['usuario']);
+    }
+
+    public function listar() {
+        $this->vista = 'dashboard';
+
+        return $this->cursoObj->obtenerCursosActivos();
     }
 }

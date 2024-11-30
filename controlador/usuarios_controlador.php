@@ -31,7 +31,7 @@ class usuarios {
                     $_SESSION['foto'] = $info['foto'];
         
                     if ($result['rol'] == 'estudiante') {
-                        header('Location: dashboard.php');
+                        header('Location: index.php?controlador=cursos&accion=listar');
                     } else {
                         header('Location: index.php?controlador=usuarios&accion=mostrarDatos');
                     }

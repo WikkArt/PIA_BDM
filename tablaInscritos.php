@@ -30,7 +30,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
             <div>
                 <ul class="navbar-nav">
                     <li class="nav-item">
-                        <a class="nav-link" href="dashboard.php">Inicio</a>
+                        <a class="nav-link" href="index.php?controlador=cursos&accion=listar">Inicio</a>
                     </li>
                 </ul>
             </div>
@@ -40,7 +40,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php?controlador=cursos&accion=mostrar">Cursos</a>
+                        <a class="nav-link" href="index.php?accion=mostrardeInstructor&controlador=cursos">Cursos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" href="#">Alumnos inscritos</a>
