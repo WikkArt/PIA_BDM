@@ -1,3 +1,11 @@
+<?php
+
+require_once("controlador/cursos_controlador.php");
+
+$cursoCtrl = new cursos();
+$infoCurso = $cursoCtrl->mostrarInfo();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,16 +53,21 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
         <div id="idCursoInfo">
-            <img id="idFotoPromoSample" src="Images/ImagenCurso.png" alt="Foto promocional del curso">
+            <?php
+            if($infoCurso[0]['imagen'] != null) {
+            ?>
+            <img id="idFotoPromoSample" src="data:image/png;base64,<?=base64_encode($infoCurso[0]['imagen'])?>" 
+            alt="Foto promocional del curso">
+            <?php } ?>
             <ul>
                 <li class="list-group-item destacado">
-                    <h1 class="text">Nombre del curso </h1>
+                    <h1 class="text"> <?=$infoCurso[0]['titulo']?> </h1>
                 </li>
                 <li class="list-group-item secundario">
-                    Nombre del instructor
+                    Instructor: <?=$infoCurso[0]['instructor']?>
                 </li>
                 <li class="list-group-item secundario categoria">
-                    Categoria: 1
+                    Categoria: <?=$infoCurso[0]['categoria']?>
                 </li>
                 <div class="lista-desc">
                     <li class="list-group-item secundario">
@@ -62,9 +75,7 @@
                     </li>
                     <li class="list-group-item secundario">
                         <p>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                            nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
+                            <?=$infoCurso[0]['descripcion']?>
                         </p>
                     </li>
                 </div>
@@ -75,7 +86,13 @@
             <div id="izquierda" class="col-5">
                 <!--VALORACION-->
                 <div class="valoracion">
-                    <h3>Promedio de calificación global: 78%</h3>
+                    <?php
+                    if($infoCurso[0]['valoracion_promedio'] != null) { ?>
+                        <h3>Promedio de calificación global: <?=$infoCurso[0]['valoracion_promedio']?>%</h3>
+                    <?php }
+                    else { ?>
+                        <h3>Promedio de calificación global: Sin valoraciones</h3>
+                    <?php } ?>
                 </div>
                 <!--COMENTARIOS-->
                 <div class="Comentarios">
@@ -254,38 +271,19 @@
                             <th>Precio</th>
                         </tr>
 
+                        <?php
+                        $precios = array();
+                        for($i = 0; $i < count($infoCurso); $i++) {
+                        array_push($precios, $infoCurso[$i]['precioNivel']); ?>
                         <tr>
                             <td>
                                 <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
                             </td>
-                            <td>1</td>
-                            <td>Nombre del nivel</td>
-                            <td>$00.00 MXN</td>
+                            <td><?=$i+1?></td>
+                            <td><?=$infoCurso[$i]['nombreNivel']?></td>
+                            <td>$<?=$infoCurso[$i]['precioNivel']?> MXN</td>
                         </tr>
-                        <tr>
-                            <td>
-                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
-                            </td>
-                            <td>2</td>
-                            <td>Nombre del nivel</td>
-                            <td>$00.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
-                            </td>
-                            <td>3</td>
-                            <td>Nombre del nivel</td>
-                            <td>$00.00 MXN</td>
-                        </tr>
-                        <tr>
-                            <td>
-                                <input class="form-check-input nivel" type="checkbox" id="chbNivelSelect" value="">
-                            </td>
-                            <td>4</td>
-                            <td>Nombre del nivel</td>
-                            <td>$00.00 MXN</td>
-                        </tr>
+                        <?php } ?>
                     </table>
 
                     <table id="idTablaTotal">
@@ -294,7 +292,7 @@
                                 <input class="form-check-input" type="checkbox" id="chbCurso" value="">
                             </th>
                             <th>CURSO COMPLETO: </th>
-                            <th>$000.00 MXN</th>
+                            <th>$<?=(float)array_sum($precios)?> MXN</th>
                         </tr>
                     </table>
                 </div>

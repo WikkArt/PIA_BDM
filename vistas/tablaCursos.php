@@ -114,7 +114,7 @@ $cursosActivos = $controlador->mostrardeInstructor();
                         <button class="eliminar" data-bs-toggle="modal" data-bs-target="#idEliminarModal">
                             Eliminar
                         </button>
-                        <a href="editarCurso.php">
+                        <a href="index.php?accion=editar&controlador=cursos&idCurso=<?=$curso["id"]?>">
                             <button class="editar">Editar</button>
                         </a>
                     </td>

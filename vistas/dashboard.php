@@ -60,42 +60,28 @@ $cursosActivos = $cursoControlador->listar();
             <div class="best-courses">
                 <h1 class="subtitle">★★★ Lo mejor de Habímate ★★★</h1>
                 <div class="courses">
-                    <div class="course" data-description="Aqui aprendemos a organizar nuestros pendientes" data-price="$500.00 MXN" data-publisher="Fatima">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Administración de tareas</h2>
-                        <p>Administración</p>
+                    <?php
+                    foreach ($cursosActivos as $curso): ?>
+                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>" data-idcourse="<?=$curso['id']?>">
+                        <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
+                        <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
+                        <p><?= htmlspecialchars($curso['categoria']) ?></p>
                     </div>
-                    <div class="course" data-description="meteteeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeeee" data-price="$75.00 MXN" data-publisher="Gerardo">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Curso super padriuris metete</h2>
-                        <p>Superduper</p>
-                    </div>
-                    <div class="course" data-description="Te lo dije" data-price="$5000.00 MXN" data-publisher="Andrea">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>No entres, está caro</h2>
-                        <p>Tumba</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
             <div class="bestsellers-courses">
                 <h1 class="subtitle">$ $ $ Los más vendidos $ $ $</h1>
                 <div class="courses">
-                    <div class="course" data-description="Aki aprenderas a jakiar bien chido claro que lles" data-price="$50.00 MXN" data-publisher="Jazmin">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>Komo ser jaker profesional</h2>
-                        <p>jakeo10%real</p>
+                    <?php
+                    foreach ($cursosActivos as $curso): ?>
+                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>" data-idcourse="<?=$curso['id']?>">
+                        <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
+                        <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
+                        <p><?= htmlspecialchars($curso['categoria']) ?></p>
                     </div>
-                    <div class="course" data-description="Primero ve la forma de evaluación" data-price="$0.00 MXN" data-publisher="Daniela">
-                        <img src="Images/curso.jpg" alt=" " class="img-fluid">
-                        <h2>Todo lo que tienes que saber para pasar BDM</h2>
-                        <p>LMAD</p>
-                    </div>
-                    <div class="course" data-description="" data-price="$100.00 MXN" data-publisher="Andrea">
-                        <img src="Images/cursos.jpg" alt=" " class="img-fluid">
-                        <h2>Cómo picar un tomate en dados</h2>
-                        <p>Gastronomia</p>
-                    </div>
+                    <?php endforeach; ?>
                 </div>
             </div>
 
@@ -104,7 +90,7 @@ $cursosActivos = $cursoControlador->listar();
                 <div class="courses">
                     <?php
                     foreach ($cursosActivos as $curso): ?>
-                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>">
+                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>" data-idcourse="<?=$curso['id']?>">
                         <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
                         <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
                         <p><?= htmlspecialchars($curso['categoria']) ?></p>
@@ -129,7 +115,7 @@ $cursosActivos = $cursoControlador->listar();
                         <p id="modal-price"></p>
                     </div>
                     
-                    <a href="infoCurso.html">
+                    <a id="modal-idcourse">
                         <button id="btnCurso" type="button">Ver curso</button>
                     </a>
                 </div>

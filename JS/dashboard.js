@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.getElementById('modal-category').innerText = course.querySelector('p').innerText;
             document.getElementById('modal-price').innerText = course.dataset.price;
             document.getElementById('modal-publisher').innerText = course.dataset.publisher;
+            document.getElementById('modal-idcourse').href = "index.php?controlador=cursos&accion=mostrarInfo&idCurso="+course.dataset.idcourse;
             modal.style.display = 'block';
         }
     });

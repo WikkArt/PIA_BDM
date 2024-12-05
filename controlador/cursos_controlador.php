@@ -172,6 +172,54 @@ class cursos {
         return $this->respuesta;
     }
 
+    public function editar() {
+        $this->vista = "editarCurso";
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+            echo json_encode(['error' => 'No has iniciado sesión.']);
+            exit();
+        }
+
+        if(isset($_POST['txtCourse'])&&isset($_POST['txtDesc'])){
+            try {
+            if ($_FILES['promo']['size'] > 0) {
+                $foto = file_get_contents($_FILES['promo']['tmp_name']);
+                $mime = $_FILES['promo']['type'];
+            } else {
+                $foto = null;
+                $mime = null;
+            }
+
+            $datos = array(
+                'foto' => $foto,
+                'mime' => $mime,
+                'idCategoria' => $_POST['idCategoria'],
+                'nombre_curso' => $_POST['txtCourse'],
+                'descripcion' => $_POST['txtDesc']
+            );
+
+            $idCursoStr = $_GET['idCurso'];
+            $idCurso = (int)$idCursoStr;
+            $this->cursoObj->editar($datos, $idCurso);
+            header('Location: index.php?controlador=cursos&accion=mostrardeInstructor');
+            
+            } catch (PDOException $e) {
+                $this->respuesta = array("state" => false);
+                echo "<script>alert('Error: ". $e->getMessage() ."');</script>";
+                header('Location: index.php?controlador=cursos&accion=editar&idCurso='.$idCurso);
+            }
+        }else{
+            $idCursoStr = $_GET['idCurso'];
+            $idCurso = (int)$idCursoStr;
+            $infoCurso = $this->cursoObj->obtenerCursoEditar($idCurso);
+            $this->respuesta = array(
+                "state" => true,
+                "cursoInfo" =>$infoCurso
+            );
+            return $this->respuesta;
+        }
+    }
+
     public function mostrardeInstructor() {
         $this->vista = 'tablaCursos';
 
@@ -187,5 +235,13 @@ class cursos {
         $this->vista = 'dashboard';
 
         return $this->cursoObj->obtenerCursosActivos();
+    }
+
+    public function mostrarInfo() {
+        $this->vista = 'infoCurso';
+
+        $idCursoStr = $_GET['idCurso'];
+        $idCurso = (int)$idCursoStr;
+        return $this->cursoObj->obtenerInfoCurso($idCurso);
     }
 }

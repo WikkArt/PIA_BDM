@@ -73,12 +73,12 @@ $foto = $_SESSION['foto'];
                 <h1 class="text">Nuevo Nivel</h1>
                 <div class="h-right">
                     <a class="volver" href="index.php?accion=mostrarDatos&controlador=usuarios">
-                        <button id="btnVolver">Volver al perfíl del usuario</button>
+                        <button id="btnVolver">Volver</button>
                     </a>
                 </div>
             </div>
         <form method="POST" action="index.php?accion=agregarNivel&controlador=cursos" enctype="multipart/form-data">
-            <div class="row curso-nivel">
+            <div class="row curso-nivel" style="justify-content: center;">
                 <div class="col-7 nivel" style="margin-top:5vh;">
                     <div id="idNivelOverflow">
                         <h2 class="header-1">Video del Nivel</h2>

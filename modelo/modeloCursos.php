@@ -52,6 +52,28 @@ class mCursos{
         return 1;
     }
 
+    public function editar($param, $idCurso) {
+        $query = "CALL actualizar_curso(:id_curso, :foto, :mime, :categoria, :nombre_curso, :descripcion)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':id_curso', $idCurso);
+        $stmt->bindParam(':foto', $param["foto"]);
+        $stmt->bindParam(':mime', $param["mime"]);
+        $stmt->bindParam(':categoria', $param["idCategoria"]);
+        $stmt->bindParam(':nombre_curso', $param["nombre_curso"]);
+        $stmt->bindParam(':descripcion', $param["descripcion"]);
+        $stmt->execute();
+
+        return 1;
+    }
+
+    public function obtenerCursoEditar($idCurso) {
+        $query = "SELECT id, foto, mime, categoria_id, nombre, descripcion FROM curso WHERE estatus = 1 AND id = :id";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':id', $idCurso);
+        $stmt->execute();
+        return $stmt->fetch(PDO::FETCH_ASSOC);
+    }
+
     public function obtenerCursosdeInstructor($usuario) {
         $query = "SELECT * FROM curso WHERE estatus = 1 AND usuario_instructor = :usuario";
         $stmt = $this->conexion->prepare($query);
@@ -64,6 +86,15 @@ class mCursos{
     public function obtenerCursosActivos() {
         $query = "SELECT * FROM lista_cursos";
         $stmt = $this->conexion->prepare($query);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    // A traves de la vista 'infocurso' accedemos a la info de un curso especifico mas facil
+    public function obtenerInfoCurso($idCurso) {
+        $query = "SELECT * FROM infocurso WHERE id = :id";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':id', $idCurso);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
