@@ -217,11 +217,6 @@ th:last-child {
 }
 
 /* Footer */
-iframe{
-    width: 100% !important;
-    height: auto !important;
-    border: none;
-}
 
 .footer {
     display: block;

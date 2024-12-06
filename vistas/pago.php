@@ -1,9 +1,17 @@
+<?php
+
+require_once("controlador/cursos_controlador.php");
+
+$cursoCtrl = new cursos();
+$infoCurso = $cursoCtrl->comprar();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Habímate | Perfíl del usuario</title>
+    <title>Habímate | Pago de curso</title>
     <link rel="stylesheet" href="CSS/pagoDesign.css">
     <link rel="stylesheet" href="CSS/bootstrap.min.css">
 </head>
@@ -35,7 +43,7 @@
                         <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=cerrarSesion">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>
@@ -47,12 +55,17 @@
         <h1 id="idSubtitulo">Pago del Curso</h1>
 
         <div class="row proceso-pago">
-            <a href="infoCurso.html" id="idRegresar" class="btn">
+            <a href="index.php?controlador=cursos&accion=mostrarInfo&idCurso=<?=$infoCurso[0]['id']?>" id="idRegresar" class="btn">
                 <img src="Images/regresar.png" alt="">
             </a>
             <div id="idCurso" class="col-7">
                 <div class="image-level">
-                    <img id="idAvatarSample" src="Images/ImagenCurso.png" alt="Imágen del Curso">
+                    <?php
+                    if($infoCurso[0]['imagen'] != null) {
+                    ?>
+                    <img id="idAvatarSample" src="data:image/png;base64,<?=base64_encode($infoCurso[0]['imagen'])?>" 
+                    alt="Imágen del Curso">
+                    <?php } ?>
                     
                     <div class="level">
                         <table>
@@ -62,32 +75,24 @@
                                 <th>Precio</th>
                             </tr>
 
+                            <?php
+                            $precios = array();
+                            for($i = 0; $i < count($infoCurso); $i++) {
+                            array_push($precios, $infoCurso[$i]['precioNivel']); ?>
                             <tr>
-                                <td>1</td>
-                                <td>Nombre del nivel</td>
-                                <td>$00.00 MXN</td>
+                                <td><?=$i+1?></td>
+                                <td><?=$infoCurso[$i]['nombreNivel']?></td>
+                                <td>$<?=$infoCurso[$i]['precioNivel']?> MXN</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Nombre del nivel</td>
-                                <td>$00.00 MXN</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Nombre del nivel</td>
-                                <td>$00.00 MXN</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Nombre del nivel</td>
-                                <td>$00.00 MXN</td>
-                            </tr>
+                            <?php } ?>
                         </table>
 
                         <table id="idTablaTotal">
                             <tr>
                                 <th>TOTAL: </th>
-                                <th>$000.00 MXN</th>
+                                <?php
+                                $total =  (float)array_sum($precios); ?>
+                                <th>$<?=$total?> MXN</th>
                             </tr>
                         </table>
                     </div>
@@ -95,12 +100,8 @@
                 </div>
                 
                 <div class="info">
-                    <h3>Nombre del curso</h3>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-                        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis 
-                        nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-                    </p>
+                    <h3><?=$infoCurso[0]['titulo']?></h3>
+                    <p> <?=$infoCurso[0]['descripcion']?></p>
                 </div>  
             </div>
             <div id="idPagos" class="col">
@@ -119,7 +120,7 @@
     <script src="JS/bootstrap.min.js"></script>
 
     <!-- Paypal -->
-    <script src="https://www.paypal.com/sdk/js?client-id=AZBMPJQPnbZQmBjS73bd8KF4PFq0nRFdMnrjg3U1dagAOZVuYX85ZG6pSEaJDghAMnPS5yExgcXBG2Ce&currency=MXN"></script>
+    <script src="https://www.paypal.com/sdk/js?client-id=AVKQlbBiWC_hRV-GeELpMy8oAy-tacFoasmCKYBH7y-CngyYzkk-y-jJTuRFYrjUddZyRyIuXibEKPq7&currency=MXN"></script>
     <script>
         paypal.Buttons({
             style: {
@@ -130,7 +131,7 @@
             //   return actions.order.create({
             //     purchase_units: [{
             //       amount: {
-            //         // value: <?php echo $total; ?> 
+            //         // value: echo $total; ?>
             //       }
             //     }]
             //   });

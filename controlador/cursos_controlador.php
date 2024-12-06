@@ -244,4 +244,12 @@ class cursos {
         $idCurso = (int)$idCursoStr;
         return $this->cursoObj->obtenerInfoCurso($idCurso);
     }
+
+    public function comprar() {
+        $this->vista = 'pago';
+
+        $idCursoStr = $_GET['idCurso'];
+        $idCurso = (int)$idCursoStr;
+        return $this->cursoObj->obtenerInfoCurso($idCurso);
+    }
 }

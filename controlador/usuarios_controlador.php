@@ -182,5 +182,11 @@ class usuarios {
             return $this->respuesta;
         }
     }
+
+    public function cerrarSesion() {
+        //Destruimos la sesion junto con todas sus variables y redirigimos a login
+        session_destroy();
+        header("Location: index.php");
+    }
     
 }

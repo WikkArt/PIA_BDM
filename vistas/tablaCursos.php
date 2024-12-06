@@ -54,7 +54,7 @@ $cursosActivos = $controlador->mostrardeInstructor();
                         <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=cerrarSesion">Cerrar Sesión</a>
                     </li>
                 </ul>
             </div>

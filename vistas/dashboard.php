@@ -40,6 +40,9 @@ $cursosActivos = $cursoControlador->listar();
             </div>
             <div>
                 <ul class="navbar-nav">
+                    <?php
+                    if(isset($_SESSION['usuario'])) {
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
@@ -47,8 +50,13 @@ $cursosActivos = $cursoControlador->listar();
                         <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=cerrarSesion">Cerrar Sesión</a>
                     </li>
+                    <?php } else {?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Iniciar Sesión</a>
+                    </li>
+                    <?php }?>
                 </ul>
             </div>
         </div>

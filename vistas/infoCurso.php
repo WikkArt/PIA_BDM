@@ -36,6 +36,9 @@ $infoCurso = $cursoCtrl->mostrarInfo();
             </div>
             <div>
                 <ul class="navbar-nav">
+                    <?php
+                    if(isset($_SESSION['usuario'])) {
+                    ?>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?accion=mostrarDatos&controlador=usuarios">Perfíl</a>
                     </li>
@@ -43,8 +46,13 @@ $infoCurso = $cursoCtrl->mostrarInfo();
                         <a class="nav-link" href="tablaChats.php">Chat</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="index.php">Cerrar Sesión</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=cerrarSesion">Cerrar Sesión</a>
                     </li>
+                    <?php } else {?>
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.php">Iniciar Sesión</a>
+                    </li>
+                    <?php }?>
                 </ul>
             </div>
         </div>
@@ -74,9 +82,7 @@ $infoCurso = $cursoCtrl->mostrarInfo();
                         <h3>Descripción</h3>
                     </li>
                     <li class="list-group-item secundario">
-                        <p>
-                            <?=$infoCurso[0]['descripcion']?>
-                        </p>
+                        <p><?=$infoCurso[0]['descripcion']?></p>
                     </li>
                 </div>
             </ul>
@@ -297,11 +303,25 @@ $infoCurso = $cursoCtrl->mostrarInfo();
                     </table>
                 </div>
 
-                <a href="pago.html">
+                <?php
+                if(isset($_SESSION['usuario'])) {
+                    if($_SESSION['rol'] == 'estudiante') {
+                ?>
+                <a href="index.php?controlador=cursos&accion=comprar&idCurso=<?=$infoCurso[0]['id']?>">
                     <button id="btnPago" type="button">
                         <img src="Images/inscribir_icon.png" width="160px"/> 
                     </button>
                 </a>
+                <?php } else { ?>
+                    <div class="alert alert-warning" role="alert" style="margin-top:3vh;">
+                        Para inscribirte a un curso debes iniciar sesión en una cuenta de estudiante
+                    </div>
+                <?php }
+                 } else {?>
+                    <div class="alert alert-warning" role="alert" style="margin-top:3vh;">
+                        Para inscribirte a un curso debes iniciar sesión
+                    </div>
+                <?php }?>
             </div>
 
         </div>
