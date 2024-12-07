@@ -122,31 +122,43 @@ $infoCurso = $cursoCtrl->comprar();
     <!-- Paypal -->
     <script src="https://www.paypal.com/sdk/js?client-id=AVKQlbBiWC_hRV-GeELpMy8oAy-tacFoasmCKYBH7y-CngyYzkk-y-jJTuRFYrjUddZyRyIuXibEKPq7&currency=MXN"></script>
     <script>
+        var paymentMethod;
         paypal.Buttons({
             style: {
                 color: 'black',
                 label: 'pay',
             },
-            // createOrder: function(data, actions) {
-            //   return actions.order.create({
-            //     purchase_units: [{
-            //       amount: {
-            //         // value: echo $total; ?>
-            //       }
-            //     }]
-            //   });
-            // },
+            createOrder: function(data, actions) {
+              if(data.paymentSource == 'card') {
+                paymentMethod = 'tarjeta';
+              } else {
+                paymentMethod = 'paypal';
+              }
+              var paymentSource = data.paymentSource;
+              return actions.order.create({
+                purchase_units: [{
+                  description: "Curso: <?= $infoCurso[0]['titulo'] ?>",
+                  amount: {
+                     value: <?= $total ?>
+                  }
+                }]
+              });
+            },
 
-            // onApprove: function(data, actions){
-            //     actions.order.capture().then(function (detalles){
-            //         // window.location.href="comprar.php"
-            //     });
-            // },
+            onApprove: function(data, actions){
+                actions.order.capture().then(function (detalles){
+                    console.log(detalles);
+                    window.location.href="index.php?controlador=cursos&accion=comprar&idCurso=<?=$infoCurso[0]['id']?>&formaPago="+paymentMethod;
+                });
+            },
 
-            // onCancel: function(data){
-            //    alert("Pago cancelado")
-            // }
+            onCancel: function(data){
+                alert("Pago cancelado");
+            },
 
+            onError: function(err) {
+                console.log(err);
+            }
         }).render('#paypal-button-container');
     </script>
 </body>

@@ -129,9 +129,11 @@ class usuarios {
 
         $nombre_usuario = $_SESSION['usuario'];
         $infoUsuario = $this->usuarioObj->obtenerUsuario($nombre_usuario);
+        $kardex = $this->usuarioObj->obtenerKardex($nombre_usuario);
         $this->respuesta = array(
             "state" => true,
-            "usuarioInfo" => $infoUsuario
+            "usuarioInfo" => $infoUsuario,
+            "cursos_kardex" => $kardex
         );
         return $this->respuesta;
     }

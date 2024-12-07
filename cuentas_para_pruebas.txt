@@ -1,0 +1,20 @@
+
+
+Con esta cuenta pueden probar la compra de un curso, solo la ponen en el sandbox de Paypal
+
+correo: sb-dsidp34392136@personal.example.com
+
+contraseña: ou7=m6TT
+
+En la cuenta sale como nombre John Doe
+
+...y para probar con el boton para tarjeta de credito pueden usar las que se generan en este link
+
+https://developer.paypal.com/api/rest/sandbox/card-testing/#link-creditcardgeneratorfortesting
+
+Por ejemplo:
+Card number 4165028759851854
+Expiry date 04/2027
+CVC code 144
+
+Bueno, eso es todo, con eso deberian poder probar las compras de curso

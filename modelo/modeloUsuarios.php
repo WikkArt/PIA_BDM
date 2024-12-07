@@ -74,5 +74,15 @@ class mUsuarios {
         $stmt->bindParam(':mime', $param["mime"]);
         $stmt->execute();
     }
+
+    // Obtenemos la info de la vista 'kardexinfo'
+    public function obtenerKardex($nombre_usuario) {
+        $this->obtenerConexion();
+        $query = "SELECT * FROM kardexinfo WHERE usuario_estudiante = :nombre_usuario";
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bindParam(':nombre_usuario', $nombre_usuario);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

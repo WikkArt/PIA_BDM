@@ -21,3 +21,13 @@ JOIN nivel N ON N.curso_id = C.id
 WHERE C.estatus = 1;
 
 SELECT * FROM infocurso WHERE id = 23;
+
+-- Vista para enviar la info del kardex de un estudiante
+CREATE VIEW KardexInfo AS
+SELECT I.id, I.usuario_estudiante, C.id AS idCurso, C.estatus AS cursoActivo, 
+C.nombre AS curso, CG.nombre AS categoria, I.fecha_inscripcion, I.ultimo_ingreso, 
+I.cursoCompletado, I.fecha_finalizacion FROM inscripcion_estudiante I
+JOIN curso C ON C.id = I.curso_id
+JOIN categoria CG ON CG.id = C.categoria_id;
+
+SELECT * FROM kardexinfo WHERE usuario_estudiante = 'user123';

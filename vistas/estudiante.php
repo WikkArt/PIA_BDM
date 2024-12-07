@@ -5,6 +5,7 @@ require_once("controlador/usuarios_controlador.php");
 $controlador = new usuarios();
 $respuesta = $controlador->mostrarDatos();
 $usuarioInfo = $respuesta['usuarioInfo'];
+$kardexCursos = $respuesta['cursos_kardex'];
 
 require_once("controlador/categorias_controlador.php");
 
@@ -195,62 +196,42 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <th>Fecha de finalización</th>
                     </tr>
 
+                    <?php 
+                    if($kardexCursos != null) {
+                        foreach ($kardexCursos as $curso): ?>
                     <tr>
-                        <td>1</td>
-                        <td>---</td>
+                        <td><?=$curso['id']?></td>
+                        <td><?=$curso['curso']?></td>
                         <td>
                             <a href="listaNiveles.php">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
-                        <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Completo</td>
-                        <td>XX/XX/XXXX</td>
+                        <td><?=$curso['categoria']?></td>
+                        <td><?=$curso['fecha_inscripcion']?></td>
+                        <?php
+                        if($curso['ultimo_ingreso'] != null) {?>
+                            <td><?=$curso['ultimo_ingreso']?></td>
+                        <?php } else {?>
+                            <td>---</td>
+                        <?php }
+                        if($curso['cursoCompletado'] == 0) { ?>
+                            <td>Incompleto</td>
+                        <?php } else {?>
+                            <td>Completo</td>
+                        <?php } 
+                        if($curso['fecha_finalizacion'] != null) {?>
+                            <td><?=$curso['fecha_finalizacion']?></td>
+                        <?php } else {?>
+                            <td>---</td>
+                        <?php }?>
                     </tr>
+                    <?php endforeach; } 
+                    else {?>
                     <tr>
-                        <td>2</td>
-                        <td>---</td>
-                        <td>
-                            <a href="listaNiveles.php">
-                                <button id="btnAccesoCurso">Curso</button>
-                            </a>
-                        </td>
-                        <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Incompleto</td>
-                        <td>XX/XX/XXXX</td>
-                    </tr>
+                        <td colspan="6">No hay inscripciones que mostrar</td>
                     <tr>
-                        <td>3</td>
-                        <td>---</td>
-                        <td>
-                            <a href="listaNiveles.php">
-                                <button id="btnAccesoCurso">Curso</button>
-                            </a>
-                        </td>
-                        <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Completo</td>
-                        <td>XX/XX/XXXX</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>---</td>
-                        <td>
-                            <a href="listaNiveles.php">
-                                <button id="btnAccesoCurso">Curso</button>
-                            </a>
-                        </td>
-                        <td>---</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>XX/XX/XXXX</td>
-                        <td>Incompleto</td>
-                        <td>XX/XX/XXXX</td>
-                    </tr>
+                    <?php } ?>
                 </table>
             </div>
         </div>
@@ -283,6 +264,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
         });
      </script>
     <!-- Archivos externos -->
+    <script src="JS/jquery-3.7.1.min.js"></script>
     <script src="JS/bootstrap.min.js"></script>
     <script src="JS/perfilIUsuarioScript.js"></script>
 </body>

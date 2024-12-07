@@ -98,4 +98,15 @@ class mCursos{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function inscribirCurso($param) {
+        $query = "CALL inscribir_curso(:curso_id, :usuario_estudiante, :forma_pago)";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':curso_id', $param['curso_id']);
+        $stmt->bindParam(':usuario_estudiante', $param['estudiante']);
+        $stmt->bindParam(':forma_pago', $param['forma_pago']);
+        $stmt->execute();
+
+        return 1;
+    }
 }

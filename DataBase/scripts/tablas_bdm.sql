@@ -68,6 +68,10 @@ CREATE TABLE inscripcion_estudiante(
     REFERENCES usuario(nombre_usuario)
 );
 
+/* Se me habia olvidado poner la fecha del ultimo ingreso al curso y tambien le agregue la fecha en que es acabado */
+ALTER TABLE inscripcion_estudiante ADD COLUMN ultimo_ingreso DATETIME;
+ALTER TABLE inscripcion_estudiante ADD COLUMN fecha_finalizacion DATETIME;
+
 /* Tabla de niveles */
 CREATE TABLE nivel(
 	id	INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
