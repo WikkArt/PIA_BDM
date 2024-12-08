@@ -202,16 +202,28 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                     <tr>
                         <td><?=$curso['id']?></td>
                         <td><?=$curso['curso']?></td>
+                        <?php 
+                        if($curso['cursoActivo'] == 1) {?>
                         <td>
-                            <a href="listaNiveles.php">
+                            <a href="index.php?controlador=usuarios&accion=verCursoInscrito&idCurso=<?=$curso['idCurso']?>">
                                 <button id="btnAccesoCurso">Curso</button>
                             </a>
                         </td>
+                        <?php } else {?>
+                            <td style="font-style:italic">Inactivo</td>
+                        <?php } ?>
                         <td><?=$curso['categoria']?></td>
-                        <td><?=$curso['fecha_inscripcion']?></td>
+                        <?php 
+                        $fechahora_ins = new \DateTime($curso['fecha_inscripcion']);
+                        $fecha_ins = $fechahora_ins->format('d/m/Y');
+                        ?>
+                        <td><?=$fecha_ins?></td>
                         <?php
-                        if($curso['ultimo_ingreso'] != null) {?>
-                            <td><?=$curso['ultimo_ingreso']?></td>
+                        if($curso['ultimo_ingreso'] != null) {
+                            $fechahora_ult = new \DateTime($curso['ultimo_ingreso']);
+                            $fecha_ult = $fechahora_ult->format('d/m/Y H:i');
+                        ?>
+                            <td><?=$fecha_ult?></td>
                         <?php } else {?>
                             <td>---</td>
                         <?php }
@@ -220,8 +232,11 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <?php } else {?>
                             <td>Completo</td>
                         <?php } 
-                        if($curso['fecha_finalizacion'] != null) {?>
-                            <td><?=$curso['fecha_finalizacion']?></td>
+                        if($curso['fecha_finalizacion'] != null) {
+                            $fechahora_fin = new \DateTime($curso['fecha_finalizacion']);
+                            $fecha_fin = $fechahora_fin->format('d/m/Y');
+                        ?>
+                            <td><?=$fecha_fin?></td>
                         <?php } else {?>
                             <td>---</td>
                         <?php }?>

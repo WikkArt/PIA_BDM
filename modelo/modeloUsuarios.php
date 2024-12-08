@@ -84,5 +84,25 @@ class mUsuarios {
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function actualizarUltimoIngreso($param) {
+        $this->obtenerConexion();
+        $query = "UPDATE inscripcion_estudiante SET ultimo_ingreso = :hoy WHERE curso_id = :curso_id AND usuario_estudiante = :usuario";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':hoy', $param['fecha']);
+        $stmt->bindParam(':curso_id', $param['curso_id']);
+        $stmt->bindParam(':usuario', $param['usuario']);
+        $stmt->execute();
+    }
+
+    public function obtenerInfoCursoInscrito($idCurso, $usuario) {
+        $this->obtenerConexion();
+        $query = "SELECT * FROM infocursoinscrito WHERE id = :idCurso AND estudiante = :nombre_usuario";
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bindParam(':idCurso', $idCurso);
+        $consulta->bindParam(':nombre_usuario', $usuario);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

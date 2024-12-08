@@ -1,13 +1,10 @@
-<?php 
-session_start();
+<?php
 
-if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
-    echo json_encode(['error' => 'No has iniciado sesión.']);
-    exit();
-}
+require_once("controlador/usuarios_controlador.php");
 
+$controlador = new usuarios();
+$infoCurso = $controlador->verCursoInscrito();
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -55,15 +52,24 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
     <!-- Cuerpo -->
     <div class="container-fluid">
 
-        <h1 id="idSubtitulo">Curso: Nombre del Curso</h1>
+        <h1 id="idSubtitulo">Curso: <?=$infoCurso[0]['nombre']?></h1>
 
         <div class="row" id="idMain">
             <div class="instructor-regresar col-3">
                 <h3 class="listaNivelesHeaders">Tu instructor</h3>
                 
                 <div id="infoInstructor">
-                    <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
-                    <span>Nombre de Usuario</span>
+                    <?php
+                    if($infoCurso[0]['fotoIns'] != null) { ?>
+                        <img id="idAvatarSample" src="data:image/png;base64,<?=base64_encode($infoCurso[0]['fotoIns'])?>" class="rounded-circle" alt="Avatar">
+                    <?php 
+                    } else { 
+                    ?>
+                        <img id="idAvatarSample" src="Images/avatarSampleAmarillo.png" class="rounded-circle" alt="Avatar">
+                    <?php 
+                    } 
+                    ?>
+                    <span><?=$infoCurso[0]['instructor']?></span>
                 </div>
 
                 <a id="btnRegresar" href="index.php?accion=mostrarDatos&controlador=usuarios" class="btn">
@@ -75,37 +81,32 @@ if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
             <div class="col-6" id="listaNiveles">
                 <h3 class="listaNivelesHeaders">Lista de niveles</h3>
                 <table>
+                    <?php
+                    $totalN = 0;
+                    $completado = 0;
+                    for($i = 0; $i < count($infoCurso); $i++) { 
+                    $totalN++; ?>
                     <tr>
-                        <td>1</td>
-                        <td>Comencemos</td>
-                        <td>10 min</td>
-                        <td class="NivelCompletado">Completado</td>
+                        <td><?=$i+1?></td>
+                        <td><?=$infoCurso[$i]['nombreNivel']?></td>
+                        <td>.........</td>
+                        <?php
+                        if($infoCurso[$i]['Completado'] != null) { 
+                            $completado++; ?>
+                            <td class="NivelCompletado">Completado</td>
+                        <?php } else { ?>
+                            <td><a class="btn ver" href="vistaNivel.html">Ver</a></td>
+                        <?php } ?>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Nombre Segundo Nivel</td>
-                        <td>15 min</td>
-                        <td class="NivelCompletado">Completado</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Nombre Tercer Nivel</td>
-                        <td>20 min</td>
-                        <td class="NivelCompletado">Completado</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Nombre Ultimo Nivel</td>
-                        <td>12 min</td>
-                        <td><a class="btn ver" href="vistaNivel.html">Ver</a></td>
-                    </tr>
+                    <?php } ?>
                 </table>
             </div>
 
             <div class="porcentaje-final col-3">
                 <h3 class="listaNivelesHeaders">Tu Progreso</h3>
                 <div id="info">
-                    <h2>75% <h4>Completado</h4></h2>
+                    <?php $progreso = ($completado/$totalN) * 100;?>
+                    <h2><?=number_format($progreso, 2)?>% <h4>Completado</h4></h2>
                 </div>
 
                 <a href="enviarComentario.html">

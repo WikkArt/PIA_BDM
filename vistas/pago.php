@@ -134,7 +134,6 @@ $infoCurso = $cursoCtrl->comprar();
               } else {
                 paymentMethod = 'paypal';
               }
-              var paymentSource = data.paymentSource;
               return actions.order.create({
                 purchase_units: [{
                   description: "Curso: <?= $infoCurso[0]['titulo'] ?>",
@@ -147,7 +146,7 @@ $infoCurso = $cursoCtrl->comprar();
 
             onApprove: function(data, actions){
                 actions.order.capture().then(function (detalles){
-                    console.log(detalles);
+                    //console.log(detalles);
                     window.location.href="index.php?controlador=cursos&accion=comprar&idCurso=<?=$infoCurso[0]['id']?>&formaPago="+paymentMethod;
                 });
             },

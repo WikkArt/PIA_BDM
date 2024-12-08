@@ -129,12 +129,20 @@ class usuarios {
 
         $nombre_usuario = $_SESSION['usuario'];
         $infoUsuario = $this->usuarioObj->obtenerUsuario($nombre_usuario);
-        $kardex = $this->usuarioObj->obtenerKardex($nombre_usuario);
-        $this->respuesta = array(
-            "state" => true,
-            "usuarioInfo" => $infoUsuario,
-            "cursos_kardex" => $kardex
-        );
+        if($_SESSION['rol'] == 'estudiante') {
+            $kardex = $this->usuarioObj->obtenerKardex($nombre_usuario);
+            $this->respuesta = array(
+                "state" => true,
+                "usuarioInfo" => $infoUsuario,
+                "cursos_kardex" => $kardex
+            );
+        } else {
+            $this->respuesta = array(
+                "state" => true,
+                "usuarioInfo" => $infoUsuario
+            );
+        }
+        
         return $this->respuesta;
     }
 
@@ -189,6 +197,34 @@ class usuarios {
         //Destruimos la sesion junto con todas sus variables y redirigimos a login
         session_destroy();
         header("Location: index.php");
+    }
+
+    public function verCursoInscrito() {
+        $this->vista = 'listaNiveles';
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['foto'])) {
+            echo json_encode(['error' => 'No has iniciado sesión.']);
+            exit();
+        }
+
+        try {
+        $curso_id = $_GET['idCurso'];
+        $usuario = $_SESSION['usuario'];
+        date_default_timezone_set('America/Monterrey');
+        $fecha = date('Y-m-d H:i:s', time());
+
+        $datos = array(
+            'fecha' => $fecha,
+            'curso_id' => $curso_id,
+            'usuario' => $usuario
+        );
+
+        $this->usuarioObj->actualizarUltimoIngreso($datos);
+        return $this->usuarioObj->obtenerInfoCursoInscrito($curso_id, $usuario);
+
+        } catch (PDOException $e) {
+            echo "<script>alert('Error: ". $e->getMessage() ."');</script>";
+        }
     }
     
 }

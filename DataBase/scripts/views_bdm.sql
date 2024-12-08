@@ -31,3 +31,15 @@ JOIN curso C ON C.id = I.curso_id
 JOIN categoria CG ON CG.id = C.categoria_id;
 
 SELECT * FROM kardexinfo WHERE usuario_estudiante = 'user123';
+
+-- Vista para ver la info de listaNiveles y el progreso
+CREATE VIEW InfoCursoInscrito AS
+SELECT C.id, C.nombre, U.nombre_completo AS instructor, U.foto AS fotoIns, 
+N.id AS idNivel, N.nombre AS nombreNivel, NC.id AS Completado, 
+I.usuario_estudiante AS estudiante FROM curso C
+JOIN nivel N ON N.curso_id = C.id
+JOIN usuario U ON U.nombre_usuario = C.usuario_instructor
+LEFT JOIN nivel_completado NC ON NC.nivel_id = N.id
+LEFT JOIN inscripcion_estudiante I ON I.curso_id = C.id;
+
+SELECT * FROM InfoCursoInscrito WHERE id= 23 AND estudiante = 'user123';
