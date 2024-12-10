@@ -117,4 +117,60 @@ class mCursos{
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function listarCursos($palabra_clave, $fecha_inicio, $fecha_fin, $categorias) {
+        // Preparamos la consulta base
+        $query = "SELECT 
+                        C.id, 
+                        C.foto AS imagen, 
+                        C.nombre AS titulo, 
+                        C.descripcion, 
+                        U.nombre_completo AS instructor,
+                        CG.nombre AS categoria, 
+                        SUM(N.precio) AS precio_total 
+                FROM curso C 
+                JOIN categoria CG ON CG.id = C.categoria_id 
+                JOIN usuario U ON U.nombre_usuario = C.usuario_instructor 
+                JOIN nivel N ON N.curso_id = C.id 
+                WHERE C.estatus = 1 ";
+
+        // Añadimos los filtros a la consulta si están presentes
+        if ($palabra_clave != '') {
+            $query .= " AND (C.nombre LIKE :palabra_clave OR C.descripcion LIKE :palabra_clave)";
+        }
+        if ($fecha_inicio) {
+            $query .= " AND C.fecha_creacion >= :fecha_inicio";
+        }
+        if ($fecha_fin) {
+            $query .= " AND C.fecha_creacion <= :fecha_fin";
+        }
+        if (!empty($categorias)) {
+            $query .= " AND C.categoria_id IN (" . implode(',', $categorias) . ")";
+        }
+
+        // Agrupamos por el ID del curso
+        $query .= " GROUP BY C.id";
+
+        // Preparamos la consulta para ejecutarla
+        $stmt = $this->conexion->prepare($query);
+
+        // Vinculamos los parámetros con los filtros
+        if ($palabra_clave != '') {
+            $stmt->bindValue(':palabra_clave', "%" . $palabra_clave . "%");
+        }
+        if ($fecha_inicio) {
+            $stmt->bindValue(':fecha_inicio', $fecha_inicio);
+        }
+        if ($fecha_fin) {
+            $stmt->bindValue(':fecha_fin', $fecha_fin);
+        }
+
+        // Ejecutamos la consulta
+        $stmt->execute();
+
+        // Devolvemos los resultados
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+    
 }
