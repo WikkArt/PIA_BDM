@@ -136,7 +136,14 @@ class usuarios {
                 "usuarioInfo" => $infoUsuario,
                 "cursos_kardex" => $kardex
             );
-        } else {
+        } elseif ($_SESSION['rol'] == 'instructor') {
+            $cursos = $this->usuarioObj->obtenerMisVentasGeneral($nombre_usuario);
+            $this->respuesta = array(
+                "state" => true,
+                "usuarioInfo" => $infoUsuario,
+                "cursos" => $cursos
+            );
+        }else {
             $this->respuesta = array(
                 "state" => true,
                 "usuarioInfo" => $infoUsuario
@@ -225,6 +232,25 @@ class usuarios {
         } catch (PDOException $e) {
             echo "<script>alert('Error: ". $e->getMessage() ."');</script>";
         }
+    }
+
+    public function verAlumnosInscritos() {
+        $this->vista = 'tablaInscritos';
+
+        if (!isset($_SESSION['usuario']) || !isset($_SESSION['rol'])) {
+            echo json_encode(['error' => 'No has iniciado sesión.']);
+            exit();
+        }
+
+        return $this->usuarioObj->obtenerMisVentasGeneral($_SESSION['usuario']);
+    }
+
+    public function mostrarDetalleMisVentas($curso_id) {
+        return $this->usuarioObj->obtenerMisVentasDetalle($curso_id);
+    }
+
+    public function mostrarNivelPromedioMiCurso($curso_id) {
+        return $this->usuarioObj->obtenerNivelPromediodeMiCurso($curso_id);
     }
     
 }

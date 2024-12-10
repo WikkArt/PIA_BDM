@@ -43,3 +43,35 @@ LEFT JOIN nivel_completado NC ON NC.nivel_id = N.id
 LEFT JOIN inscripcion_estudiante I ON I.curso_id = C.id;
 
 SELECT * FROM InfoCursoInscrito WHERE id= 23 AND estudiante = 'user123';
+
+-- Vista para ver la info de un nivel y su contenido
+CREATE VIEW InfoNivel AS
+SELECT C.id AS idCurso, C.nombre AS curso, U.nombre_completo AS instructor, N.id, N.nombre,
+N.video, R.archivo AS contenido_adicional FROM nivel N
+JOIN curso C ON C.id = N.curso_id
+JOIN usuario U ON U.nombre_usuario = C.usuario_instructor
+LEFT JOIN recurso_adicional R ON R.nivel_id = N.id;
+
+SELECT * FROM InfoNivel WHERE id = 14;
+
+
+
+
+
+-- Vista actualizada para incluir palabras clave
+CREATE OR REPLACE VIEW Lista_cursos AS
+SELECT 
+    C.id, 
+    C.foto AS imagen, 
+    C.nombre AS titulo, 
+    C.descripcion, 
+    U.nombre_completo AS instructor,
+    CG.nombre AS categoria, 
+    SUM(N.precio) AS precio_total,
+    CONCAT_WS(' ', C.nombre, CG.nombre, U.nombre_completo) AS palabras_clave
+FROM curso C
+JOIN categoria CG ON CG.id = C.categoria_id
+JOIN usuario U ON U.nombre_usuario = C.usuario_instructor
+JOIN nivel N ON N.curso_id = C.id 
+WHERE C.estatus = 1
+GROUP BY C.id;

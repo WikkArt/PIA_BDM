@@ -104,5 +104,32 @@ class mUsuarios {
         $consulta->execute();
         return $consulta->fetchAll(PDO::FETCH_ASSOC);
     }
+
+    public function obtenerMisVentasGeneral($usuario) {
+        $this->obtenerConexion();
+        $query = "SELECT * FROM cursos_general WHERE usuario_instructor = :nombre_usuario";
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bindParam(':nombre_usuario', $usuario);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerNivelPromediodeMiCurso($curso_id) {
+        $this->obtenerConexion();
+        $query = "CALL nivel_promedio_cursado(:id)";
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bindParam(':id', $curso_id);
+        $consulta->execute();
+        return $consulta->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public function obtenerMisVentasDetalle($curso_id) {
+        $this->obtenerConexion();
+        $query = "SELECT * FROM ventasDetalle WHERE idCurso = :id";
+        $consulta = $this->conexion->prepare($query);
+        $consulta->bindParam(':id', $curso_id);
+        $consulta->execute();
+        return $consulta->fetchAll(PDO::FETCH_ASSOC);
+    }
     
 }

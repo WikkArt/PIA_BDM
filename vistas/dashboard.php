@@ -79,34 +79,6 @@ $cursosActivos = $cursoControlador->listar();
                 </div>
             </div>
 
-            <div class="bestsellers-courses">
-                <h1 class="subtitle">$ $ $ Los más vendidos $ $ $</h1>
-                <div class="courses">
-                    <?php
-                    foreach ($cursosActivos as $curso): ?>
-                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>" data-idcourse="<?=$curso['id']?>">
-                        <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
-                        <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
-                        <p><?= htmlspecialchars($curso['categoria']) ?></p>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-
-            <div class="display-courses">
-                <h1 class="subtitle">►►► Inscríbete a... ◄◄◄</h1>
-                <div class="courses">
-                    <?php
-                    foreach ($cursosActivos as $curso): ?>
-                    <div class="course" data-description="<?=$curso['descripcion']?>" data-price="$<?=$curso['precio_total']?> MXN" data-publisher="<?=$curso['instructor']?>" data-idcourse="<?=$curso['id']?>">
-                        <img src="data:image/png;base64,<?=base64_encode($curso['imagen'])?>" alt=" " class="img-fluid">
-                        <h2><?= htmlspecialchars($curso['titulo']) ?></h2>
-                        <p><?= htmlspecialchars($curso['categoria']) ?></p>
-                    </div>
-                    <?php endforeach; ?>
-                </div>
-            </div>
-            
         </div>
 
         <div id="idModalDashboard" class="modal dashboard">
@@ -133,24 +105,23 @@ $cursosActivos = $cursoControlador->listar();
         <!-- Busqueda -->
         <div class="col-3" id="Busqueda">
             <h3>Filtros</h3>
-
-            <form id="idFiltros">
+                <form id="idFiltros" method="POST" action="index.php?controlador=cursos&accion=listar">
                 <h5>Búsqueda</h5>
                 <div class="buscar-curso">
                     <div id="idInputs" class="inputbox">
-                        <input id="txtBuscar" name="txtBuscar" type="text" placeholder="Curso de...">
+                        <input id="txtBuscar" name="txtBuscar" type="text" placeholder="Curso de..." value="<?= isset($_POST['txtBuscar']) ? $_POST['txtBuscar'] : '' ?>">
                     </div>
                 </div>
 
                 <h5>Fecha de publicación</h5>
                 <div class="fechas">
                     <div id="idInputs" class="inputbox">
-                        <label for="fdate">Desde: </label> 
-                        <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                        <label for="fdate">Desde: </label>
+                        <input type="date" id="txtDateFromG" name="txtDateFromG" value="<?= isset($_POST['txtDateFromG']) ? $_POST['txtDateFromG'] : '' ?>"/>
                     </div>
                     <div id="idInputs" class="inputbox">
-                        <label for="fdate">Hasta: </label> 
-                        <input type="date" id="txtDateFromG" name="txtDateFromG"/>
+                        <label for="fdate">Hasta: </label>
+                        <input type="date" id="txtDateToG" name="txtDateToG" value="<?= isset($_POST['txtDateToG']) ? $_POST['txtDateToG'] : '' ?>"/>
                     </div>
                 </div>
 
@@ -159,7 +130,8 @@ $cursosActivos = $cursoControlador->listar();
                     <?php foreach ($categoriasActivas as $categoria): ?>
                     <li class="list-group-item">
                         <div class="form-check">
-                            <input class="form-check-input" type="checkbox" value="<?= $categoria['id'] ?>" id="cbCategoria<?= $categoria['id'] ?>">
+                            <input class="form-check-input" type="checkbox" name="categorias[]" value="<?= $categoria['id'] ?>" 
+                                id="cbCategoria<?= $categoria['id'] ?>" <?= isset($_POST['categorias']) && in_array($categoria['id'], $_POST['categorias']) ? 'checked' : '' ?>>
                             <label class="form-check-label" for="cbCategoria<?= $categoria['id'] ?>">
                                 <?= htmlspecialchars($categoria['nombre']) ?>
                             </label>
@@ -176,10 +148,10 @@ $cursosActivos = $cursoControlador->listar();
                     </li>
                     <?php endforeach; ?>
                 </ul>
-                    <a id="idCategoriaG">
+                <a id="idCategoriaG">
                         <button type="submit">Filtrar</button>
                     </a>
-                </form>
+            </form>
                 <!-- Modal de las Categorias-->
                 <div class="modal fade" id="idCategoriaModal" tabindex="-1" role="dialog" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">

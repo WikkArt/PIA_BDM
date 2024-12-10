@@ -234,8 +234,18 @@ class cursos {
     public function listar() {
         $this->vista = 'dashboard';
 
-        return $this->cursoObj->obtenerCursosActivos();
+        // Recibimos los filtros desde el formulario
+        $palabra_clave = isset($_POST['txtBuscar']) ? $_POST['txtBuscar'] : '';
+        $fecha_inicio = isset($_POST['txtDateFromG']) && $_POST['txtDateFromG'] != '' ? $_POST['txtDateFromG'] : null;
+        $fecha_fin = isset($_POST['txtDateToG']) && $_POST['txtDateToG'] != '' ? $_POST['txtDateToG'] : null;
+        $categorias = isset($_POST['categorias']) ? $_POST['categorias'] : [];
+
+        // Llamamos a la función en el modelo y le pasamos los filtros
+        $cursoModelo = new mCursos();
+        return $cursoModelo->listarCursos($palabra_clave, $fecha_inicio, $fecha_fin, $categorias);
     }
+    
+    
 
     public function mostrarInfo() {
         $this->vista = 'infoCurso';
@@ -248,30 +258,8 @@ class cursos {
     public function comprar() {
         $this->vista = 'pago';
 
-        if(isset($_GET['formaPago'])) {
-            try {
-            $idCursoStr = $_GET['idCurso'];
-            $idCurso = (int)$idCursoStr;
-            $datos = array(
-                'curso_id' => $idCurso,
-                'estudiante' => $_SESSION['usuario'],
-                'forma_pago' => $_GET['formaPago']
-            );
-            $result = $this->cursoObj->inscribirCurso($datos);
-            if ($result == 1) {
-                echo "<script>
-                        alert('Inscripcion completada con exito.');
-                        window.location.href = 'index.php?controlador=usuarios&accion=mostrarDatos';
-                        </script>";
-            }
-            } catch (PDOException $e) {
-                echo "<script>alert('Error: ". $e->getMessage() ."');</script>";
-                header('Location: index.php?controlador=cursos&accion=comprar&idCurso='.$idCurso);
-            }
-        } else {
-            $idCursoStr = $_GET['idCurso'];
-            $idCurso = (int)$idCursoStr;
-            return $this->cursoObj->obtenerInfoCurso($idCurso);
-        }
+        $idCursoStr = $_GET['idCurso'];
+        $idCurso = (int)$idCursoStr;
+        return $this->cursoObj->obtenerInfoCurso($idCurso);
     }
 }
