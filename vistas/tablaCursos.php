@@ -48,7 +48,7 @@ $cursosActivos = $controlador->mostrardeInstructor();
                         <a class="nav-link active" href="#">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=verAlumnosInscritos">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaChats.php">Chat</a>
