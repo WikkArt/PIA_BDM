@@ -258,8 +258,38 @@ class cursos {
     public function comprar() {
         $this->vista = 'pago';
 
-        $idCursoStr = $_GET['idCurso'];
-        $idCurso = (int)$idCursoStr;
-        return $this->cursoObj->obtenerInfoCurso($idCurso);
+        if(isset($_GET['formaPago'])) {
+            try {
+            $idCursoStr = $_GET['idCurso'];
+            $idCurso = (int)$idCursoStr;
+            $datos = array(
+                'curso_id' => $idCurso,
+                'estudiante' => $_SESSION['usuario'],
+                'forma_pago' => $_GET['formaPago']
+            );
+            $result = $this->cursoObj->inscribirCurso($datos);
+            if ($result == 1) {
+                echo "<script>
+                        alert('Inscripcion completada con exito.');
+                        window.location.href = 'index.php?controlador=usuarios&accion=mostrarDatos';
+                        </script>";
+            }
+            } catch (PDOException $e) {
+                echo "<script>alert('Error: ". $e->getMessage() ."');</script>";
+                header('Location: index.php?controlador=cursos&accion=comprar&idCurso='.$idCurso);
+            }
+        } else {
+            $idCursoStr = $_GET['idCurso'];
+            $idCurso = (int)$idCursoStr;
+            return $this->cursoObj->obtenerInfoCurso($idCurso);
+        }
+    }
+
+    public function mostrarNivel() {
+        $this->vista = 'vistaNivel';
+
+        $idNivelStr = $_GET['id'];
+        $idNivel = (int)$idNivelStr;
+        return $this->cursoObj->obtenerInfoNivel($idNivel);
     }
 }

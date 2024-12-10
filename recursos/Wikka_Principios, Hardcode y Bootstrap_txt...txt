@@ -1,1 +1,0 @@
-Solo puse este archivo para que se cree la carpeta de recursos en GitHub
