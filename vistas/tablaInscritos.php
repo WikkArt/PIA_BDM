@@ -1,4 +1,11 @@
 <?php
+
+require_once("controlador/usuarios_controlador.php");
+
+$controlador = new usuarios();
+$respuesta = $controlador->verAlumnosInscritos();
+$cursos = $respuesta;
+
 require_once("controlador/categorias_controlador.php");
 
 $categoriaControlador = new categorias();
@@ -108,7 +115,10 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
             </div>
             
             <div class="col-9">
-                <h1 id="idSubtitulo">Nombre del curso</h1>
+                <?php
+                foreach ($cursos as $curso) { 
+                $detalles = $controlador->mostrarDetalleMisVentas($curso['id']); ?>
+                <h1 id="idSubtitulo"><?=$curso['nombre']?></h1>
 
                 <div id="idTabla">
                     <table>
@@ -120,149 +130,37 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                             <th>Precio pagado</th>
                             <th>Forma de pago</th>
                         </tr>
+                        <?php
+                        if($detalles) {
+                            foreach($detalles as $alumno) { ?>
+                            <tr>
+                                <td><?=$alumno['id']?></td>
+                                <td><?=$alumno['nombre_completo']?></td>
+                                <?php 
+                                $fechahora_ins = new \DateTime($alumno['fecha_inscripcion']);
+                                $fecha_ins = $fechahora_ins->format('d/m/Y');
+                                ?>
+                                <td><?=$fecha_ins?></td>
+                                <td><?=$alumno['nivel_avance']?>%</td>
+                                <td>$<?=$alumno['precio']?></td>
+                                <td><?=strtoupper($alumno['forma_pago'][0]).substr($alumno['forma_pago'], 1)?></td>
+                            </tr>
+                            <?php } 
+                        } else { ?>
                         <tr>
-                            <td>1</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
+                            <td colspan="6">No hay alumnos que mostrar</td>
                         </tr>
+                        <?php } ?>
                     </table>
                 </div>
                 
                 <table id="idTablaIngreso">
                     <tr>
                         <th>INGRESO TOTAL: </th>
-                        <th>$000.00</th>
+                        <th>$<?=$curso['total_ingresos']?></th>
                     </tr>
                 </table>
-
-                <h1 id="idSubtitulo">Nombre del curso</h1>
-
-                <div id="idTabla">
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre del alumno</th>
-                            <th>Fecha de inscripción</th>
-                            <th>Nivel de avance</th>
-                            <th>Precio pagado</th>
-                            <th>Forma de pago</th>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <table id="idTablaIngreso">
-                    <tr>
-                        <th>INGRESO TOTAL: </th>
-                        <th>$000.00</th>
-                    </tr>
-                </table>
-
-                <h1 id="idSubtitulo">Nombre del curso</h1>
-
-                <div id="idTabla">
-                    <table>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nombre del alumno</th>
-                            <th>Fecha de inscripción</th>
-                            <th>Nivel de avance</th>
-                            <th>Precio pagado</th>
-                            <th>Forma de pago</th>
-                        </tr>
-
-                        <tr>
-                            <td>1</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>4</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                        <tr>
-                            <td>5</td>
-                            <td>---</td>
-                            <td>XX/XX/XXXX</td>
-                            <td>---</td>
-                            <td>$000.00</td>
-                            <td>---</td>
-                        </tr>
-                    </table>
-                </div>
-
-                <table id="idTablaIngreso">
-                        <th>INGRESO TOTAL: </th>
-                        <th>$000.00</th>
-                    </tr>
-                </table>
-
+                <?php } ?>
             </div>
             
         </div>

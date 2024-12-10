@@ -6,6 +6,8 @@ $controlador = new usuarios();
 $respuesta = $controlador->mostrarDatos();
 $usuarioInfo = $respuesta['usuarioInfo'];
 
+$cursos = $respuesta['cursos'];
+
 require_once("controlador/categorias_controlador.php");
 
 $categoriaControlador = new categorias();
@@ -47,7 +49,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <a class="nav-link" href="index.php?accion=mostrardeInstructor&controlador=cursos">Cursos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
+                        <a class="nav-link" href="index.php?controlador=usuarios&accion=verAlumnosInscritos">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="tablaChats.php">Chat</a>
@@ -176,20 +178,36 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <th>ID</th>
                         <th>Nombre</th>
                         <th>No. de alumnos</th>
-                        <th>Nivel promedio del curso</th>
+                        <th>Nivel promedio cursado</th>
                         <th>Total de Ingresos</th>
                         <th>Ingresos por Paypal</th>
                         <th>Ingresos por Tarjetas</th>
                     </tr>
+                    <?php
+                    if($cursos) {
+                        foreach($cursos as $curso) { 
+                        $res = $controlador->mostrarNivelPromedioMiCurso($curso['id']);
+                        if($res) {
+                            $nivel_promedio = $res['nivel_promedio'];
+                        } else {
+                            $nivel_promedio = '---';
+                        } ?>
+                        <tr>
+                            <td><?=$curso['id']?></td>
+                            <td><?=$curso['nombre']?></td>
+                            <td><?=$curso['NoAlumnos']?></td>
+                            <td><?=$nivel_promedio?></td>
+                            <td>$<?=$curso['total_ingresos']?></td>
+                            <td>$<?=$curso['ingresos_paypal']?></td>
+                            <td>$<?=$curso['ingresos_tarjeta']?></td>
+                        </tr>
+                        <?php
+                        } 
+                    } else { ?>
                     <tr>
-                        <td>1</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>---</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
-                        <td>$000.00</td>
+                        <td colspan="6">No ha creado ningún curso aún</td>
                     </tr>
+                    <?php } ?>
                 </table>
             </div>
         </div>
