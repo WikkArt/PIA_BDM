@@ -1,3 +1,11 @@
+<?php
+
+require_once("controlador/cursos_controlador.php");
+
+$controlador = new cursos();
+$infoNivel = $controlador->mostrarNivel();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,17 +53,43 @@
     <!-- Cuerpo -->
     <div class="container-fluid">
 
-        <h1 id="idSubtitulo">Curso: Nombre del Curso</h1>
+        <h1 id="idSubtitulo">Curso: <?=$infoNivel[0]['curso']?></h1>
 
         <div id="idMain" class="row">
 
-            <a id="idRegresar" href="index.php?controlador=usuarios&accion=verCursoInscrito" class="btn">
+            <a id="idRegresar" href="index.php?controlador=usuarios&accion=verCursoInscrito&idCurso=<?=$infoNivel[0]['idCurso']?>" class="btn">
                 <img src="Images/regresar.png" alt="">
             </a>
 
+            <?php
+            $link = null;
+            $pdf = null;
+            $txt = null;
+            $videoAdi = null;
+            $imagenAdi = null;
+            foreach($infoNivel as $recurso) {
+                $contenido = $recurso['contenido_adicional'];
+                if ($contenido) {
+                    if(str_contains($contenido, '.jpg') || str_contains($contenido, '.jpeg') ||
+                        str_contains($contenido, '.png')) {
+                        $imagenAdi = $contenido;
+                    }elseif(str_contains($contenido, '.pdf')) {
+                        $pdf = $contenido;
+                    }elseif(str_contains($contenido, '.txt')) {
+                        $txt = $contenido;
+                    }elseif(str_contains($contenido, '.mp4')) {
+                        $videoAdi = $contenido;
+                    }else{
+                        $link = $contenido;
+                    }
+                    
+                }
+            }
+            ?>
+
             <div id="videoNivel" class="col-7">
                 <div class="video-principal">
-                    <video id="idVideoPrincipal" src="videos/videoCualquiera.mp4" 
+                    <video id="idVideoPrincipal" src="<?=$infoNivel[0]['video']?>" 
                     type="video/mp4" controls paused id="idVideo">
                         Tu navegador no soporta la etiqueta 'video'
                     </video>
@@ -72,10 +106,18 @@
 
                     <div id="collapseVideo" class="panel-collapse collapse">
                         <div>
+                            <?php 
+                            if($videoAdi) { ?>
+                            <video id="idVideoExtra" src="<?=$videoAdi?>" 
+                            type="video/mp4" controls paused>
+                                Tu navegador no soporta la etiqueta 'video'
+                            </video>
+                            <?php } else { ?>
                             <video id="idVideoExtra" src="#" 
                             type="video/mp4" controls paused>
                                 Tu navegador no soporta la etiqueta 'video'
                             </video>
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -91,10 +133,12 @@
 
                     <div id="collapseImg" class="panel-collapse collapse">
                         <div>
-                            <img id="idImagenExtra" src="Images/ImagenCursoMorado.png" alt="Imagen extra">
-                        </div>
-                        <div>
-                            <img id="idImagenExtra" src="Images/ImagenCursoMorado.png" alt="Imagen extra">
+                            <?php 
+                            if($imagenAdi) { ?>
+                                <img id="idImagenExtra" src="<?=$imagenAdi?>" alt="Imagen extra">
+                            <?php } else { ?>
+                                <img id="idImagenExtra" src="Images/ImagenCursoMorado.png" alt="Imagen extra">
+                            <?php } ?>
                         </div>
                     </div>
                 </div>
@@ -102,8 +146,8 @@
 
             <div id="idArchivosExtras" class="col-4">
                 <div class="level-instructor">
-                    <h2>Nivel 1: Comencemos</h2>
-                    <span>Nombre de Usuario</span>
+                    <h2>Nivel: <?=$infoNivel[0]['nombre']?></h2>
+                    <span><?=$infoNivel[0]['instructor']?></span>
                 </div>
 
                 <div>
@@ -118,7 +162,12 @@
                                     </div>
                                 </td>
                                 <td>
-                                    <input type="text" id="txtLink" name="txtLink" disabled>
+                                    <?php
+                                    if($link) { ?>
+                                        <input type="text" id="txtLink" name="txtLink" value="<?=$link?>" disabled>
+                                    <?php } else { ?>
+                                        <input type="text" id="txtLink" name="txtLink" disabled>
+                                    <?php } ?>
                                 </td>
                             </tr>
                             <tr>
@@ -142,7 +191,12 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <?php
+                                    if($pdf) { ?>
+                                    <input type="text" disabled value="<?=substr($pdf, strpos($pdf, "_") + 1)?>"/>
+                                    <?php } else { ?>
                                     <input type="file" accept=".pdf" disabled/>
+                                    <?php } ?>
                                 </td>
                                 <td>
                                     <button id="btnDescargarPDF">Descargar</button>
@@ -172,7 +226,12 @@
                                     </div>
                                 </td>
                                 <td>
+                                    <?php
+                                    if($txt) { ?>
+                                    <input type="text" disabled value="<?=substr($txt, strpos($txt, "_") + 1)?>"/>
+                                    <?php } else { ?>
                                     <input type="file" accept=".txt" disabled/>
+                                    <?php } ?>
                                 </td>
                                 <td>
                                     <button id="btnDescargarTXT">Descargar</button>

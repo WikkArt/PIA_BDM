@@ -109,4 +109,12 @@ class mCursos{
 
         return 1;
     }
+
+    public function obtenerInfoNivel($idNivel) {
+        $query = "SELECT * FROM infonivel WHERE id = :id";
+        $stmt = $this->conexion->prepare($query);
+        $stmt->bindParam(':id', $idNivel);
+        $stmt->execute();
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
 }

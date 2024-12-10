@@ -95,7 +95,7 @@ $infoCurso = $controlador->verCursoInscrito();
                             $completado++; ?>
                             <td class="NivelCompletado">Completado</td>
                         <?php } else { ?>
-                            <td><a class="btn ver" href="vistaNivel.html">Ver</a></td>
+                            <td><a class="btn ver" href="index.php?controlador=cursos&accion=mostrarNivel&id=<?=$infoCurso[$i]['idNivel']?>">Ver</a></td>
                         <?php } ?>
                     </tr>
                     <?php } ?>

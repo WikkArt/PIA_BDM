@@ -43,3 +43,13 @@ LEFT JOIN nivel_completado NC ON NC.nivel_id = N.id
 LEFT JOIN inscripcion_estudiante I ON I.curso_id = C.id;
 
 SELECT * FROM InfoCursoInscrito WHERE id= 23 AND estudiante = 'user123';
+
+-- Vista para ver la info de un nivel y su contenido
+CREATE VIEW InfoNivel AS
+SELECT C.id AS idCurso, C.nombre AS curso, U.nombre_completo AS instructor, N.id, N.nombre,
+N.video, R.archivo AS contenido_adicional FROM nivel N
+JOIN curso C ON C.id = N.curso_id
+JOIN usuario U ON U.nombre_usuario = C.usuario_instructor
+LEFT JOIN recurso_adicional R ON R.nivel_id = N.id;
+
+SELECT * FROM InfoNivel WHERE id = 14;

@@ -274,4 +274,12 @@ class cursos {
             return $this->cursoObj->obtenerInfoCurso($idCurso);
         }
     }
+
+    public function mostrarNivel() {
+        $this->vista = 'vistaNivel';
+
+        $idNivelStr = $_GET['id'];
+        $idNivel = (int)$idNivelStr;
+        return $this->cursoObj->obtenerInfoNivel($idNivel);
+    }
 }
