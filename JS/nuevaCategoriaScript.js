@@ -12,6 +12,6 @@ $(document).ready(function(){
         }
 
         console.log("Nombre de la categoría: " + nombre);
-        console.log("Descripción: " + usuario);
+        console.log("Descripción: " + descripcion);
     });
 });

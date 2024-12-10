@@ -50,7 +50,7 @@ $categoriasActivas = $categoriaControlador->mostrarCategoriasActivas();
                         <a class="nav-link" href="tablaInscritos.php">Alumnos inscritos</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="tablaChats.php">Chat</a>
+                        <a class="nav-link" href="chat.php">Chat</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="index.php?controlador=usuarios&accion=cerrarSesion">Cerrar Sesión</a>

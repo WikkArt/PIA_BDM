@@ -11,7 +11,7 @@ $(document).ready(function(){
             return false;
         }
 
-        console.log("Nombre de usuario: " + nombre);
+        console.log("Nombre de usuario: " + usuario);
         console.log("Contraseña: " + usuario);
         
     });
