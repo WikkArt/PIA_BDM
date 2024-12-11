@@ -1,0 +1,38 @@
+<?php
+require_once("db_connect.php");
+
+class mNivelCompletado {
+    private $conexion;
+
+    public function __construct() {
+        $dbObj = new db();
+        $this->conexion = $dbObj->conectar();
+    }
+
+    public function agregarNivelCompletado($param) {
+        try {
+            $query = "CALL agregar_nivel_completado(:id_nivel, :nombre_usuario, NOW())";
+            $stmt = $this->conexion->prepare($query);
+            $stmt->bindParam(':id_nivel', $param["id_nivel"], PDO::PARAM_INT);
+            $stmt->bindParam(':nombre_usuario', $param["nombre_usuario"], PDO::PARAM_STR);
+            $stmt->execute();
+            return ["mensaje" => "Nivel completado registrado con éxito."];
+        } catch (PDOException $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+
+    public function verNivel($idNivel) {
+        try {
+            $query = "SELECT * FROM nivel WHERE id_nivel = :id_nivel";
+            $stmt = $this->conexion->prepare($query);
+            $stmt->bindParam(':id_nivel', $idNivel, PDO::PARAM_INT);
+            $stmt->execute();
+            return $stmt->fetch(PDO::FETCH_ASSOC);
+        } catch (PDOException $e) {
+            return ["error" => $e->getMessage()];
+        }
+    }
+}
+
+?>

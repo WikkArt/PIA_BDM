@@ -253,7 +253,7 @@ $infoNivel = $controlador->mostrarNivel();
                         </table>
                     </div>
                 </div>
-
+<form >
                 <button id="btnFinalNivel" disabled>
                     Finalizar Nivel
                 </button>
